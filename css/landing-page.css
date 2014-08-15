@@ -1,4 +1,4 @@
-body, html {
+body, html {	
 	height: 100%;
 	width: 100%;
 }
@@ -178,7 +178,7 @@ div.featureDescription {
 	webkit-transition: all 0.3s;
 }
 
-div.featureDescription > p,  div.featureDescription > ul{
+div.featureDescription > p,  div.featureDescription > ul {
 	font-weight: normal;
 	text-align: left;
 	font-size: large;
@@ -190,4 +190,16 @@ pre {
 	font-family: Menlo, Monaco, Consolas, "Courier New";
 	font-weight: normal;
 	background-color: white;
+}
+
+/***** ### DOWNLOAD ### ***/
+.intro-header.download {
+	/*height: 150px;*/
+	background: url(../img/banner-bg.jpg) no-repeat center center;
+}
+
+.intro-message.download {
+	position: relative;
+	padding-top: 7%;
+	padding-bottom: 5%;
 }

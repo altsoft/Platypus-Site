@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <title>Platypus Platform 3.0 - Documentation</title>
+
+        <link rel="stylesheet" href="Common_Content/css/global.css" type="text/css">
+        <link rel="stylesheet" href="Common_Content/css/documentation.css" type="text/css">
+	<link rel="stylesheet" href="Common_Content/css/common2.css" type="text/css">
+        <!--[if lte IE 7]>
+                <style type="text/css"> body { font-size: 85%; } </style>
+        <![endif]-->
+
+        <!-- REQUIRED scripts for layout widget -->
+        <script type="text/javascript" src="Common_Content/js/jquery-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/jquery-ui-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/jquery-layout-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/global.js"></script>
+    </head>
+    <body>
+
+        <div class="ui-layout-north">
+	<DIV id="navigation">
+                <A href="http://platypus-platform.org/docs.jsp">Documentation</A>
+                <A href="http://bugtracker.platypus-platform.org/projects/platypus">Issues</A>
+            </DIV>
+            <DIV id="logo">Platypus.js 0.3.0 Administration Guide</DIV>
+            
+        </div>
+
+        <div class="ui-layout-center content">
+            <ul class="docnav">
+ <li class="previous"><a accesskey="p" href="server_command.html"><strong>Prev</strong></a></li>
+ <li class="next"><a accesskey="n" href="j2ee_dd.html"><strong>Next</strong></a></li>
+</ul>
+<div xml:lang="en-US" class="chapter" id="j2ee_chapter" lang="en-US">
+ <div class="titlepage">
+  <div>
+   <div>
+    <h2 class="title">Chapter&nbsp;5.&nbsp;Java EE server</h2>
+   </div>
+  </div>
+ </div>
+ <div class="toc">
+  <dl>
+   <dt>
+    <span class="section"><a href="j2ee_chapter.html#j2ee_configure">5.1. Configuring J2EE server</a></span>
+   </dt>
+   <dt>
+    <span class="section"><a href="j2ee_dd.html">5.2. Configuring the deployment descriptor</a></span>
+   </dt>
+   <dt>
+    <span class="section"><a href="j2ee_aut.html">5.3. Authentication configuration on a J2EE container</a></span>
+   </dt>
+   <dt>
+    <span class="section"><a href="j2ee_glassfish.html">5.4. J2EE Glassfish 3 configuration</a></span>
+   </dt>
+   <dt>
+    <span class="section"><a href="j2ee_tomcat.html">5.5. Apache Tomcat 7 configuration</a></span>
+   </dt>
+  </dl>
+ </div>
+ <div class="para">
+   The plaftorm's server components can run in a J2EE server or a servlet container. 
+ </div>
+ <div class="para">
+   This configuration has the following features: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Server components are deployed in the J2EE container/on the server as a web-application as a WAR-archive or a folder. Special sevlet provides interaction with the clients. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Desktop client and HTML5 browser are supported as clients. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      It is possible to use an external user authentication service, such as 
+     <span class="application"><strong>Microsoft Active Directory</strong></span> service; it allows you to integrate the platform target application in existing enterprise user space. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Database connecions are configrued as a JNDI resources. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Application sever modules methods are avaliable via HTTP protocol. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="note">
+  <div class="admonition_header">
+   <h2>Note</h2>
+  </div>
+  <div class="admonition">
+   <div class="para">
+     Use Platypus Application Designer to create web application. For detailed information, refer to the Development Guide. 
+   </div>
+  </div>
+ </div>
+ <div class="section" id="j2ee_configure">
+  <div class="titlepage">
+   <div>
+    <div>
+     <h2 class="title" id="j2ee_configure">5.1.&nbsp;Configuring J2EE server</h2>
+    </div>
+   </div>
+  </div>
+  <div class="para">
+    To run the plafrom's application in a J2EE servlet container or on the application server, perform the following actions: 
+  </div>
+  <div class="itemizedlist">
+   <ul>
+    <li class="listitem">
+     <div class="para">
+       Create a new directory with a standard structure for a web-application in J2EE, including the 
+      <code class="filename">WEB-INF/web.xml</code> deployment descriptor. 
+     </div></li>
+    <li class="listitem">
+     <div class="para">
+       Create HTML pages, which will contain the Platypus application. Configure JavaScript code, necessary for the initial startup code. 
+     </div></li>
+    <li class="listitem">
+     <div class="para">
+       Copy libraries, necessary for the application functioning, to the web-application 
+      <code class="filename">WEB-INF/lib</code> directory from the 
+      <code class="filename">bin</code> sub-directory of the platform runtime directory. 
+     </div></li>
+    <li class="listitem">
+     <div class="para">
+       Copy the 
+      <code class="filename">pwc</code> directory of the JavaScript HTML5 client from the 
+      <code class="filename">bin</code> sub-directory of the platform runtime directory. 
+     </div></li>
+    <li class="listitem">
+     <div class="para">
+       Configure the JDBC data source as a JNDI resource, specify its name, for example 
+      <code class="literal">jdbc/main</code>. Configure the connection pool and JNDI resource. Copy the JAR file copy of the corresponding database driver to the directory available for the class loader. 
+     </div></li>
+    <li class="listitem">
+     <div class="para">
+       Configure the security domain (Realm) for working with built-in storage or external authentication service. For working with built-in storage, configure the JDBC security domain for working with 
+      <code class="literal">MTD_USERS</code> and 
+      <code class="literal">MTD_GROUPS</code> tables — see Security section. 
+     </div></li>
+    <li class="listitem">
+     <div class="para">
+       Configure the parameters of the web-application deployment in the 
+      <code class="filename">WEB-INF/web.xml</code> file. If necessary, configure settings in the configuration files specific for this application server. 
+     </div></li>
+    <li class="listitem">
+     <div class="para">
+       Deploy the web-application in the J2EE container/on the application server as a WAR archive or as a directory. 
+     </div></li>
+   </ul>
+  </div>
+ </div>
+</div>
+<ul class="docnav">
+ <li class="previous"><a accesskey="p" href="server_command.html"><strong>Prev</strong>4.2.&nbsp;Command line options</a></li>
+ <li class="up"><a accesskey="u" href="#"><strong>Up</strong></a></li>
+ <li class="home"><a accesskey="h" href="index.html"><strong>Home</strong></a></li>
+ <li class="next"><a accesskey="n" href="j2ee_dd.html"><strong>Next</strong>5.2.&nbsp;Configuring the deployment descriptor</a></li>
+</ul>
+        </div>
+
+        <!--
+                =======================
+                *	TABLE OF CONTENTS  *
+                =======================
+        -->
+        <div class="ui-layout-west" style="display: none;">
+            <div class="header">Contents</div>
+            <div class="ui-layout-content" style="overflow: auto;">
+                <div class='contents_panel'><dl>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="preface"><a href="pref-Installation_Guide-Preface.html">Preface</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="pref-Installation_Guide-Preface.html#idm2246376">1. Document Conventions</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section"><a href="pref-Installation_Guide-Preface.html#idp17608216">1.1. Typographic Conventions</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section"><a href="pref-Installation_Guide-Preface.html#idm7901184">1.2. Pull-quote Conventions</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section"><a href="pref-Installation_Guide-Preface.html#idp123664">1.3. Notes and Warnings</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="pr01s02.html">2. Feedback information</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="chapter_installation.html">1. Platform's installation</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="chapter_installation.html#install-requirements">1.1. System requirements</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="install-guide.html">1.2. Installation guide</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="install-uninstall.html">1.3. Uninstallation guide</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="app_chapter.html">2. Application management</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="app_chapter.html#app_structure">2.1. Application structure and system tables</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="app-database.html">2.2. Application database deployment and import</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="app_dbmigrations.html">2.3. Database migrations</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="app_security.html">2.4. Security</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="desktop-chapter.html">3. Desktop client</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="desktop-chapter.html#desktop_run">3.1. Running desktop client</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="desktop_command.html">3.2. Command line options</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="server_chapter.html">4. Platypus Application Server</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="server_chapter.html#server_run">4.1. Running server</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="server_command.html">4.2. Command line options</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="j2ee_chapter.html">5. Java EE server</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="j2ee_chapter.html#j2ee_configure">5.1. Configuring J2EE server</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="j2ee_dd.html">5.2. Configuring the deployment descriptor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="j2ee_aut.html">5.3. Authentication configuration on a J2EE container</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="j2ee_glassfish.html">5.4. J2EE Glassfish 3 configuration</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section"><a href="j2ee_tomcat.html">5.5. Apache Tomcat 7 configuration</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <span class="appendix"><a href="app_rev_history.html">A. History</a></span>
+ </dt>
+ <dt>
+  <span class="index"><a href="doc_index.html">Index</a></span>
+ </dt>
+</dl></div>
+            </div>
+        </div>
+
+    </body>
+</html>

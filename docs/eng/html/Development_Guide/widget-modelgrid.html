@@ -1,0 +1,1221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <title>Platypus Platform 3.0 - Documentation</title>
+
+        <link rel="stylesheet" href="Common_Content/css/global.css" type="text/css">
+        <link rel="stylesheet" href="Common_Content/css/documentation.css" type="text/css">
+	<link rel="stylesheet" href="Common_Content/css/common2.css" type="text/css">
+        <!--[if lte IE 7]>
+                <style type="text/css"> body { font-size: 85%; } </style>
+        <![endif]-->
+
+        <!-- REQUIRED scripts for layout widget -->
+        <script type="text/javascript" src="Common_Content/js/jquery-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/jquery-ui-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/jquery-layout-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/global.js"></script>
+    </head>
+    <body>
+
+        <div class="ui-layout-north">
+	<DIV id="navigation">
+                <A href="http://platypus-platform.org/docs.jsp">Documentation</A>
+                <A href="http://bugtracker.platypus-platform.org/projects/platypus">Issues</A>
+            </DIV>
+            <DIV id="logo">Platypus.js 0.3.0 Development Guide</DIV>
+            
+        </div>
+
+        <div class="ui-layout-center content">
+            <ul class="docnav">
+ <li class="previous"><a accesskey="p" href="widget-modeldate.html"><strong>Prev</strong></a></li>
+ <li class="next"><a accesskey="n" href="widget-modelimage.html"><strong>Next</strong></a></li>
+</ul>
+<div class="section" id="widget-modelgrid">
+ <div class="titlepage">
+  <div>
+   <div>
+    <h3 class="title" id="widget-modelgrid">7.7.4.&nbsp;ModelGrid</h3>
+   </div>
+  </div>
+ </div>
+ <div class="para"> 
+  <code class="code">ModelGrid</code> model widget is a powerful widget to display and enter data, which is presented in a tabular form and as a tree. 
+  <code class="code">ModelGrid</code> widget is the most powerful UI component. 
+ </div>
+ <div class="note">
+  <div class="admonition_header">
+   <h2>Note</h2>
+  </div>
+  <div class="admonition">
+   <div class="para">
+     At the current version of the platfom you can create and setup an instance of 
+    <code class="code">ModelGrid</code> only using visual editor. 
+   </div>
+  </div>
+ </div>
+ <div class="para"> 
+  <code class="code">ModelGrid</code> component has the following features: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Entity's data representation as a columns and rows. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Data cells editing, inserting new and deleting rows. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Fixed non-scrollable rows and/or columns. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Service column with the cursor pointer. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Entity's data scrolling and cursor positioning. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Expandable dynamic columns. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Tree view of hierarchical data. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para"> 
+  <code class="code">ModelGrid</code> widget has the following specific properties: 
+ </div>
+ <div class="informaltable">
+  <table border="1">
+   <colgroup>
+    <col width="25%" />
+    <col width="25%" />
+    <col width="25%" />
+    <col width="25%" />
+   </colgroup>
+   <thead>
+    <tr>
+     <th align="center"> Property </th>
+     <th align="center"> Layout </th>
+     <th align="center"> JS </th>
+     <th align="center"> Description </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td> <em class="parameter"><code>border</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> The component's border. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>fixedColumns</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> The number of the fixed grid columns. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>fixedRows</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> The number of the fixed grid rows. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>gridColor</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> The <code class="code">Color</code> of the grid. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>oddRowsColor</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> The <code class="code">Color</code> of the grid's odd rows. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>rowsHeaderType</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> The service column's type. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>rowsHeight</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> The height of the grid's rows. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>showHorizontalLines</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> <code class="code">true</code> to show horizontal lines and <code class="code">false</code> otherwise. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>showVerticalLines</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> <code class="code">true</code> to show vertical lines and <code class="code">false</code> otherwise. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>showOddRowsInOtherColor</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> <code class="code">true</code> to show odd rows in the different color and <code class="code">false</code> otherwise. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>deletable</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> <code class="code">true</code> to enable rows delete operation for the grid and <code class="code">false</code> otherwise. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>editable</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> <code class="code">true</code> to enable cells edit operation for the grid and <code class="code">false</code> otherwise. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>insertable</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> <code class="code">true</code> to enable rows insert operation for the grid and <code class="code">false</code> otherwise. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>entity</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> The bounded model entity for the grid. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>param2GetChildren</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> See tree option. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>paramSourceField</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> See tree option. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>unaryLinkField</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> See tree option. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>cells</code></em> </td>
+     <td align="center"> </td>
+     <td align="center"> • </td>
+     <td> All grid cells as an array. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>selectedCells</code></em> </td>
+     <td align="center"> </td>
+     <td align="center"> • </td>
+     <td> All selected grid cells as an array. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>columns</code></em> </td>
+     <td align="center"> </td>
+     <td align="center"> • </td>
+     <td> Grid columns as an array. </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div class="para">
+   To configure 
+  <code class="code">ModelGrid</code> properties: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      To select the model entity for the component use the 
+     <span class="guilabel"><strong>entity</strong></span> property under the 
+     <span class="guilabel"><strong>Model binding</strong></span> propetries group. To delete the binding, clear the 
+     <span class="guilabel"><strong>entity</strong></span> field. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Use the 
+     <span class="guilabel"><strong>fixedColumns</strong></span> and 
+     <span class="guilabel"><strong>fixedRows</strong></span> properties in the 
+     <span class="guilabel"><strong>Apperance</strong></span> properties group to freeze the required number of columns on the left and/or rows on the top of the grid. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Configure the 
+     <span class="guilabel"><strong>rowsHeaderType</strong></span> property to define appearance of the rows header. It has the following options: 
+     <span class="guilabel"><strong>None</strong></span> — the service column is not displayed, 
+     <span class="guilabel"><strong>Usual</strong></span> — the service column is displayed with the cursor icon, 
+     <span class="guilabel"><strong>Check box</strong></span> — a check box control, which allows you to select multiple rows, 
+     <span class="guilabel"><strong>Radio button</strong></span> — to show a radio button control, which allows you to select only one row of the grid. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Use the 
+     <span class="property"> <code class="code">onRender</code> </span> event handler, which will be called for each data grid cell, if a similar handler was not defined for their columns. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para"> 
+  <code class="code">ModelGridColumn</code> has the following properties: 
+ </div>
+ <div class="informaltable">
+  <table border="1">
+   <colgroup>
+    <col width="25%" />
+    <col width="25%" />
+    <col width="25%" />
+    <col width="25%" />
+   </colgroup>
+   <thead>
+    <tr>
+     <th align="center"> Property </th>
+     <th align="center"> Layout </th>
+     <th align="center"> JS </th>
+     <th align="center"> Description </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td> <em class="parameter"><code>enabled</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> <code class="code">true</code> if the column is enabled and <code class="code">false</code> otherwise. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>fixed</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> <code class="code">true</code> if the column is fixed and <code class="code">false</code> otherwise. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>readonly</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> <code class="code">true</code> the column is in a read-only mode and <code class="code">false</code> otherwise. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>selectOnly</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> <code class="code">true</code> the column is in a select-only mode and <code class="code">false</code> otherwise. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>title</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> The column's title string. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>expandable</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> See expandable option. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>visible</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> <code class="code">true</code> the column is visible and <code class="code">false</code> otherwise. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>width</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> • </td>
+     <td> The column's width in pixels. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>background</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> The header style background color. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>font</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> The header style font. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>field</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> Model entity's field bound to this column. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>columnsEntity</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> See expandable option. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>columnsDisplayField</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> See expandable option. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>cellsEntity</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> See expandable option. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>cellsValueField</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> See expandable option. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>cellsColumnKeyField</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> See expandable option. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>rowsKeyField</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> See expandable option. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>substitute</code></em> </td>
+     <td align="center"> • </td>
+     <td align="center"> </td>
+     <td> See expandable option. </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div class="para"> 
+  <code class="code">ModelGrid</code> has ability to change it's cells' display style and to select values using custom editors while editing cells. In order to use these features, define 
+  <code class="code">onRender</code> and 
+  <code class="code">onSelect</code> event handlers in particular columns. If 
+  <code class="code">onRender</code> event handler is defined on a column, it will be ivoked rather than similar event handler, defined on 
+  <code class="code">ModelGrid</code>. Refer to 
+  <a class="link" href="mwidgets.html">Model Widgets</a> section to read about how to deal with 
+  <code class="code">onRender</code> and 
+  <code class="code">onSelect</code> event handlers. 
+ </div>
+ <div class="para">
+   Use the form inspector: the inspector displays the grid's columns node as children of 
+  <code class="code">ModelGrid</code> component node and allows you to edit them. 
+ </div>
+ <div class="para">
+   To add, remove and configure grid columns: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      To fill all 
+     <code class="code">ModelGrid</code> columns corresponding to the fields of the linked data model entity, select 
+     <span class="guilabel"><strong>Fill columns</strong></span> — in this case, link to the entity fields will be performed automatically. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      To manually add a column to 
+     <code class="code">ModelGrid</code> drag it from the components palette or add it using 
+     <span class="guimenu"><strong>Add from palette</strong></span> → 
+     <span class="guimenuitem"><strong>Model-aware controls</strong></span> → 
+     <span class="guimenuitem"><strong>Model grid column </strong></span>context menu item in form inspector. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      To add a column as a child to another column use parent column's node 
+     <span class="guimenu"><strong>Add from palette</strong></span> → 
+     <span class="guimenuitem"><strong>Model-aware controls</strong></span> → 
+     <span class="guimenuitem"><strong>Model grid column</strong></span> context menu item in form inspector. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Move the selected columns up and down using the 
+     <span class="guimenuitem"><strong>Move up</strong></span>, 
+     <span class="guimenuitem"><strong>Move down</strong></span> or 
+     <span class="guimenuitem"><strong>Change Order</strong></span> context menu items or by draggining it by mouse. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   In standard mode a column represents entity's field data. To configure the column in standard mode: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Specify the bound entity's field, to which the column should be linked. To do this, use the 
+     <span class="guilabel"><strong>field</strong></span> property and select a field from the bound entity. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Define a widget, which will be used for displaying in the column cells. Select its type from the 
+     <span class="guilabel"><strong>view</strong></span> context menu of the column's node in the inpector. The choices will be compatible with the type of the linked entity field. Set the properties of the corresponding widget (see the corresponding sections for the description of the model widget setting procedure). 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   In expanded mode, a column can contain an arbitrary number of child columns. Their combination can be changed dynamically at runtime. 
+ </div>
+ <div class="figure">
+  <div class="figure-contents">
+   <div class="mediaobject">
+    <img src="images/expandableTables.png" alt="Expandable columns data tables" />
+   </div>
+  </div>
+  <h6>Figure&nbsp;7.2.&nbsp;Expandable columns data tables</h6>
+ </div>
+ <br class="figure-break" />
+ <div class="figure">
+  <div class="figure-contents">
+   <div class="mediaobject">
+    <img src="images/expandableResult.png" alt="Expandable column result grid" />
+   </div>
+  </div>
+  <h6>Figure&nbsp;7.3.&nbsp;Expandable column result grid</h6>
+ </div>
+ <br class="figure-break" />
+ <div class="para">
+   The combination of dynamic children columns is determined by a special column entity in the data model. Values for the child column cells are determined by another cell entity, the objects of which also contain references to objects in the main entity (grid's rows source) and to the column entity objects. 
+ </div>
+ <div class="figure">
+  <div class="figure-contents">
+   <div class="mediaobject">
+    <img src="images/gridFilpColumnsDatasource.png" width="444" alt="Expandable column entities" />
+   </div>
+  </div>
+  <h6>Figure&nbsp;7.4.&nbsp;Expandable column entities</h6>
+ </div>
+ <br class="figure-break" />
+ <div class="para">
+   Use the following 
+  <code class="code">ModelGridColumn</code> propeties to configure an expandable column: 
+ </div>
+ <div class="informaltable">
+  <table border="1">
+   <colgroup>
+    <col width="50%" />
+    <col width="50%" />
+   </colgroup>
+   <thead>
+    <tr>
+     <th align="center"> Property </th>
+     <th align="center"> Description </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td> <em class="parameter"><code>expandable</code></em> </td>
+     <td> <code class="code">true</code> if the column is in a expanded mode and <code class="code">false</code> otherwise. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>substitute</code></em> </td>
+     <td> <code class="code">true</code> to hide the parent column and <code class="code">false</code> otherwise. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>columnsEntity</code></em> </td>
+     <td> Columns entity representing data to form columns. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>columnsDisplayField</code></em> </td>
+     <td> The field in Columns entity for dynamic columns titles. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>cellsEntity</code></em> </td>
+     <td> Cells entity. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>cellValueField</code></em> </td>
+     <td> The value field in Cells entity. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>cellColumnKeyField</code></em> </td>
+     <td> The field in Cells entity refering to the primary key in Columns entity. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>cellRowKeyField</code></em> </td>
+     <td> The field in Cells entity refering to the primary key in Main entity. </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div class="para">
+   The widget can be configured to display a tree structure in the first column on the left (next to the service column). Other columns in this grid are displayed as usual. 
+ </div>
+ <div class="para">
+   To show a tree we need an entity, which contains a field referring to some other field, thus forming a hierarchical data structure. 
+ </div>
+ <div class="figure">
+  <div class="figure-contents">
+   <div class="mediaobject">
+    <img src="images/gridTree.png" alt="Hierarchical data dataset" />
+   </div>
+  </div>
+  <h6>Figure&nbsp;7.5.&nbsp; Hierarchical data dataset</h6>
+ </div>
+ <br class="figure-break" />
+ <div class="para">
+   A tree structure in the grid can function in two modes: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      The simple mode, in which all tree levels are loaded by a single query. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      The lazy mode, in which each level is loaded as the nodes are expanded. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="note">
+  <div class="admonition_header">
+   <h2>Note</h2>
+  </div>
+  <div class="admonition">
+   <div class="para">
+     The simple tree operation mode is acceptable only for small sets of data, since in this mode all tree elements are requested simultaneously and it can lead to the performance problems and slow user interface. For large data sets, use the lazy tree operation mode. 
+   </div>
+  </div>
+ </div>
+ <div class="para">
+   To configure a tree in the simple mode: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Specify a value for the 
+     <code class="code">unaryLinkField</code> property. For this property select the link source field, which is responsible for hierarchical relationships, in the example figure above it is the 
+     <code class="code">ParentID</code> field. To remove the selection, clear the property. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="important">
+  <div class="admonition_header">
+   <h2>Important</h2>
+  </div>
+  <div class="admonition">
+   <div class="para">
+     The link source field should be in the same data set as configured as the grid's rows source. 
+   </div>
+  </div>
+ </div>
+ <div class="para">
+   To use a lazy tree grid, create an entity based on a query, which returns child elements by the parent identifier passed as a parameter, for example: 
+ </div>
+ <pre class="programlisting"><span class="perl_Comment">/**</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span><span class="perl_Comment"> * @name LazyTree</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span><span class="perl_Comment"> */</span>
+<span class="perl_Keyword">SELECT</span> * <span class="perl_Keyword">FROM</span> tree_table t
+<span class="perl_Keyword">WHERE</span> t.PARENT_ID = <span class="perl_Char">:parentId</span>
+<span class="perl_Keyword">OR</span> (<span class="perl_Char">:parentId</span> <span class="perl_Keyword">IS</span> <span class="perl_Keyword">NULL</span> <span class="perl_Keyword">AND</span> t.PARENT_ID <span class="perl_Keyword">IS</span> <span class="perl_Keyword">NULL</span>)</pre>
+ <div class="para">
+   To configure lazy tree for 
+  <code class="code">ModelGrid</code>: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Specify 
+     <code class="code">unaryLinkField</code> property. For this property select the link source field, which is responsible for hierarchical relationships, in the example figure above it is the 
+     <code class="code">ParentID</code> field. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Set 
+     <code class="code">param2GetChildren</code> property. Select the entity's parameter that is responsible for fetching child records. In the code snippet above this corresponds to 
+     <code class="code">:parentId</code> parameter. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Set 
+     <code class="code">paramSourceField</code> property. Select the field that will be used as a source for the parameter to get child records. The field's value will provided to the parameter specified by 
+     <code class="code">param2GetChildren</code> property. In the example above this property should be set to 
+     <code class="code">ID</code> primary key field. 
+    </div></li>
+  </ul>
+ </div>
+</div>
+<ul class="docnav">
+ <li class="previous"><a accesskey="p" href="widget-modeldate.html"><strong>Prev</strong>7.7.3.&nbsp;ModelDate</a></li>
+ <li class="up"><a accesskey="u" href="#"><strong>Up</strong></a></li>
+ <li class="home"><a accesskey="h" href="index.html"><strong>Home</strong></a></li>
+ <li class="next"><a accesskey="n" href="widget-modelimage.html"><strong>Next</strong>7.7.5.&nbsp;ModelImage</a></li>
+</ul>
+        </div>
+
+        <!--
+                =======================
+                *	TABLE OF CONTENTS  *
+                =======================
+        -->
+        <div class="ui-layout-west" style="display: none;">
+            <div class="header">Contents</div>
+            <div class="ui-layout-content" style="overflow: auto;">
+                <div class='contents_panel'><dl>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="preface"><a href="preface.html">Preface</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="pr01s01.html">1. Document Conventions</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s01.html">1.1. Typographic Conventions</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s02.html">1.2. Pull-quote Conventions</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s03.html">1.3. Notes and Warnings</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="pr01s02.html">2. Feedback information</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="intro-chapter.html">1. Introduction</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="about-platform.html">1.1. About the platform </a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="app-structure.html">1.2. Application structure</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="runtime-conf.html">1.3. Runtime configurations</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="dev-workflow.html">1.4. Development steps</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="install-chapter.html">2. Installation and configuration</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="system-requirements.html">2.1. System requirements </a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="installation-guide.html">2.2. Installation guide</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="conf-tips.html">2.3. Configuration tips</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="runtime-setup.html">2.4. Runtime environment setup</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="designer-chapter.html">3. Application project</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-project.html">3.1. New project creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="open-project.html">3.2. Opening an existing project</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="project-properties.html">3.3. Project properties</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="project-structure.html">3.4. Project structure</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="project-run-debug.html">3.5. Running and debugging</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="conn-management.html">3.6. Database connections</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="app-db.html">3.7. Application in the database </a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="db-migrations.html">3.8. Database migrations tools</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="version-ctrl.html">3.9. Version control</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="diargram-chapter.html">4. Database diagram</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-diagram.html">4.1. New diagram creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="diagram-editor.html">4.2. Diagram visual editor</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="query-chapter.html">5. SQL query</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-query.html">5.1. New query creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-editor.html">5.2. Query editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-sql-source.html">5.3. SQL source</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-sql-dialect.html">5.4. SQL dialect source</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-security.html">5.5. Security</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="module-chapter.html">6. JavaScript module</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-module.html">6.1. New module creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-js-editor.html">6.2. JavaScript code editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-constr.html">6.3. Module constructor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="moudule-deps.html">6.4. Dependencies resolving</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-security.html">6.5. Security</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-resources.html">6.6. Resources loading</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="module-datamodel.html">6.7. Data model</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-editor.html">6.7.1. Data model editor</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-params.html">6.7.2. Data model parameters</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-entities.html">6.7.3. Entities</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-cursor.html">6.7.4. Cursor API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-save.html">6.7.5. Saving data</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-search.html">6.7.6. Search API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-filter.html">6.7.7. Filter API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-sort.html">6.7.8. Sort API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-entity-events.html">6.7.9. Entity events</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-entity-schema.html">6.7.10. Data schema</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-dynamic-entities.html">6.7.11. Dynamic entities</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-execute-sql.html">6.7.12. Executing arbitary SQL</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-ds.html">6.8. Data source module</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="module-server.html">6.9. Server modules</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-stateless.html">6.9.1. Statefull and stateless session modules</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-resident.html">6.9.2. Resident module</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-validator.html">6.9.3. Data validators</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-auth.html">6.9.4. Authorizers and dynamic roles</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-auth_1.html">6.9.5. Tips and tricks</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-java.html">6.10. Scripting Java</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-multithreading.html">6.11. Multithreading</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-logging.html">6.12. Logging</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-io.html">6.13. Filesystem I/O</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-xml.html">6.14. Working with XML</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="gui-chapter.html">7. User interface guide</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-intro.html">7.1. Form</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-form.html">7.2. New form creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-editor.html">7.3. Visual UI editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-api.html">7.4. Form API</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-events.html">7.5. Components events</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="form-standart-widgets.html">7.6. Standard widgets</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-label.html">7.6.1. Label</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-button.html">7.6.2. Button</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-togglebutton.html">7.6.3. ToggleButton</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-checkbox.html">7.6.4. CheckBox</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-radiobutton.html">7.6.5. RadioButton</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-buttongroup_2.html">7.6.6. ButtonGroup</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-textfield.html">7.6.7. TextField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-slider.html">7.6.8. Slider</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-progressbar.html">7.6.9. ProgressBar</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-formattedfield.html">7.6.10. FormattedField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-passwordfield.html">7.6.11. PasswordField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-textarea.html">7.6.12. TextArea</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-htmlarea.html">7.6.13. HtmlArea</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="mwidgets.html">7.7. Model widgets </a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelcheck.html">7.7.1. ModelCheck</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelcombo.html">7.7.2. ModelCombo</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modeldate.html">7.7.3. ModelDate</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelgrid.html">7.7.4. ModelGrid</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelimage.html">7.7.5. ModelImage</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modeltext.html">7.7.6. ModelFormattedField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modeltextarea.html">7.7.7. ModelTextArea</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelmap.html">7.7.8. ModelMap</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelspin.html">7.7.9. ModelSpin</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="ui-containers.html">7.8. Containers</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-anchorspane.html">7.8.1. AnchorsPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-borderpane.html">7.8.2. BorderPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-absolutepane.html">7.8.3. AsolutePane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-gridpane.html">7.8.4. GridPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-flowpane.html">7.8.5. FlowPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-cardpane.html">7.8.6. CardPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-boxpane.html">7.8.7. BoxPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-tabbedpane.html">7.8.8. TabbedPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-splitpane.html">7.8.9. SplitPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-scrollpane.html">7.8.10. ScrollPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-toolbar.html">7.8.11. ToolBar</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-desktoppane.html">7.8.12. DesktopPane</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="menus.html">7.9. Menus</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-menubar.html">7.9.1. MenuBar</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-menu.html">7.9.2. Menu</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-popupmenu.html">7.9.3. PopupMenu</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-menuitem.html">7.9.4. MenuItem</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-checkboxmenuitem.html">7.9.5. CheckMenuItem</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-radiobuttonmenu.html">7.9.6. RadioMenuItem</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-separatormenuitem.html">7.9.7. MenuSeparator</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="ui-utils-api.html">7.10. UI utilities API</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-style.html">7.10.1. Style</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-icon.html">7.10.2. Icon</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-fontstyle.html">7.10.3. FontStyle</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-font.html">7.10.4. Font</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-color.html">7.10.5. Color</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-horizontalposition.html">7.10.6. HorizontalPosition</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-verticalpositon.html">7.10.7. VerticalPosition</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-orientation.html">7.10.8. Orientation</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="ui-dialogs.html">7.11. Dialogs API</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="report-chapter.html">8. Report</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="intro-report.html">8.1. Introduction to reports</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-report.html">8.2. New report creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="report-editor.html">8.3. Reports editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="report-template-tags.html">8.4. Template tags</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="report-js.html">8.5. Report API</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="web-chapter.html">9. HTTP</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="web-http.html">9.1. HTTP interface</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="web-req-resp.html">9.2. HTTP request and response API</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <span class="appendix" style="margin-left:12px; display:block"><a href="revision-history.html">A. Revision History</a></span>
+ </dt>
+ <dt>
+  <span class="index" style="margin-left:12px; display:block"><a href="doc-index.html">Index</a></span>
+ </dt>
+</dl></div>
+            </div>
+        </div>
+
+    </body>
+</html>

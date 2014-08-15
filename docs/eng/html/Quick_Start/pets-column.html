@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <title>Platypus Platform 3.0 - Documentation</title>
+
+        <link rel="stylesheet" href="Common_Content/css/global.css" type="text/css">
+        <link rel="stylesheet" href="Common_Content/css/documentation.css" type="text/css">
+	<link rel="stylesheet" href="Common_Content/css/common2.css" type="text/css">
+        <!--[if lte IE 7]>
+                <style type="text/css"> body { font-size: 85%; } </style>
+        <![endif]-->
+
+        <!-- REQUIRED scripts for layout widget -->
+        <script type="text/javascript" src="Common_Content/js/jquery-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/jquery-ui-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/jquery-layout-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/global.js"></script>
+    </head>
+    <body>
+
+        <div class="ui-layout-north">
+	<DIV id="navigation">
+                <A href="http://platypus-platform.org/docs.jsp">Documentation</A>
+                <A href="http://bugtracker.platypus-platform.org/projects/platypus">Issues</A>
+            </DIV>
+            <DIV id="logo">Quick Start Tutorial</DIV>
+            
+        </div>
+
+        <div class="ui-layout-center content">
+            <ul class="docnav">
+ <li class="previous"><a accesskey="p" href="owner-details-form.html"><strong>Prev</strong></a></li>
+ <li class="next"><a accesskey="n" href="owners-report.html"><strong>Next</strong></a></li>
+</ul>
+<div class="section" id="pets-column">
+ <div class="titlepage">
+  <div>
+   <div>
+    <h2 class="title" id="pets-column">1.7.&nbsp;Improving the owners list form</h2>
+   </div>
+  </div>
+ </div>
+ <div class="para">
+   In this section we are going to add a new column on the owners grid list to display pets names. 
+ </div>
+ <div class="para">
+   Open for edit the 
+  <code class="code">OwnersView</code> form layout and drag-and-drop a new 
+  <span class="guilabel"><strong>Model Grid Column</strong></span> widget on the owners list grid component. Set the column name and its header text. Do not connect this column with any of the entities fields. For this column we are going to use a separate SQL query to retrieve the pets list and output it using the specific JavaScript code. 
+ </div>
+ <div class="para">
+   Create a new query named 
+  <code class="code">OwnersPets</code> to select the owners and their pets. Configure this query using the visual editor. Notice that in this query we use the 
+  <code class="code">OwnersQuery</code> subquery. Add the 
+  <code class="code">OwnersQuery</code> and the 
+  <code class="code">Pets</code> table and connect the keys fields with a link. The result SQL is to be like the follows: 
+ </div>
+ <pre class="programlisting"><span class="perl_Comment">/**</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span><span class="perl_Comment"> * Gets the owners and their pets.</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span><span class="perl_Comment"> * @public</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span><span class="perl_Comment"> * @name OwnersPets</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span><span class="perl_Comment"> */</span> 
+<span class="perl_Keyword">Select</span> q1.owner_id, t.name
+<span class="perl_Keyword">From</span> OwnersQuery q1
+ <span class="perl_Keyword">Left</span> <span class="perl_Keyword">Outer</span> <span class="perl_Keyword">Join</span> Pets t <span class="perl_Keyword">on</span> t.owner = q1.owner_id</pre>
+ <div class="para">
+   Add the 
+  <code class="literal">lastNamePattern</code> parameter to the query and bind the parameter to the 
+  <code class="code">OwnersQuery</code> subquery. 
+ </div>
+ <div class="para">
+   Please notice that a client's data model has asynchronous nature. Thus the queries execution results are delivered to the client asynchronously. In the case when we need to display the combined data on a single widget (a column cell in our application) we have to take care about it. 
+ </div>
+ <div class="figure">
+  <div class="figure-contents">
+   <div class="mediaobject" align="center">
+    <img src="images/ownersListDataModel2.png" align="middle" width="444" alt="OwnersView form data model" />
+   </div>
+  </div>
+  <h6>Figure&nbsp;1.6.&nbsp;OwnersView form data model</h6>
+ </div>
+ <br class="figure-break" />
+ <div class="para">
+   Add the 
+  <code class="code">OwnersPet</code> query to the 
+  <code class="code">OwnersView</code> and set the new entity's name to 
+  <code class="code">ownersPets</code>. Delete the existing link between the 
+  <code class="code">owners</code> entity and the 
+  <code class="code">lastNamePattern</code> parameter and bind this parameter to the correspondent parameter of the 
+  <code class="code">ownersPets</code> entity. This way the parameter change will refresh the pets entity, not the 
+  <code class="code">owners</code> entity. 
+ </div>
+ <div class="para">
+   The 
+  <code class="code">owners</code> entity will be requiered by the code logic. This code will be invoked on the event of the getting new data in the 
+  <code class="code">ownersPets</code> entity. 
+ </div>
+ <div class="para">
+   Add the 
+  <code class="code">onRequired</code> event handler for the 
+  <code class="code">ownersPets</code> and insert some code to its body: 
+ </div>
+ <pre class="programlisting"><span class="perl_Comment">/**</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span><span class="perl_Comment"> * Called then data is ready in ownersPets entity.</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span><span class="perl_Comment"> * @param evt Event object</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span><span class="perl_Comment"> */</span>
+model.ownersPet.onRequeried = <span class="perl_Keyword">function</span>(evt) {         
+    model.owners.params.lastNamePattern =
+           model.ownersPets.params.lastNamePattern;
+    owners.requery();
+}</pre>
+ <div class="para">
+   The owner's list data grid will be repained after the fresh data will come to the binded 
+  <code class="code">owners</code> entity. At that moment we'll have for sure actual pets data because the correspondent query already have executed. 
+ </div>
+ <div class="para">
+   Provide the 
+  <code class="code"> onRender</code> event handler to the owners 
+  <code class="code">ModelGrid</code> widget to perform the specific rendering for the new 
+  <code class="code">pets</code> column: 
+ </div>
+ <pre class="programlisting"><span class="perl_Comment">/**</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span><span class="perl_Comment"> * Pet's column onRender handler.</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span><span class="perl_Comment"> * @param evt onRender event object</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span><span class="perl_Comment"> * @returns true to apply changes to the cell</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span><span class="perl_Comment"> */</span>
+<span class="perl_Reserved">form</span>.ownersGrid.onRender = <span class="perl_Keyword">function</span>(evt) { 
+    <span class="perl_Keyword">var</span> pets = model.ownersPets.<span class="perl_DataType">find</span>(
+                  model.ownersPets.schema.owner_id,                            evt.id);
+    <span class="perl_Keyword">var</span> txt = <span class="perl_String">'</span><span class="perl_Char">'</span>;    
+    pets.forEach(<span class="perl_Keyword">function</span>(aPet) {
+       <span class="perl_Keyword">if</span>(txt.<span class="perl_DataType">length</span> &gt; 0) {
+           txt += <span class="perl_String">'</span><span class="perl_Char"> '</span>;
+       }
+       txt += aPet.<span class="perl_DataType">name</span> ? aPet.<span class="perl_DataType">name</span> : <span class="perl_String">'</span><span class="perl_Char">'</span>;
+    });
+    evt.cell.display = txt;
+    <span class="perl_Keyword">return</span> true;
+}</pre>
+ <div class="para">
+   The function above is invoked for every element of the owners list. We get the owner's pet, create the string representation and render it in the grid cell. 
+ </div>
+</div>
+<ul class="docnav">
+ <li class="previous"><a accesskey="p" href="owner-details-form.html"><strong>Prev</strong>1.6.&nbsp;Owners detalis, pets and visits form</a></li>
+ <li class="up"><a accesskey="u" href="#"><strong>Up</strong></a></li>
+ <li class="home"><a accesskey="h" href="index.html"><strong>Home</strong></a></li>
+ <li class="next"><a accesskey="n" href="owners-report.html"><strong>Next</strong>1.8.&nbsp;Owners report</a></li>
+</ul>
+        </div>
+
+        <!--
+                =======================
+                *	TABLE OF CONTENTS  *
+                =======================
+        -->
+        <div class="ui-layout-west" style="display: none;">
+            <div class="header">Contents</div>
+            <div class="ui-layout-content" style="overflow: auto;">
+                <div class='contents_panel'><dl>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="preface"><a href="pref-Installation_Guide-Preface.html">Preface</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="pr01s01.html">1. Document Conventions</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s01.html">1.1. Typographic Conventions</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s02.html">1.2. Pull-quote Conventions</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s03.html">1.3. Notes and Warnings</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="pr01s02.html">2. Feedback information</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="chapter_sample_app.html">1. Pet Hotel sample application</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="platform-install.html">1.1. Platypus.js installation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="app-requirements.html">1.2. Tha sample application requirements</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="project-setup.html">1.3. The sample project creation and setup</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="database-structure.html">1.4. Defining the datatase structure</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="owners-form.html">1.5. Owners list form</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="owner-details-form.html">1.6. Owners detalis, pets and visits form</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="pets-column.html">1.7. Improving the owners list form</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="owners-report.html">1.8. Owners report</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <span class="appendix" style="margin-left:12px; display:block"><a href="revision_history.html">A. Revision History</a></span>
+ </dt>
+ <dt>
+  <span class="index" style="margin-left:12px; display:block"><a href="ix01.html">Index</a></span>
+ </dt>
+</dl></div>
+            </div>
+        </div>
+
+    </body>
+</html>

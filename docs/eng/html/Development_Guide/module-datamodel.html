@@ -1,0 +1,818 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <title>Platypus Platform 3.0 - Documentation</title>
+
+        <link rel="stylesheet" href="Common_Content/css/global.css" type="text/css">
+        <link rel="stylesheet" href="Common_Content/css/documentation.css" type="text/css">
+	<link rel="stylesheet" href="Common_Content/css/common2.css" type="text/css">
+        <!--[if lte IE 7]>
+                <style type="text/css"> body { font-size: 85%; } </style>
+        <![endif]-->
+
+        <!-- REQUIRED scripts for layout widget -->
+        <script type="text/javascript" src="Common_Content/js/jquery-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/jquery-ui-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/jquery-layout-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/global.js"></script>
+    </head>
+    <body>
+
+        <div class="ui-layout-north">
+	<DIV id="navigation">
+                <A href="http://platypus-platform.org/docs.jsp">Documentation</A>
+                <A href="http://bugtracker.platypus-platform.org/projects/platypus">Issues</A>
+            </DIV>
+            <DIV id="logo">Platypus.js 0.3.0 Development Guide</DIV>
+            
+        </div>
+
+        <div class="ui-layout-center content">
+            <ul class="docnav">
+ <li class="previous"><a accesskey="p" href="module-resources.html"><strong>Prev</strong></a></li>
+ <li class="next"><a accesskey="n" href="datamodel-editor.html"><strong>Next</strong></a></li>
+</ul>
+<div class="section" id="module-datamodel">
+ <div class="titlepage">
+  <div>
+   <div>
+    <h2 class="title" id="module-datamodel">6.7.&nbsp;Data model</h2>
+   </div>
+  </div>
+ </div>
+ <div class="para">
+   Data model is a module's persistence manager. It provides access to the data obtained from a relational database or any other data source. Data model allows you to perform the following tasks: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Fetch data from the 
+     <abbr class="abbrev">data source(s)</abbr> to the entities datasets. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Automatically requery/filter data, according to the inter-entities links. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Save changes made to the entities data (insert, update and delete). 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Entities data change events handling with JavaScript. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   Data model consists of entities and links and is configured using the visual editor. 
+ </div>
+ <div class="figure">
+  <div class="figure-contents">
+   <div class="mediaobject">
+    <img src="images/dataModel.png" width="444" alt="Data model structure" />
+   </div>
+  </div>
+  <h6>Figure&nbsp;6.1.&nbsp;Data model structure</h6>
+ </div>
+ <br class="figure-break" />
+ <div class="para">
+   Data is stored in the form of JavaScript objects within an etnity's array. 
+ </div>
+ <div class="para">
+   The following types of entities can be used in the data model: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Regular entity is created using a module implements special datasouce interface methods or a query application element. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Table entity is a special query entity, which selects all data from the table. It is created automatically by runtime. A table entity can be used on two-tier configurations with direct connection to a database. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   Each entity can have parameters and contains a dataset with predefined fields according to the data schema defined by the module or query, on the basis of which the entity is created. 
+ </div>
+ <div class="para">
+   The parameters of the data model are contained in the special entity named Parameters, which is present in each data model and does not have a full-featured dataset. 
+ </div>
+ <div class="para">
+   In general, a dataset is an array of objects, each of which corresponds to a tuple in the query results. 
+ </div>
+ <div class="para">
+   There is a cursor for each dataset. The cursor can point to some row in the dataset and determines the current item of this set. Also the dataset cursor can point to the positions &quot;before the first row&quot; and &quot;after the last row&quot;. The entity cursor position can affect to the linked entities data. 
+ </div>
+ <div class="para">
+   Entity fields and parameters may be connected by links. The following link types are used in a data model: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Query link—if the target field of connection is an entity parameter field. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Filter link—if the target filed of connection is a entity data field. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Link defined by the database table external keys. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   Query link requeries the target entity's dataset according to the parameter value change. The new parameter value is determined according to the source point of the link. Both dataset field's current value or a parameter value can be used. When the value at the link source changes, new data is requested from the database and reoladed in the target entity. 
+ </div>
+ <div class="note">
+  <div class="admonition_header">
+   <h2>Note</h2>
+  </div>
+  <div class="admonition">
+   <div class="para">
+     When a module runs in browser, data comes asynchronously from the network. When a module runs on desktop client and on application server, data comes synchronously. It is recommended to build the client side of applications as if data were obtained asynchronously in all cases. It will allow to avoid compatibility issues when transferring the client side of applications to the browser. 
+   </div>
+  </div>
+ </div>
+ <div class="para">
+   Filter link provides the restricted rows view of the target entity dataset according to the new filter value. The new filter value is determined according to the source point of the link. A dataset field's current value or a parameter value can be used. When the value at the link source changes, no data is fetched from the database. 
+ </div>
+ <div class="para">
+   Foreign key link is defined by a database table foreign keys. This kind of link is created automatically, if a dataset contains fields included to such foreign key. This type of link does not affect the content of the datasets and is used to generate inter-instance connections between instances of entities. This is done via new properties, wich are created while data fetching. The link of this type is visually shown as a dashed line on the data model diagram. 
+ </div>
+ <div class="note">
+  <div class="admonition_header">
+   <h2>Note</h2>
+  </div>
+  <div class="admonition">
+   <div class="para">
+     To get inter-instance connections work, primary and foreign keys are required. Such keys may come from database structure definitions or from schema definitions in a JavaScript datasource module. 
+   </div>
+  </div>
+ </div>
+ <div class="figure">
+  <div class="figure-contents">
+   <div class="mediaobject">
+    <img src="images/dataModelLinks.png" width="444" alt="Query and filtration types links" />
+   </div>
+  </div>
+  <h6>Figure&nbsp;6.2.&nbsp;Query and filtration types links</h6>
+ </div>
+ <br class="figure-break" />
+ <div class="para">
+   The figure shows an example of operation of filter and query links for the three entities in the data model. In the 
+  <code class="literal">Persons</code> entity, a cursor is pointing to a string corresponding to a person named 
+  <code class="literal">Mike</code>. 
+ </div>
+ <div class="para">
+   When initializing a module, data corresponding to the input parameter values is loaded into the model by default, then every change of input parameters leads to a cascade update of all datasets, which are directly or inderectly associated with the modified parameter. 
+ </div>
+ <div class="para">
+   For any dataset you can determine any number of incoming and outgoing links of both types. When building connections you should consider the following restrictions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Links must not create circular references. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Links fields and parameters of the souce and the target entities must match by its type: the types of connected fields and parameters must allow the mutual conversion of values. For example, it is possible to connect field if there's a number specified for the connection on the source, and a string specified the connection on the target, it is quite possible, since there is a possibility of an unambiguous conversion of a number to a string, but not vice versa. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   Batch change of the model input parameters is also possible, in this case, data is updated only after changing all the required parameters. 
+ </div>
+ <div class="para">
+   Added, deleted and changed datasets of these entities objects are saved to the database or sent to the application server for subsequent saving when calling the 
+  <code class="methodname">save</code> function of the data model object. 
+ </div>
+ <div class="para">
+   The data model object is represented in the module constructor by the 
+  <code class="code">this.model</code> object. 
+ </div>
+ <div class="para">
+   Create an alias variable for the data model object, in the following code snippets we will use this model alias object: 
+ </div>
+ <pre class="programlisting"><span class="perl_Keyword">function</span> ModuleD() {
+   <span class="perl_Keyword">var</span> model = this.model;
+   <span class="perl_Comment">//...</span><span class="perl_Comment"></span>
+<span class="perl_Comment"></span>}</pre>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Set the data model parameters to update the data of the linked entities. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Get access to data for data processing, analysis, and so on. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Use inter-instances connections to process the data in ORM manner. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Use the cursor to move through the data rows. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Specify entity event handler functions and write their JavaScript code. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Alter, remove or add objects in the entity and allow the data model to save the changes. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Read entity fields metadata for special needs. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   To force updating of all data model entities, call the 
+  <code class="methodname">requery</code> function of the 
+  <code class="literal">model</code> object: 
+ </div>
+ <pre class="programlisting">model.requery(onSuccess, onFailure)</pre>
+ <div class="para">
+   where 
+  <code class="code">onSuccess</code> is the handler function for refresh data on success event (optional), 
+  <code class="code">onFailure</code> is the handler function for refresh data on failure event (optional). 
+ </div>
+</div>
+<ul class="docnav">
+ <li class="previous"><a accesskey="p" href="module-resources.html"><strong>Prev</strong>6.6.&nbsp;Resources loading</a></li>
+ <li class="up"><a accesskey="u" href="#"><strong>Up</strong></a></li>
+ <li class="home"><a accesskey="h" href="index.html"><strong>Home</strong></a></li>
+ <li class="next"><a accesskey="n" href="datamodel-editor.html"><strong>Next</strong>6.7.1.&nbsp;Data model editor</a></li>
+</ul>
+        </div>
+
+        <!--
+                =======================
+                *	TABLE OF CONTENTS  *
+                =======================
+        -->
+        <div class="ui-layout-west" style="display: none;">
+            <div class="header">Contents</div>
+            <div class="ui-layout-content" style="overflow: auto;">
+                <div class='contents_panel'><dl>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="preface"><a href="preface.html">Preface</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="pr01s01.html">1. Document Conventions</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s01.html">1.1. Typographic Conventions</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s02.html">1.2. Pull-quote Conventions</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s03.html">1.3. Notes and Warnings</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="pr01s02.html">2. Feedback information</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="intro-chapter.html">1. Introduction</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="about-platform.html">1.1. About the platform </a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="app-structure.html">1.2. Application structure</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="runtime-conf.html">1.3. Runtime configurations</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="dev-workflow.html">1.4. Development steps</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="install-chapter.html">2. Installation and configuration</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="system-requirements.html">2.1. System requirements </a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="installation-guide.html">2.2. Installation guide</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="conf-tips.html">2.3. Configuration tips</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="runtime-setup.html">2.4. Runtime environment setup</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="designer-chapter.html">3. Application project</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-project.html">3.1. New project creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="open-project.html">3.2. Opening an existing project</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="project-properties.html">3.3. Project properties</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="project-structure.html">3.4. Project structure</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="project-run-debug.html">3.5. Running and debugging</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="conn-management.html">3.6. Database connections</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="app-db.html">3.7. Application in the database </a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="db-migrations.html">3.8. Database migrations tools</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="version-ctrl.html">3.9. Version control</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="diargram-chapter.html">4. Database diagram</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-diagram.html">4.1. New diagram creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="diagram-editor.html">4.2. Diagram visual editor</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="query-chapter.html">5. SQL query</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-query.html">5.1. New query creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-editor.html">5.2. Query editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-sql-source.html">5.3. SQL source</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-sql-dialect.html">5.4. SQL dialect source</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-security.html">5.5. Security</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="module-chapter.html">6. JavaScript module</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-module.html">6.1. New module creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-js-editor.html">6.2. JavaScript code editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-constr.html">6.3. Module constructor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="moudule-deps.html">6.4. Dependencies resolving</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-security.html">6.5. Security</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-resources.html">6.6. Resources loading</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="module-datamodel.html">6.7. Data model</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-editor.html">6.7.1. Data model editor</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-params.html">6.7.2. Data model parameters</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-entities.html">6.7.3. Entities</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-cursor.html">6.7.4. Cursor API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-save.html">6.7.5. Saving data</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-search.html">6.7.6. Search API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-filter.html">6.7.7. Filter API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-sort.html">6.7.8. Sort API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-entity-events.html">6.7.9. Entity events</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-entity-schema.html">6.7.10. Data schema</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-dynamic-entities.html">6.7.11. Dynamic entities</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-execute-sql.html">6.7.12. Executing arbitary SQL</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-ds.html">6.8. Data source module</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="module-server.html">6.9. Server modules</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-stateless.html">6.9.1. Statefull and stateless session modules</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-resident.html">6.9.2. Resident module</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-validator.html">6.9.3. Data validators</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-auth.html">6.9.4. Authorizers and dynamic roles</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-auth_1.html">6.9.5. Tips and tricks</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-java.html">6.10. Scripting Java</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-multithreading.html">6.11. Multithreading</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-logging.html">6.12. Logging</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-io.html">6.13. Filesystem I/O</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-xml.html">6.14. Working with XML</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="gui-chapter.html">7. User interface guide</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-intro.html">7.1. Form</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-form.html">7.2. New form creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-editor.html">7.3. Visual UI editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-api.html">7.4. Form API</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-events.html">7.5. Components events</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="form-standart-widgets.html">7.6. Standard widgets</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-label.html">7.6.1. Label</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-button.html">7.6.2. Button</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-togglebutton.html">7.6.3. ToggleButton</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-checkbox.html">7.6.4. CheckBox</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-radiobutton.html">7.6.5. RadioButton</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-buttongroup_2.html">7.6.6. ButtonGroup</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-textfield.html">7.6.7. TextField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-slider.html">7.6.8. Slider</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-progressbar.html">7.6.9. ProgressBar</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-formattedfield.html">7.6.10. FormattedField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-passwordfield.html">7.6.11. PasswordField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-textarea.html">7.6.12. TextArea</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-htmlarea.html">7.6.13. HtmlArea</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="mwidgets.html">7.7. Model widgets </a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelcheck.html">7.7.1. ModelCheck</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelcombo.html">7.7.2. ModelCombo</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modeldate.html">7.7.3. ModelDate</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelgrid.html">7.7.4. ModelGrid</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelimage.html">7.7.5. ModelImage</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modeltext.html">7.7.6. ModelFormattedField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modeltextarea.html">7.7.7. ModelTextArea</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelmap.html">7.7.8. ModelMap</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelspin.html">7.7.9. ModelSpin</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="ui-containers.html">7.8. Containers</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-anchorspane.html">7.8.1. AnchorsPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-borderpane.html">7.8.2. BorderPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-absolutepane.html">7.8.3. AsolutePane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-gridpane.html">7.8.4. GridPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-flowpane.html">7.8.5. FlowPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-cardpane.html">7.8.6. CardPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-boxpane.html">7.8.7. BoxPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-tabbedpane.html">7.8.8. TabbedPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-splitpane.html">7.8.9. SplitPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-scrollpane.html">7.8.10. ScrollPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-toolbar.html">7.8.11. ToolBar</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-desktoppane.html">7.8.12. DesktopPane</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="menus.html">7.9. Menus</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-menubar.html">7.9.1. MenuBar</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-menu.html">7.9.2. Menu</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-popupmenu.html">7.9.3. PopupMenu</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-menuitem.html">7.9.4. MenuItem</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-checkboxmenuitem.html">7.9.5. CheckMenuItem</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-radiobuttonmenu.html">7.9.6. RadioMenuItem</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-separatormenuitem.html">7.9.7. MenuSeparator</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="ui-utils-api.html">7.10. UI utilities API</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-style.html">7.10.1. Style</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-icon.html">7.10.2. Icon</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-fontstyle.html">7.10.3. FontStyle</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-font.html">7.10.4. Font</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-color.html">7.10.5. Color</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-horizontalposition.html">7.10.6. HorizontalPosition</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-verticalpositon.html">7.10.7. VerticalPosition</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-orientation.html">7.10.8. Orientation</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="ui-dialogs.html">7.11. Dialogs API</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="report-chapter.html">8. Report</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="intro-report.html">8.1. Introduction to reports</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-report.html">8.2. New report creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="report-editor.html">8.3. Reports editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="report-template-tags.html">8.4. Template tags</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="report-js.html">8.5. Report API</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="web-chapter.html">9. HTTP</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="web-http.html">9.1. HTTP interface</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="web-req-resp.html">9.2. HTTP request and response API</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <span class="appendix" style="margin-left:12px; display:block"><a href="revision-history.html">A. Revision History</a></span>
+ </dt>
+ <dt>
+  <span class="index" style="margin-left:12px; display:block"><a href="doc-index.html">Index</a></span>
+ </dt>
+</dl></div>
+            </div>
+        </div>
+
+    </body>
+</html>

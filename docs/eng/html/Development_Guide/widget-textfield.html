@@ -1,0 +1,681 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <title>Platypus Platform 3.0 - Documentation</title>
+
+        <link rel="stylesheet" href="Common_Content/css/global.css" type="text/css">
+        <link rel="stylesheet" href="Common_Content/css/documentation.css" type="text/css">
+	<link rel="stylesheet" href="Common_Content/css/common2.css" type="text/css">
+        <!--[if lte IE 7]>
+                <style type="text/css"> body { font-size: 85%; } </style>
+        <![endif]-->
+
+        <!-- REQUIRED scripts for layout widget -->
+        <script type="text/javascript" src="Common_Content/js/jquery-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/jquery-ui-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/jquery-layout-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/global.js"></script>
+    </head>
+    <body>
+
+        <div class="ui-layout-north">
+	<DIV id="navigation">
+                <A href="http://platypus-platform.org/docs.jsp">Documentation</A>
+                <A href="http://bugtracker.platypus-platform.org/projects/platypus">Issues</A>
+            </DIV>
+            <DIV id="logo">Platypus.js 0.3.0 Development Guide</DIV>
+            
+        </div>
+
+        <div class="ui-layout-center content">
+            <ul class="docnav">
+ <li class="previous"><a accesskey="p" href="widget-buttongroup_2.html"><strong>Prev</strong></a></li>
+ <li class="next"><a accesskey="n" href="widget-slider.html"><strong>Next</strong></a></li>
+</ul>
+<div class="section" id="widget-textfield">
+ <div class="titlepage">
+  <div>
+   <div>
+    <h3 class="title" id="widget-textfield">7.6.7.&nbsp;TextField</h3>
+   </div>
+  </div>
+ </div>
+ <div class="para"> 
+  <code class="code">TextField</code> is a simple component, which allows you to edit single line of text. 
+ </div>
+ <div class="para">
+   The properties of this component are listed in the following table: 
+ </div>
+ <div class="informaltable">
+  <table border="1">
+   <colgroup>
+    <col width="50%" />
+    <col width="50%" />
+   </colgroup>
+   <thead>
+    <tr>
+     <th align="center"> Property </th>
+     <th align="center"> Description </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td> <em class="parameter"><code>text</code></em> </td>
+     <td> The text for the widget. </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>emptyText</code></em> </td>
+     <td> The text displayed when the actual value is absent. </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div class="para">
+   The specific component events are listed in the following table: 
+ </div>
+ <div class="informaltable">
+  <table border="1">
+   <colgroup>
+    <col width="33%" />
+    <col width="33%" />
+    <col width="33%" />
+   </colgroup>
+   <thead>
+    <tr>
+     <th align="center"> Event </th>
+     <th> Handler parameters </th>
+     <th align="center"> Description </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td> <em class="parameter"><code>onActionPerformed</code></em> </td>
+     <td> <code class="code">ActionEvent</code> </td>
+     <td> Text input event: pressing the <span class="keycap"><strong>Enter</strong></span> key </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div class="para">
+   To create a component of this type by program means, use the 
+  <code class="classname">TextField</code> constructor, which can be called with a different number of parameters: 
+ </div>
+ <pre class="programlisting"><span class="perl_Keyword">var</span> tf2 = <span class="perl_Keyword">new</span> TextField(text);</pre>
+ <div class="para">
+   where 
+  <code class="code"> <em class="replaceable"><code>text</code></em> </code> is the field text (optional). 
+ </div>
+ <div class="para">
+   After creating, if necessary, set the properties and event handlers and add the component to the container: 
+ </div>
+ <pre class="programlisting">tf.emptyText = <span class="perl_String">&quot;Enter your name...&quot;</span>;
+view.add(rb1);</pre>
+</div>
+<ul class="docnav">
+ <li class="previous"><a accesskey="p" href="widget-buttongroup_2.html"><strong>Prev</strong>7.6.6.&nbsp;ButtonGroup</a></li>
+ <li class="up"><a accesskey="u" href="#"><strong>Up</strong></a></li>
+ <li class="home"><a accesskey="h" href="index.html"><strong>Home</strong></a></li>
+ <li class="next"><a accesskey="n" href="widget-slider.html"><strong>Next</strong>7.6.8.&nbsp;Slider</a></li>
+</ul>
+        </div>
+
+        <!--
+                =======================
+                *	TABLE OF CONTENTS  *
+                =======================
+        -->
+        <div class="ui-layout-west" style="display: none;">
+            <div class="header">Contents</div>
+            <div class="ui-layout-content" style="overflow: auto;">
+                <div class='contents_panel'><dl>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="preface"><a href="preface.html">Preface</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="pr01s01.html">1. Document Conventions</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s01.html">1.1. Typographic Conventions</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s02.html">1.2. Pull-quote Conventions</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s03.html">1.3. Notes and Warnings</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="pr01s02.html">2. Feedback information</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="intro-chapter.html">1. Introduction</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="about-platform.html">1.1. About the platform </a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="app-structure.html">1.2. Application structure</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="runtime-conf.html">1.3. Runtime configurations</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="dev-workflow.html">1.4. Development steps</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="install-chapter.html">2. Installation and configuration</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="system-requirements.html">2.1. System requirements </a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="installation-guide.html">2.2. Installation guide</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="conf-tips.html">2.3. Configuration tips</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="runtime-setup.html">2.4. Runtime environment setup</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="designer-chapter.html">3. Application project</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-project.html">3.1. New project creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="open-project.html">3.2. Opening an existing project</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="project-properties.html">3.3. Project properties</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="project-structure.html">3.4. Project structure</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="project-run-debug.html">3.5. Running and debugging</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="conn-management.html">3.6. Database connections</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="app-db.html">3.7. Application in the database </a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="db-migrations.html">3.8. Database migrations tools</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="version-ctrl.html">3.9. Version control</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="diargram-chapter.html">4. Database diagram</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-diagram.html">4.1. New diagram creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="diagram-editor.html">4.2. Diagram visual editor</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="query-chapter.html">5. SQL query</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-query.html">5.1. New query creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-editor.html">5.2. Query editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-sql-source.html">5.3. SQL source</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-sql-dialect.html">5.4. SQL dialect source</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-security.html">5.5. Security</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="module-chapter.html">6. JavaScript module</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-module.html">6.1. New module creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-js-editor.html">6.2. JavaScript code editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-constr.html">6.3. Module constructor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="moudule-deps.html">6.4. Dependencies resolving</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-security.html">6.5. Security</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-resources.html">6.6. Resources loading</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="module-datamodel.html">6.7. Data model</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-editor.html">6.7.1. Data model editor</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-params.html">6.7.2. Data model parameters</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-entities.html">6.7.3. Entities</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-cursor.html">6.7.4. Cursor API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-save.html">6.7.5. Saving data</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-search.html">6.7.6. Search API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-filter.html">6.7.7. Filter API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-sort.html">6.7.8. Sort API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-entity-events.html">6.7.9. Entity events</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-entity-schema.html">6.7.10. Data schema</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-dynamic-entities.html">6.7.11. Dynamic entities</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-execute-sql.html">6.7.12. Executing arbitary SQL</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-ds.html">6.8. Data source module</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="module-server.html">6.9. Server modules</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-stateless.html">6.9.1. Statefull and stateless session modules</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-resident.html">6.9.2. Resident module</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-validator.html">6.9.3. Data validators</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-auth.html">6.9.4. Authorizers and dynamic roles</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-auth_1.html">6.9.5. Tips and tricks</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-java.html">6.10. Scripting Java</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-multithreading.html">6.11. Multithreading</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-logging.html">6.12. Logging</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-io.html">6.13. Filesystem I/O</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-xml.html">6.14. Working with XML</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="gui-chapter.html">7. User interface guide</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-intro.html">7.1. Form</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-form.html">7.2. New form creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-editor.html">7.3. Visual UI editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-api.html">7.4. Form API</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-events.html">7.5. Components events</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="form-standart-widgets.html">7.6. Standard widgets</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-label.html">7.6.1. Label</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-button.html">7.6.2. Button</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-togglebutton.html">7.6.3. ToggleButton</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-checkbox.html">7.6.4. CheckBox</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-radiobutton.html">7.6.5. RadioButton</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-buttongroup_2.html">7.6.6. ButtonGroup</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-textfield.html">7.6.7. TextField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-slider.html">7.6.8. Slider</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-progressbar.html">7.6.9. ProgressBar</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-formattedfield.html">7.6.10. FormattedField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-passwordfield.html">7.6.11. PasswordField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-textarea.html">7.6.12. TextArea</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-htmlarea.html">7.6.13. HtmlArea</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="mwidgets.html">7.7. Model widgets </a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelcheck.html">7.7.1. ModelCheck</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelcombo.html">7.7.2. ModelCombo</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modeldate.html">7.7.3. ModelDate</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelgrid.html">7.7.4. ModelGrid</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelimage.html">7.7.5. ModelImage</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modeltext.html">7.7.6. ModelFormattedField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modeltextarea.html">7.7.7. ModelTextArea</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelmap.html">7.7.8. ModelMap</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelspin.html">7.7.9. ModelSpin</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="ui-containers.html">7.8. Containers</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-anchorspane.html">7.8.1. AnchorsPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-borderpane.html">7.8.2. BorderPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-absolutepane.html">7.8.3. AsolutePane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-gridpane.html">7.8.4. GridPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-flowpane.html">7.8.5. FlowPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-cardpane.html">7.8.6. CardPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-boxpane.html">7.8.7. BoxPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-tabbedpane.html">7.8.8. TabbedPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-splitpane.html">7.8.9. SplitPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-scrollpane.html">7.8.10. ScrollPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-toolbar.html">7.8.11. ToolBar</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-desktoppane.html">7.8.12. DesktopPane</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="menus.html">7.9. Menus</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-menubar.html">7.9.1. MenuBar</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-menu.html">7.9.2. Menu</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-popupmenu.html">7.9.3. PopupMenu</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-menuitem.html">7.9.4. MenuItem</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-checkboxmenuitem.html">7.9.5. CheckMenuItem</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-radiobuttonmenu.html">7.9.6. RadioMenuItem</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-separatormenuitem.html">7.9.7. MenuSeparator</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="ui-utils-api.html">7.10. UI utilities API</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-style.html">7.10.1. Style</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-icon.html">7.10.2. Icon</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-fontstyle.html">7.10.3. FontStyle</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-font.html">7.10.4. Font</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-color.html">7.10.5. Color</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-horizontalposition.html">7.10.6. HorizontalPosition</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-verticalpositon.html">7.10.7. VerticalPosition</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-orientation.html">7.10.8. Orientation</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="ui-dialogs.html">7.11. Dialogs API</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="report-chapter.html">8. Report</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="intro-report.html">8.1. Introduction to reports</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-report.html">8.2. New report creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="report-editor.html">8.3. Reports editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="report-template-tags.html">8.4. Template tags</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="report-js.html">8.5. Report API</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="web-chapter.html">9. HTTP</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="web-http.html">9.1. HTTP interface</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="web-req-resp.html">9.2. HTTP request and response API</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <span class="appendix" style="margin-left:12px; display:block"><a href="revision-history.html">A. Revision History</a></span>
+ </dt>
+ <dt>
+  <span class="index" style="margin-left:12px; display:block"><a href="doc-index.html">Index</a></span>
+ </dt>
+</dl></div>
+            </div>
+        </div>
+
+    </body>
+</html>

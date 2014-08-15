@@ -1,0 +1,1119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <title>Platypus Platform 3.0 - Documentation</title>
+
+        <link rel="stylesheet" href="Common_Content/css/global.css" type="text/css">
+        <link rel="stylesheet" href="Common_Content/css/documentation.css" type="text/css">
+	<link rel="stylesheet" href="Common_Content/css/common2.css" type="text/css">
+        <!--[if lte IE 7]>
+                <style type="text/css"> body { font-size: 85%; } </style>
+        <![endif]-->
+
+        <!-- REQUIRED scripts for layout widget -->
+        <script type="text/javascript" src="Common_Content/js/jquery-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/jquery-ui-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/jquery-layout-latest.js"></script>
+        <script type="text/javascript" src="Common_Content/js/global.js"></script>
+    </head>
+    <body>
+
+        <div class="ui-layout-north">
+	<DIV id="navigation">
+                <A href="http://platypus-platform.org/docs.jsp">Documentation</A>
+                <A href="http://bugtracker.platypus-platform.org/projects/platypus">Issues</A>
+            </DIV>
+            <DIV id="logo">Platypus.js 0.3.0 Development Guide</DIV>
+            
+        </div>
+
+        <div class="ui-layout-center content">
+            <ul class="docnav">
+ <li class="previous"><a accesskey="p" href="new-diagram.html"><strong>Prev</strong></a></li>
+ <li class="next"><a accesskey="n" href="query-chapter.html"><strong>Next</strong></a></li>
+</ul>
+<div class="section" id="diagram-editor">
+ <div class="titlepage">
+  <div>
+   <div>
+    <h2 class="title" id="diagram-editor">4.2.&nbsp;Diagram visual editor</h2>
+   </div>
+  </div>
+ </div>
+ <div class="para">
+   Diagram is a representation of some tables in the database, as well as the links between them. In general, one includes a part of the database overall structure, which is, for example, related to the certain segment of application functionality. 
+ </div>
+ <div class="para">
+   Visual editor tool is used for editing database structure diagrams. 
+ </div>
+ <div class="para">
+   Visual editor allows you to modify the database structure e.g. add or delete tables, links between tables, and indexes. The same table can be represented in several diagrams. 
+ </div>
+ <div class="para">
+   For navigation through a diagram, it is convenient to use the diagram inspector panel. In the inspector, tables and their fields are represented in the tree structure. When selecting a table or a field in the inspector, the same selection takes place in the diagram editor. 
+ </div>
+ <div class="para">
+   For mutual positioning of a node in the inspector and an object in the diagram: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Select the 
+     <span class="guimenu"><strong>Show in diagram</strong></span> menu item in the inspector's table node context menu. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   To add an existing table to the diagram, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Select the 
+     <span class="guimenu"><strong>Add table</strong></span> menu item on the editor toolbar, or use the 
+     <span class="keycap"><strong>Ctrl</strong></span>+
+     <span class="keycap"><strong>Shift</strong></span>+
+     <span class="keycap"><strong>Insert</strong></span> shortcut. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Select a table in the table selection dialog; if necessary, use the search function. To access it, click 
+     <span class="guibutton"><strong>Find</strong></span>. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Click 
+     <span class="guibutton"><strong>OK</strong></span> to add the table, or click 
+     <span class="guibutton"><strong>Cancel</strong></span> to cancel. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      If necessary, drag the table in the diagram to the desired location. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Save the application element by clicking the 
+     <span class="guibutton"><strong>Save All</strong></span> button on the 
+     <span class="application"><strong>Platypus Application Designer</strong></span> toolbar, or by pressing the 
+     <span class="keycap"><strong>Ctrl</strong></span>+
+     <span class="keycap"><strong>Shift</strong></span>+
+     <span class="keycap"><strong>S</strong></span> shortcut. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   To create a new table and to add it to the diagram, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Select the 
+     <span class="guimenu"><strong>Add table</strong></span> → 
+     <span class="guimenuitem"><strong>Create new table</strong></span> item in the menu on the editor toolbar. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Specify the name of the new table in the dialog. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Click 
+     <span class="guibutton"><strong>OK</strong></span> to add the table, or click 
+     <span class="guibutton"><strong>Cancel</strong></span> to cancel. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      If necessary, drag the table in the diagram to the desired location. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Save the application element by clicking the 
+     <span class="guibutton"><strong>Save All</strong></span> button on the Platypus Application Designer toolbar, or by pressing the 
+     <span class="keycap"><strong>Ctrl</strong></span>+
+     <span class="keycap"><strong>Shift</strong></span>+
+     <span class="keycap"><strong>S</strong></span> shortcut. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="note">
+  <div class="admonition_header">
+   <h2>Note</h2>
+  </div>
+  <div class="admonition">
+   <div class="para">
+     A numeric primary key field will be automatically created for a new table. 
+   </div>
+  </div>
+ </div>
+ <div class="para">
+   To remove a table from the diagram, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Select a table in the diagram. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Click the 
+     <span class="guibutton"><strong>Delete</strong></span> button on the editor toolbar. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      In the confirmation dialog, click the 
+     <span class="guibutton"><strong>Delete from diagram</strong></span> button to remove the table from the diagram (from the diagram only, not from the 
+     <acronym class="acronym">database</acronym>). Click the 
+     <span class="guibutton"><strong>Drop table</strong></span> button to remove the table from the database (physical destruction of the table), or click 
+     <span class="guibutton"><strong>Cancel</strong></span> to cancel the process. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Save the application element by clicking the 
+     <span class="guibutton"><strong>Save All</strong></span> button on the 
+     <span class="application"><strong>Platypus Application Designer</strong></span> toolbar, or by pressing the 
+     <span class="keycap"><strong>Ctrl</strong></span>+
+     <span class="keycap"><strong>Shift</strong></span>+
+     <span class="keycap"><strong>S</strong></span> shortcut. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   To add the table fields, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Select the table in the diagram. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Click the 
+     <span class="guibutton"><strong>Create new field/parameter</strong></span> button on the toolbar of the table fields editor tab. The new field dialog appears. Provide the new table field properties and click 
+     <span class="guibutton"><strong>OK</strong></span> button to create the new field or 
+     <span class="guibutton"><strong>Cancel</strong></span> to cancel the process. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   Table field properties: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para"> 
+     <span class="guilabel"><strong>name</strong></span> is the field's name in the table 
+    </div></li>
+   <li class="listitem">
+    <div class="para"> 
+     <span class="guilabel"><strong>description</strong></span> is the field's description 
+    </div></li>
+   <li class="listitem">
+    <div class="para"> 
+     <span class="guilabel"><strong>type</strong></span> is the field's data type 
+    </div></li>
+   <li class="listitem">
+    <div class="para"> 
+     <span class="guilabel"><strong>type name</strong></span> is the data structure type name, this field is enabled if the 
+     <em class="parameter"><code>STRUCT</code></em> data type is selected 
+    </div></li>
+   <li class="listitem">
+    <div class="para"> 
+     <span class="guilabel"><strong>size</strong></span> is the field length 
+    </div></li>
+   <li class="listitem">
+    <div class="para"> 
+     <span class="guilabel"><strong>scale</strong></span> is the field scale or precision 
+    </div></li>
+   <li class="listitem">
+    <div class="para"> 
+     <span class="guilabel"><strong>nullable</strong></span> determines if 
+     <code class="literal">NULL</code> values are allowed for the field. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="informaltable">
+  <table border="1">
+   <colgroup>
+    <col width="50%" />
+    <col width="50%" />
+   </colgroup>
+   <thead>
+    <tr>
+     <th align="center"> Type name </th>
+     <th align="center"> Description </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td> <em class="parameter"><code>NUMERIC</code></em> </td>
+     <td> Number </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>DECIMAL</code></em> </td>
+     <td> Decimal number </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>VARCHAR</code></em> </td>
+     <td> String with limited length </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>TIMESTAMP</code></em> </td>
+     <td> Date and time </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>DATE</code></em> </td>
+     <td> Date </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>STRUCT</code></em> </td>
+     <td> Structure </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>BLOB</code></em> </td>
+     <td> Binary object with unlimited length </td>
+    </tr>
+    <tr>
+     <td> <em class="parameter"><code>CLOB</code></em> </td>
+     <td> String with unlimited length </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div class="para">
+   To edit the field, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Select the field node among the table daughter nodes in the data model inspector. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Edit the field parameters in the 
+     <span class="guilabel"><strong>Properties</strong></span> editor window. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   To remove the field, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Select the table field in the diagram. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Click 
+     <span class="guibutton"><strong>Delete</strong></span> on the fields editor toolbar, or use the 
+     <span class="keycap"><strong>Ctrl</strong></span>+
+     <span class="keycap"><strong>Delete</strong></span> shortcut. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   To edit the table indexes, use the inspector: open the node of the relevant table, and use the 
+  <span class="guilabel"><strong>Indexes</strong></span> node. 
+ </div>
+ <div class="para">
+   To add a new table index, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Select the 
+     <span class="guimenuitem"><strong>Add index</strong></span> item in the 
+     <span class="guilabel"><strong>Indexes</strong></span> node context menu of the corresponding database table. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      In the table columns selection dialog, select necessary fields and click 
+     <span class="guibutton"><strong>OK</strong></span> to add the table index, or click 
+     <span class="guibutton"><strong>Cancel</strong></span> to cancel. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      If necessary, remove the field from the index using the 
+     <span class="guimenuitem"><strong>Delete</strong></span> item from the index column context menu. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      If necessary, modify the order of the fields in the index using the 
+     <span class="guimenuitem"><strong>Move up</strong></span> and 
+     <span class="guimenuitem"><strong>Move down</strong></span> items from the index column context menu. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      If necessary, change the status of the 
+     <span class="guilabel"><strong>Ascending</strong></span> checkbox on the properties panel for the index column, setting the ascending or descending sorting order. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Set the index name in the 
+     <span class="guilabel"><strong>Index name</strong></span> field on the index node properties panel. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      If necessary, check the 
+     <span class="guilabel"><strong>Unique</strong></span> option on the index node properties panel to make the index unique or non-unique. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      If necessary, check the 
+     <span class="guilabel"><strong>Clustered</strong></span> option on the index node properties panel to create a clustered index. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      If necessary, check the 
+     <span class="guilabel"><strong>Hashed</strong></span> option on the index node properties panel to enable or disable hashing for this index. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   To modify an table index, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Select the index in the table indexes list. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Edit the index; to do that, follow the same steps as when adding a new index. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   To delete an index, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Select the index among other child nodes of the relevant table in the inspector. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Select the 
+     <span class="guimenuitem"><strong>Delete</strong></span> item in the index node context menu. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   To add a foreign key for the table, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Using the mouse, drag the field of one table to the primary key field of the other table. 
+    </div>
+    <div class="para">
+      After that, a foreign key will be created in the database; visually, the link will be represented by the arrow between the tables fields. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Save the application element by clicking the 
+     <span class="guibutton"><strong>Save All</strong></span> button on the 
+     <span class="application"><strong>Platypus Application Designer</strong></span> toolbar, or by using the 
+     <span class="keycap"><strong>Ctrl</strong></span>+
+     <span class="keycap"><strong>Shift</strong></span>+
+     <span class="keycap"><strong>S</strong></span> shortcut. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="important">
+  <div class="admonition_header">
+   <h2>Important</h2>
+  </div>
+  <div class="admonition">
+   <div class="para">
+     Data types of the fields connected by the foreign key link must be the same. 
+   </div>
+  </div>
+ </div>
+ <div class="para">
+   To build a hierarchical table structure (unary link), drag the table field to the primary key field of the same table using the mouse. 
+ </div>
+ <div class="para">
+   To remove the table foreign key, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Select the foreign key link using the mouse. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Click the 
+     <span class="guibutton"><strong>Delete</strong></span> button or use the 
+     <span class="keycap"><strong>Ctrl</strong></span>+
+     <span class="keycap"><strong>Delete</strong></span> shortcut. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Save the application element by clicking the 
+     <span class="guibutton"><strong>Save All</strong></span> button on the 
+     <span class="application"><strong>Platypus Application Designer</strong></span> toolbar, or by using the 
+     <span class="keycap"><strong>Ctrl</strong></span>+
+     <span class="keycap"><strong>Shift</strong></span>+
+     <span class="keycap"><strong>S</strong></span> shortcut. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="note">
+  <div class="admonition_header">
+   <h2>Note</h2>
+  </div>
+  <div class="admonition">
+   <div class="para">
+     When working in a developers team, after modification of the 
+    <acronym class="acronym">database</acronym> structure, it is recommended to create a migration — a database metadata snapshot, and make it available for all participants of the development process in order to apply the modifications to the rest of the 
+    <acronym class="acronym">database</acronym> copies engaged in the development process. 
+   </div>
+  </div>
+ </div>
+ <div class="para">
+   To query the data from the table, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Select the table in the diagram. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Click the 
+     <span class="guibutton"><strong>Query Table Data</strong></span> button on the local toolbar — the data will be requested from the table, and the results will be displayed in the editor's output area. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   To modify the size of the database structure diagram visual representation, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Click the 
+     <span class="guibutton"><strong>Zoom In</strong></span> button to scale up, or 
+     <span class="guibutton"><strong>Zoom out</strong></span> button to scale down the representation of the database structure in the editor. 
+    </div></li>
+  </ul>
+ </div>
+ <div class="para">
+   To search through the diagram, perform the following actions: 
+ </div>
+ <div class="itemizedlist">
+  <ul>
+   <li class="listitem">
+    <div class="para">
+      Click 
+     <span class="guibutton"><strong>Find</strong></span> to open the diagram search dialog. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Specify the search string. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Select fields to be searched through: 
+     <span class="guilabel"><strong>Datasets</strong></span>, 
+     <span class="guilabel"><strong>Fields</strong></span>, 
+     <span class="guilabel"><strong>Params</strong></span>, and check (uncheck) the following options: use the option 
+     <span class="guilabel"><strong>Whole words</strong></span> to search for whole words and the 
+     <span class="guilabel"><strong>Match case</strong></span> to perform a case-sensitive search. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Click 
+     <span class="guibutton"><strong>Next</strong></span> and 
+     <span class="guibutton"><strong>Previous</strong></span> buttons to go to the next found entity. 
+    </div></li>
+   <li class="listitem">
+    <div class="para">
+      Click 
+     <span class="guibutton"><strong>Close</strong></span> to close the search dialog. 
+    </div></li>
+  </ul>
+ </div>
+</div>
+<ul class="docnav">
+ <li class="previous"><a accesskey="p" href="new-diagram.html"><strong>Prev</strong>4.1.&nbsp;New diagram creation</a></li>
+ <li class="up"><a accesskey="u" href="#"><strong>Up</strong></a></li>
+ <li class="home"><a accesskey="h" href="index.html"><strong>Home</strong></a></li>
+ <li class="next"><a accesskey="n" href="query-chapter.html"><strong>Next</strong>Chapter&nbsp;5.&nbsp;SQL query</a></li>
+</ul>
+        </div>
+
+        <!--
+                =======================
+                *	TABLE OF CONTENTS  *
+                =======================
+        -->
+        <div class="ui-layout-west" style="display: none;">
+            <div class="header">Contents</div>
+            <div class="ui-layout-content" style="overflow: auto;">
+                <div class='contents_panel'><dl>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="preface"><a href="preface.html">Preface</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="pr01s01.html">1. Document Conventions</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s01.html">1.1. Typographic Conventions</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s02.html">1.2. Pull-quote Conventions</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="pr01s01s03.html">1.3. Notes and Warnings</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="pr01s02.html">2. Feedback information</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="intro-chapter.html">1. Introduction</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="about-platform.html">1.1. About the platform </a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="app-structure.html">1.2. Application structure</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="runtime-conf.html">1.3. Runtime configurations</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="dev-workflow.html">1.4. Development steps</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="install-chapter.html">2. Installation and configuration</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="system-requirements.html">2.1. System requirements </a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="installation-guide.html">2.2. Installation guide</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="conf-tips.html">2.3. Configuration tips</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="runtime-setup.html">2.4. Runtime environment setup</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="designer-chapter.html">3. Application project</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-project.html">3.1. New project creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="open-project.html">3.2. Opening an existing project</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="project-properties.html">3.3. Project properties</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="project-structure.html">3.4. Project structure</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="project-run-debug.html">3.5. Running and debugging</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="conn-management.html">3.6. Database connections</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="app-db.html">3.7. Application in the database </a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="db-migrations.html">3.8. Database migrations tools</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="version-ctrl.html">3.9. Version control</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="diargram-chapter.html">4. Database diagram</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-diagram.html">4.1. New diagram creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="diagram-editor.html">4.2. Diagram visual editor</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="query-chapter.html">5. SQL query</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-query.html">5.1. New query creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-editor.html">5.2. Query editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-sql-source.html">5.3. SQL source</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-sql-dialect.html">5.4. SQL dialect source</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="query-security.html">5.5. Security</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="module-chapter.html">6. JavaScript module</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-module.html">6.1. New module creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-js-editor.html">6.2. JavaScript code editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-constr.html">6.3. Module constructor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="moudule-deps.html">6.4. Dependencies resolving</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-security.html">6.5. Security</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-resources.html">6.6. Resources loading</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="module-datamodel.html">6.7. Data model</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-editor.html">6.7.1. Data model editor</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-params.html">6.7.2. Data model parameters</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-entities.html">6.7.3. Entities</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-cursor.html">6.7.4. Cursor API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-save.html">6.7.5. Saving data</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-search.html">6.7.6. Search API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-filter.html">6.7.7. Filter API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-sort.html">6.7.8. Sort API</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-entity-events.html">6.7.9. Entity events</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-entity-schema.html">6.7.10. Data schema</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-dynamic-entities.html">6.7.11. Dynamic entities</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="datamodel-execute-sql.html">6.7.12. Executing arbitary SQL</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-ds.html">6.8. Data source module</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="module-server.html">6.9. Server modules</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-stateless.html">6.9.1. Statefull and stateless session modules</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-resident.html">6.9.2. Resident module</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-validator.html">6.9.3. Data validators</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-auth.html">6.9.4. Authorizers and dynamic roles</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="module-server-auth_1.html">6.9.5. Tips and tricks</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-java.html">6.10. Scripting Java</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-multithreading.html">6.11. Multithreading</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-logging.html">6.12. Logging</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-io.html">6.13. Filesystem I/O</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="module-xml.html">6.14. Working with XML</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="gui-chapter.html">7. User interface guide</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-intro.html">7.1. Form</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-form.html">7.2. New form creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-editor.html">7.3. Visual UI editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-api.html">7.4. Form API</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="form-events.html">7.5. Components events</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="form-standart-widgets.html">7.6. Standard widgets</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-label.html">7.6.1. Label</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-button.html">7.6.2. Button</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-togglebutton.html">7.6.3. ToggleButton</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-checkbox.html">7.6.4. CheckBox</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-radiobutton.html">7.6.5. RadioButton</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-buttongroup_2.html">7.6.6. ButtonGroup</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-textfield.html">7.6.7. TextField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-slider.html">7.6.8. Slider</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-progressbar.html">7.6.9. ProgressBar</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-formattedfield.html">7.6.10. FormattedField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-passwordfield.html">7.6.11. PasswordField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-textarea.html">7.6.12. TextArea</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-htmlarea.html">7.6.13. HtmlArea</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="mwidgets.html">7.7. Model widgets </a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelcheck.html">7.7.1. ModelCheck</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelcombo.html">7.7.2. ModelCombo</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modeldate.html">7.7.3. ModelDate</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelgrid.html">7.7.4. ModelGrid</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelimage.html">7.7.5. ModelImage</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modeltext.html">7.7.6. ModelFormattedField</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modeltextarea.html">7.7.7. ModelTextArea</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelmap.html">7.7.8. ModelMap</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="widget-modelspin.html">7.7.9. ModelSpin</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="ui-containers.html">7.8. Containers</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-anchorspane.html">7.8.1. AnchorsPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-borderpane.html">7.8.2. BorderPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-absolutepane.html">7.8.3. AsolutePane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-gridpane.html">7.8.4. GridPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-flowpane.html">7.8.5. FlowPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-cardpane.html">7.8.6. CardPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-boxpane.html">7.8.7. BoxPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-tabbedpane.html">7.8.8. TabbedPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-splitpane.html">7.8.9. SplitPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-scrollpane.html">7.8.10. ScrollPane</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-toolbar.html">7.8.11. ToolBar</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-containers-desktoppane.html">7.8.12. DesktopPane</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="menus.html">7.9. Menus</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-menubar.html">7.9.1. MenuBar</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-menu.html">7.9.2. Menu</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-popupmenu.html">7.9.3. PopupMenu</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-menuitem.html">7.9.4. MenuItem</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-checkboxmenuitem.html">7.9.5. CheckMenuItem</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-radiobuttonmenu.html">7.9.6. RadioMenuItem</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="menu-separatormenuitem.html">7.9.7. MenuSeparator</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+     &nbsp;
+    </div>
+    <span class="section"><a href="ui-utils-api.html">7.10. UI utilities API</a></span>
+   </dt>
+   <dd class=" hidden">
+    <dl>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-style.html">7.10.1. Style</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-icon.html">7.10.2. Icon</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-fontstyle.html">7.10.3. FontStyle</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-font.html">7.10.4. Font</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-color.html">7.10.5. Color</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-horizontalposition.html">7.10.6. HorizontalPosition</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-verticalpositon.html">7.10.7. VerticalPosition</a></span>
+     </dt>
+     <dt style="margin-left:12px">
+      <span class="section" style="margin-left:12px; display:block"><a href="ui-utils-orientation.html">7.10.8. Orientation</a></span>
+     </dt>
+    </dl>
+   </dd>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="ui-dialogs.html">7.11. Dialogs API</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="report-chapter.html">8. Report</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="intro-report.html">8.1. Introduction to reports</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="new-report.html">8.2. New report creation</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="report-editor.html">8.3. Reports editor</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="report-template-tags.html">8.4. Template tags</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="report-js.html">8.5. Report API</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
+   &nbsp;
+  </div>
+  <span class="chapter"><a href="web-chapter.html">9. HTTP</a></span>
+ </dt>
+ <dd class=" hidden">
+  <dl>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="web-http.html">9.1. HTTP interface</a></span>
+   </dt>
+   <dt style="margin-left:12px">
+    <span class="section" style="margin-left:12px; display:block"><a href="web-req-resp.html">9.2. HTTP request and response API</a></span>
+   </dt>
+  </dl>
+ </dd>
+ <dt>
+  <span class="appendix" style="margin-left:12px; display:block"><a href="revision-history.html">A. Revision History</a></span>
+ </dt>
+ <dt>
+  <span class="index" style="margin-left:12px; display:block"><a href="doc-index.html">Index</a></span>
+ </dt>
+</dl></div>
+            </div>
+        </div>
+
+    </body>
+</html>
