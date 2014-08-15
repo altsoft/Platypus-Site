@@ -169,6 +169,7 @@ div.featureTag:hover  {
 
 div.featureTag > i {
 	font-size: 52px;
+	font-weight: normal;
 }
 
 div.featureDescription {
