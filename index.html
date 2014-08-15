@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Platypus.js the best way to create your apps</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom Google Web Font -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    
+    <!-- Code prettifier -->
+    <link href="css/prizm.css" rel="stylesheet">
+    
+    
+    <!-- Add custom CSS here -->
+    <link href="css/landing-page.css" rel="stylesheet">
+    <link href="fi/flaticon.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href=#">Platypus.js</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://www.platypus-platform.org/downloads.jsp">Examples</a>
+                    </li>
+                    <li><a href="http://www.platypus-platform.org/downloads.jsp">Download</a>
+                    </li>
+                    <li><a href="http://www.platypus-platform.org/docs.jsp">Documentation</a>
+                    </li>
+                    <li><a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <section id="Welcome">
+    <div class="intro-header">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Platypus.js</h1>
+                        <h3>Probably the best way to create your web and desktop apps</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li><a href="http://www.platypus-platform.org/downloads.jsp" class="btn btn-default btn-lg"><i class="fa fa-download fa-fw"></i> <span class="network-name">Download</span></a>
+                            </li>
+                            <li><a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-inbox fa-fw"></i> <span class="network-name">Subscribe</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    </section>
+    <!-- /.intro-header -->
+    
+    <section id="PlatypusJS">
+    <div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Client-Server JavaScript platform
+                        <br>for Rapid Application Development.</h2>
+                    <p class="lead">Platypus.js is all-in-one software platform for building applications in 100% JavaScript and run them on JVM and in a browser.</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/main-diagram.png" alt="">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-2 col-sm-0 featureTag desktop_web_apps" onclick="showFeature('desktop_web_apps')">
+                   <i class="flaticon-application"></i><h4>Desktop and web apps</h4>
+                </div>
+                <div class="col-lg-2 col-sm-0 featureTag moduleSystem" onclick="showFeature('moduleSystem')">
+                   <i class="flaticon-css2"></i><h4>Module system</h4>
+                </div>
+                <div class="col-lg-2 col-sm-0 featureTag Security" onclick="showFeature('Security')">
+                   <i class="flaticon-group16"></i><h4>Role-based security</h4> 
+                </div>
+                <div class="col-lg-2 col-sm-0 featureTag multiThreating" onclick="showFeature('multiThreating')">
+                   <i class="flaticon-arrow109"></i><h4>Multi-threading in JavaScript</h4> 
+                </div>
+                <div class="col-lg-2 col-sm-0 featureTag UIforms" onclick="showFeature('UIforms')">
+                    <i class="flaticon-window33"></i><h4>Universal UI forms and widgets</h4> 
+                </div>
+                <div class="col-lg-2 col-sm-0 featureTag dataOnFingers" onclick="showFeature('dataOnFingers')">
+                    <i class="flaticon-data45"></i><h4>Data is on your fingerprints</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="featureDescription desktop_web_apps">
+                    <h3>Develop desktop and web apps using JS</h3>
+                    <p>Sometimes a browser is just not enough for your application as a client.
+                    <br>Maybe you do not need an application server at all.
+                    <br>In this case use the desktop Java SE client to run the same UI forms as a HTML5 browser.</p>
+                </div>
+                <div class="featureDescription moduleSystem">
+                    <h3>Module system</h3>
+                    <p>Modules are Plain Old JavaScript Objects with some extra features:
+                    <ul>
+                        <li>automatic dependencies resolving,</li>
+                        <li>security subsytem,</li>
+                        <li>data model - it's a module's persistence manager. It provides access to the data obtained from a data source (relational database, NoSQL database, etc).</li>
+                    </ul>Modules can run on a client as well as on a server.
+                    <br>The code snippet below shows a simple module example:</p>
+                    <pre>
+                        <code class="language-javascript">
+    function Documents {
+        var model = this.model;
+        this.logDocuments = function(categoryId) {
+            model.params.catId = categoryId; // The model's data is requeried on parameter's change
+            model.documents.forEach(function(doc) {
+                Logger.info("Document name: " + doc.Name);
+            });
+        }
+    }</code>
+                    </pre>
+                    
+                </div>
+                <div class="featureDescription Security">
+                    <h3>Security</h3>
+                    <p>Security support comes out-of-the-box in Platypus.js. Every resource like module or SQL query can be protected on the base of a currently logged-in user's roles. Platypus.js security subsystem is based on the Java EE security model and provides a very configurable mechanism for restricting access.
+                    <br>Various user information storages are supported. Use database user information storage or any external provider like Microsoft Active Directory or an OpenLDAP server.</p>
+                    <div class="col-lg-6 col-sm-0">
+                        <h4>Security annotations in JS modules</h4>
+                        <pre>
+                            <code class="language-javascript">/**Any Platypus module starts with the JsDoc annotation
+ * @author athorName
+ * @public - to allow usage from the client side
+ * @rolesAllowed admin, user0 - to set user roles allowed to use this module
+ */
+ 
+function myModuleName() {
+    var self = this;
+    
+    //You can define allowed roles before each function
+    /*
+     * @rolesAllowed admin
+     */
+    function adminIsGreat() {
+        Logger.info("Admin is a great man!");
+        if (self.principal.hasRole('developer'))
+            Logger.info("Ah, you are God!;)");
+    }
+}</code>
+                        </pre>
+                    </div>
+                    <div class="col-lg-6 col-sm-0">
+                        <h4>Useful annotations in SQL queries</h4>
+                        <pre>
+                            <code class="language-sql">/**
+ * @author authorName
+ * @name myQuery
+ * @public - to allow usage from the client side
+ * @rolesAllowed user0, maintain, admin
+ * @rolesAllowedToRead guestUser
+ * @rolesAllowedToWrite ghostUser
+ */
+ Select *
+ From someTable t1
+ Where t1.someColumn = :myParam</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="featureDescription multiThreating">
+                    <h3>Multi-threating in JavaScript</h3>
+                    <p>Asynchronous coding style for the server-side logic can make your programs very complex, hard to read and maintain, leading to so called 'callback hell'. More traditional coding model with blocking IO allows to write much more cleaner and simpler code. We think that a developer should have a choice to choose the IO model for the concrete situation and to be allowed to use true multi-threading.
+                    <br>In Platypus.js server JavaScript works in multi-threading environment providing performance is good enough for the most types of applications (don't forget all UI logic runs on the client side).</p>
+                    <h4>Here is an example of traditional threat creating:</h4>
+                    <pre>
+                        <code class="language-javascript">  var fLock = new Lock; //use it as a semafor;
+    
+    for (var i = 0; i <= 10; i++)
+    (function() {
+            myBackgroundTask(i);
+        }).invokeBackground();//To execute function "myBackgroundTask" in another thread
+    
+    function myBackgroundTask(someParams) {
+        //some useful code here
+        fLock.lock(); //in case when semafor isn't locked thread continue to execute, in the other case it'll wait for unlock
+        //some more useful code here :)
+        fLock.unlock(); //unlocks the a semafor
+        (function() {
+                doSomethingReallyAmazing();
+            }).invokeAndWait(); //launch function "doSomethingReallyAmazing" from the background threat, it will stop the current threat while executing
+    }</code>
+                    </pre>
+                <h4>And here is an example of the callback model: </h4>
+                <pre>
+                    <code class="language-javascript">  function doItInCallback() {
+        //some code here
+    }
+    
+    //let's query data from a database and execute function "doItInCallback" after recieving data
+    model.myDataSet.requery(doItInCallback,
+        function(){
+            Logger.warning("Couldn't load data!");
+        }); //the first param used as the succesfull callback function and the second as the failure callback;
+    
+    doSomeMoreWork() //it will be executed immideatly after calling the above requery function without waiting for it's result
+    //there are a lot of functions that coud work asynchronius to learn more have a look at the documentation</code>
+                </pre>
+                </div>
+                <div class="featureDescription UIforms">
+                    <h3>Universal UI forms</h3>
+                    <p>A form is a kind of a module with UI layout definition in a XML file.
+                    <br>Single-page web application or Java SE desktop application share the same forms. A library of widgets includes a bunch of simple controls, panels and menus as well as smart model widgets which work directly with the model. With visual form editor you can create your application user interface without any coding and knowing about HTML and CSS.</p>
+                </div>
+                <div class="featureDescription dataOnFingers">
+                    <h3>Data is on your fingertips</h3>
+                    <p>Use databases native language Ñ SQL. You can say exactly what you want from a database: how query data, insert or update.
+                    In our platform we go further: Platypus.js can formulate data change commands on the base of SELECT data queries.
+                    You can write database-specific queries if you want. ORM subsystem transforms relational data into JavaScript objects.
+                    <br><h4>For example you have an SQL query:</h4>
+                    <pre><code class="language-sql">/**
+ * @author greatMan
+ * @name testQuery
+ * @public
+ * @writable employees - this annotation tells Platypus what table could be modified
+ */
+ 
+ select t1.employee_id, t1.employee_name, t2.city_name
+ from employees t1
+ inner join cities t2 on t1.city_id = t2.city_id</code>
+                    </pre><h4>
+                    This query is connected with module data model.
+                    And it's became a new JS object. It's time to do a lot of great things with it.</h4>
+                    <pre><code class="language-javascript">/**
+ * @author oneGreatMan
+ * @public
+ */
+ 
+function employeeUtils() {
+    var self = this, model = this.model, form = this; //this line was automaticly generated on module creation
+    var query = model.testQuery; //we could define any other name to this query in module data model;
+    
+    function processEmployees() {
+        query.beforeFirst(); //each datasource have data cursor. You can control it's position by next commands: first, next, prev, last, beforeFirst and etc.
+        while (query.next()) {
+            if (isEmployeeBad) {
+                query.deleteRow()
+            } else {
+                query.employee_name = getNewEmployeeName(query.employee_name);
+            }
+        }
+        model.save(); //it will save all data changes at exactly same sequence that it was made
+    }
+}</code></pre>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+
+    </div>
+    </section>
+    <!-- /.content-section-a -->
+    
+    <section id="IDE">
+    <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Complete IDE based on Netbeans
+                        <br>for all your needs</h2>
+                    <p class="lead">Create js modules, construct web and desktop forms, create sql queries with few clicks and much more. <a href="#">Want to know more about the IDE?</a></p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <img class="img-responsive" src="img/doge.png" alt="">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-2 col-sm-0 featureTag">
+                   <i class="flaticon-databases"></i><h4>Database structure</h4> 
+                </div>
+                <div class="col-lg-2 col-sm-0 featureTag">
+                   <i class="flaticon-sql2"></i><h4>SQL queries</h4>
+                </div>
+                <div class="col-lg-2 col-sm-0 featureTag">
+                   <i class="flaticon-css2"></i><h4>Source code</h4> 
+                </div>
+                <div class="col-lg-2 col-sm-0 featureTag">
+                    <i class="flaticon-diagram1"></i><h4>Data model</h4>
+                </div>
+                <div class="col-lg-2 col-sm-0 featureTag">
+                   <i class="flaticon-page37"></i><h4>User interface</h4> 
+                </div>
+                <div class="col-lg-2 col-sm-0 featureTag">
+                    <i class="flaticon-seo2"></i><h4>Reports</h4> 
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+        
+    </div>
+    <!-- /.content-section-b -->
+    </section>
+
+    <div class="banner">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Try Platypus.js right now:</h2>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="list-inline banner-social-buttons">
+                        <li><a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-download fa-fw"></i> <span class="network-name">Download</span></a>
+                        </li>
+                        <li><a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-inbox fa-fw"></i> <span class="network-name">Subscribe for updates</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.banner -->
+    
+    <div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Platypus.js is very quick to learn</h2>
+                    <p class="lead">Our philosophy is try to make things simpler. Only knowledge of JavaScript, SQL and database design are essential to start with Platypus.js</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/skills.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+    
+    <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Small teams vs. BIG projects
+                    </h2>
+                    <p class="lead">Using of a high level language such as JavaScript can make your team very productive. Visual tools can make it even faster. Any member of a team works with the same tools and languages, that is why developers are interchangeable and they can work truly in parallel.</p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <img class="img-responsive" src="img/devs.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-b -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li><a href="#home">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#about">About</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#services">Services</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Your Company 2013. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/pageHandler.js"></script>
+    <script src="js/code-styler.js"></script>
+</body>
+
+</html>
