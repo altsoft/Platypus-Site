@@ -199,10 +199,10 @@ function myModuleName() {
                     </div>
                 </div>
                 <div class="featureDescription multiThreating">
-                    <h3>Multi-threating in JavaScript</h3>
+                    <h3>Multi-threading in JavaScript</h3>
                     <p>Asynchronous coding style for the server-side logic can make your programs very complex, hard to read and maintain, leading to so called 'callback hell'. More traditional coding model with blocking IO allows to write much more cleaner and simpler code. We think that a developer should have a choice to choose the IO model for the concrete situation and to be allowed to use true multi-threading.
                     <br>In Platypus.js server JavaScript works in multi-threading environment providing performance is good enough for the most types of applications (don't forget all UI logic runs on the client side).</p>
-                    <h4>Here is an example of traditional threat creating:</h4>
+                    <h4>Here is an example of traditional thread creating:</h4>
                     <pre>
                         <code class="language-javascript">  var fLock = new Lock; //use it as a semafor;
     
@@ -218,7 +218,7 @@ function myModuleName() {
         fLock.unlock(); //unlocks the a semafor
         (function() {
                 doSomethingReallyAmazing();
-            }).invokeAndWait(); //launch function "doSomethingReallyAmazing" from the background threat, it will stop the current threat while executing
+            }).invokeAndWait(); //launch function "doSomethingReallyAmazing" from the background thread, it will stop the current thread while executing
     }</code>
                     </pre>
                 <h4>And here is an example of the callback model: </h4>
