@@ -201,8 +201,8 @@ function myModuleName() {
                 <div class="featureDescription multiThreading">
                     <h3>Multi-threading in JavaScript</h3>
                     <p>Asynchronous coding style for the server-side logic can make your programs very complex, hard to read and maintain, leading to so called 'callback hell'. More traditional coding model with blocking IO allows to write much more cleaner and simpler code. We think that a developer should have a choice to choose the IO model for the concrete situation and to be allowed to use true multi-threading.
-                    <br>In Platypus.js server JavaScript works in multi-threading environment providing performance is good enough for the most types of applications (don't forget all UI logic runs on the client side).</p>
-                    <h4>Here is an example of traditional thread creating:</h4>
+                    <br>In Platypus.js server JavaScript works in multi-threading environment providing performance is good enough for the most types of applications (don't forget all UI logic runs on the client side). On the server side asynchronous IO model implementation is upcoming in future releases.</p>
+                    <h4>Here is an example of thread creating:</h4>
                     <pre>
                         <code class="language-javascript">  var fLock = new Lock; //use it as a semafor;
     
@@ -218,10 +218,10 @@ function myModuleName() {
         fLock.unlock(); //unlocks the a semafor
         (function() {
                 doSomethingReallyAmazing();
-            }).invokeAndWait(); //launch function "doSomethingReallyAmazing" from the background thread, it will stop the current thread while executing
+            }).invokeLater(); //launch function "doSomethingReallyAmazing" from the background thread in UI thread, it will not stop the current thread while executing
     }</code>
                     </pre>
-                <h4>And here is an example of the callback model: </h4>
+                <h4>And here is an example of the asynchronous data-query execution: </h4>
                 <pre>
                     <code class="language-javascript">  function doItInCallback() {
         //some code here
@@ -234,7 +234,7 @@ function myModuleName() {
         }); //the first param used as the succesfull callback function and the second as the failure callback;
     
     doSomeMoreWork() //it will be executed immideatly after calling the above requery function without waiting for it's result
-    //there are a lot of functions that coud work asynchronius to learn more have a look at the documentation</code>
+    //there are a lot of functions that coud work asynchronius to learn more have a look at the documentation.</code>
                 </pre>
                 </div>
                 <div class="featureDescription UIforms">
