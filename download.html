@@ -113,20 +113,23 @@
             <h1>Requirements</h1>
         
             <p>
-                To run the IDE you need <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="blank">JDK 8 version 40 or higher</a>.
+                To run the IDE you need <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="blank">JDK 8 update 40 or higher</a>.
                 <br/>
                 <a href="http://tomcat.apache.org/download-80.cgi" target="blank">Apache Tomcat 8</a> is required for running the web applications.
             </p>
 
             <h1>Notes</h1>
 	    <p>
-	     If you have <em>file not found exception</em> while platypus updating process, you should fix this by using one of folowing methods:
+	     If you have problems with platypus updating process on <em>Windows</em> (<em>"file not found message"</em> or nothing happens after clicking on update message in platypus designer), you may fix this by using one of folowing approaches:
                     <ul>
                         <li>
-			  Add your Java Installation BIN directory (like: C:\Program Files\Java\jre8\bin) in Windows System PATH variable so that all Executable files like java.exe inside BIN folder can be invoked from anywhere.
+			  Add your Java Installation BIN directory (like: C:\Program Files\Java\jre8\bin) in Windows System PATH variable so that all Executable files like javaw.exe inside BIN folder can be invoked from anywhere.
 			</li>
 			<li>
-			  Replace softlink (like: C:\Program Files\Java\jre8\bin\javaws.exe) to hardlink by using command mklink /H &ltlink&gt &lttarget&gt.
+			  Replace softlink (like: C:\ProgramData\Oracle\Java\javapath\javaw.exe) to hardlink by using command mklink /H &ltlink&gt &lttarget&gt (mklink /H C:\ProgramData\Oracle\Java\javapath\javaw.exe "C:\Program Files\Java\jre1.8.0_45\bin\javaw.exe").
+			</li>
+			<li>
+			  Wait until Microsoft will fix symlink problems, or Oracle will stop using them in java's installer.
 			</li>
                    </ul>
 	    </p>
