@@ -1356,6 +1356,21 @@ column on the pets grid. For this component specify the <span class="monospaced"
 <span class="monospaced">petTypes</span> entity.</p></div>
 <div class="paragraph"><p>At the next step we&#8217;ll write some JavaScript code for the OwnerView
 form.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>self<span style="color: #990000">.</span>showModal <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>aCallback<span style="color: #990000">,</span> aID<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    callback <span style="color: #990000">=</span> aCallback<span style="color: #990000">;</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span>aID<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+        model<span style="color: #990000">.</span>ownerQuery<span style="color: #990000">.</span>params<span style="color: #990000">.</span>ownerID <span style="color: #990000">=</span> aID<span style="color: #990000">;</span>
+        model<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">requery</span></span><span style="color: #990000">();</span>
+    <span style="color: #FF0000">}</span> <span style="font-weight: bold"><span style="color: #0000FF">else</span></span> <span style="color: #FF0000">{</span>
+        model<span style="color: #990000">.</span>ownerQuery<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">push</span></span><span style="color: #990000">(</span><span style="color: #FF0000">{}</span><span style="color: #990000">);</span>
+    <span style="color: #FF0000">}</span>
+    form<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">showModal</span></span><span style="color: #990000">();</span>
+<span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
 <div class="paragraph"><p>Double click on the OK button and insert the handler code to save the
 owner&#8217;s data:</p></div>
 <div class="listingblock">
@@ -1363,21 +1378,23 @@ owner&#8217;s data:</p></div>
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
-<pre><tt><span style="font-style: italic"><span style="color: #9A1900">/**</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> * Save button's click event handler.</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> * </span></span><span style="color: #009900">@param</span><span style="font-style: italic"><span style="color: #9A1900"> event Event object</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> */</span></span>
-form<span style="color: #990000">.</span>okButton<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span>model<span style="color: #990000">.</span>modified<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-        <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> message <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #000000">validate</span></span><span style="color: #990000">();</span>
-        <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>message<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-            model<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">save</span></span><span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">()</span> <span style="color: #FF0000">{</span>
-                <span style="font-weight: bold"><span style="color: #000000">close</span></span><span style="color: #990000">(</span>owner<span style="color: #990000">.</span>owner_id<span style="color: #990000">);</span>
-            <span style="color: #FF0000">}</span><span style="color: #990000">);</span>
+<pre><tt>form<span style="color: #990000">.</span>btnSave<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+        <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span>model<span style="color: #990000">.</span>modified<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+            <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> message <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #000000">validate</span></span><span style="color: #990000">();</span>
+            <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>message<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+                model<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">save</span></span><span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">()</span> <span style="color: #FF0000">{</span>
+                    <span style="font-weight: bold"><span style="color: #000000">callback</span></span><span style="color: #990000">();</span>
+                <span style="color: #FF0000">}</span><span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">()</span> <span style="color: #FF0000">{</span>
+                    P<span style="color: #990000">.</span>Logger<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">Info</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"Failed on save"</span><span style="color: #990000">);</span>
+                <span style="color: #FF0000">}</span><span style="color: #990000">);</span>
+                form<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">close</span></span><span style="color: #990000">();</span>
+            <span style="color: #FF0000">}</span> <span style="font-weight: bold"><span style="color: #0000FF">else</span></span> <span style="color: #FF0000">{</span>
+                <span style="font-weight: bold"><span style="color: #000000">alert</span></span><span style="color: #990000">(</span>message<span style="color: #990000">);</span>
+            <span style="color: #FF0000">}</span>
         <span style="color: #FF0000">}</span> <span style="font-weight: bold"><span style="color: #0000FF">else</span></span> <span style="color: #FF0000">{</span>
-            <span style="font-weight: bold"><span style="color: #000000">alert</span></span><span style="color: #990000">(</span>message<span style="color: #990000">,</span> title<span style="color: #990000">);</span>
+            form<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">close</span></span><span style="color: #990000">();</span>
         <span style="color: #FF0000">}</span>
-    <span style="color: #FF0000">}</span>
+    <span style="color: #FF0000">}</span><span style="color: #990000">;</span>
 <span style="color: #FF0000">}</span></tt></pre></div></div>
 <div class="paragraph"><p>In the handler code snippet above validation function is invoked and if
 successful then changes are saved to the database. Write the <span class="monospaced">validate</span>
@@ -1392,7 +1409,10 @@ http://www.gnu.org/software/src-highlite -->
 <span style="font-style: italic"><span style="color: #9A1900"> * </span></span><span style="color: #009900">@return</span><span style="font-style: italic"><span style="color: #9A1900"> Validation error message or false value if form is valid</span></span>
 <span style="font-style: italic"><span style="color: #9A1900"> */</span></span>
 <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="font-weight: bold"><span style="color: #000000">validate</span></span><span style="color: #990000">()</span> <span style="color: #FF0000">{</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> <span style="font-weight: bold"><span style="color: #0000FF">null</span></span><span style="color: #990000">;</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> message <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #000000">validateOwner</span></span><span style="color: #990000">();</span>
+    message <span style="color: #990000">+=</span> <span style="font-weight: bold"><span style="color: #000000">validatePets</span></span><span style="color: #990000">();</span>
+    message <span style="color: #990000">+=</span> <span style="font-weight: bold"><span style="color: #000000">validateVisits</span></span><span style="color: #990000">();</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> message<span style="color: #990000">;</span>
 <span style="color: #FF0000">}</span></tt></pre></div></div>
 <div class="paragraph"><p>Double click on the Cancel button and insert JavaScript code to perform
 the form close action:</p></div>
@@ -1408,22 +1428,6 @@ http://www.gnu.org/software/src-highlite -->
 form<span style="color: #990000">.</span>cancelButton<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
     form<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">close</span></span><span style="color: #990000">();</span>
 <span style="color: #FF0000">}</span></tt></pre></div></div>
-<div class="paragraph"><p>To ensure that a new owner row is inserted add the onRequeried event
-handler for the <span class="monospaced">owner</span> entity:</p></div>
-<div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
-by Lorenzo Bettini
-http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite -->
-<pre><tt><span style="font-style: italic"><span style="color: #9A1900">/**</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> * Data model's OnRequired event handler.</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> * </span></span><span style="color: #009900">@param</span><span style="font-style: italic"><span style="color: #9A1900"> evt Event object</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> */</span></span>
-model<span style="color: #990000">.</span>owner<span style="color: #990000">.</span>onRequeried <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>evt<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>model<span style="color: #990000">.</span>params<span style="color: #990000">.</span>ownerId<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-        owner<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">insert</span></span><span style="color: #990000">();</span>
-    <span style="color: #FF0000">}</span>
-<span style="color: #FF0000">}</span></tt></pre></div></div>
 <div class="paragraph"><p>The event handler above will be invoked on form initialization.</p></div>
 <div class="paragraph"><p>Now it is time to add the code for the pets and their visits management.</p></div>
 <div class="paragraph"><p>Insert pets Add button <span class="monospaced">onActionPerformed</span> event handler to add a new
@@ -1437,10 +1441,9 @@ http://www.gnu.org/software/src-highlite -->
 <span style="font-style: italic"><span style="color: #9A1900"> * The add pet button's click event handler.</span></span>
 <span style="font-style: italic"><span style="color: #9A1900"> * </span></span><span style="color: #009900">@param</span><span style="font-style: italic"><span style="color: #9A1900"> evt Event object</span></span>
 <span style="font-style: italic"><span style="color: #9A1900"> */</span></span>
-form<span style="color: #990000">.</span>addPetButton<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>evt<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-    model<span style="color: #990000">.</span>pets<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">insert</span></span><span style="color: #990000">();</span>
-    model<span style="color: #990000">.</span>pets<span style="color: #990000">.</span>cursor<span style="color: #990000">.</span>owner <span style="color: #990000">=</span> model<span style="color: #990000">.</span>params<span style="color: #990000">.</span>owner_id<span style="color: #990000">;</span>
-<span style="color: #FF0000">}</span></tt></pre></div></div>
+form<span style="color: #990000">.</span>btnAddPet<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    model<span style="color: #990000">.</span>petsQuery<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">push</span></span><span style="color: #990000">(</span><span style="color: #FF0000">{}</span><span style="color: #990000">);</span>
+<span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
 <div class="paragraph"><p>Insert pets Delete button <span class="monospaced">onActionPerformed</span> event handler to delete a
 pet:</p></div>
 <div class="listingblock">
@@ -1450,14 +1453,17 @@ http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
 <pre><tt><span style="font-style: italic"><span style="color: #9A1900">/**</span></span>
 <span style="font-style: italic"><span style="color: #9A1900"> * Delete pet button's click event handler.</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> * Deletes the selected pet.</span></span>
+<span style="font-style: italic"><span style="color: #9A1900"> * Deletes the selected pets.</span></span>
 <span style="font-style: italic"><span style="color: #9A1900"> * </span></span><span style="color: #009900">@param</span><span style="font-style: italic"><span style="color: #9A1900"> evt Event object</span></span>
 <span style="font-style: italic"><span style="color: #9A1900"> */</span></span>
-form<span style="color: #990000">.</span>deletePetButton<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>evt<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #000000">confirm</span></span><span style="color: #990000">(</span><span style="color: #FF0000">'Delete pet?'</span><span style="color: #990000">,</span> title<span style="color: #990000">))</span> <span style="color: #FF0000">{</span>
-        model<span style="color: #990000">.</span>pets<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">deleteRow</span></span><span style="color: #990000">();</span>
+form<span style="color: #990000">.</span>btnDeletePet<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #000000">confirm</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"Delete selected pets?"</span><span style="color: #990000">))</span> <span style="color: #FF0000">{</span>
+        <span style="font-weight: bold"><span style="color: #0000FF">for</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">var</span></span> i <span style="font-weight: bold"><span style="color: #0000FF">in</span></span> form<span style="color: #990000">.</span>grdPets<span style="color: #990000">.</span>selected<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+            model<span style="color: #990000">.</span>petsQuery<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">splice</span></span><span style="color: #990000">(</span>model<span style="color: #990000">.</span>petsQuery<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">indexOf</span></span><span style="color: #990000">(</span>form<span style="color: #990000">.</span>grdPets<span style="color: #990000">.</span>selected<span style="color: #990000">[</span>i<span style="color: #990000">]),</span> <span style="color: #993399">1</span><span style="color: #990000">);</span>
+        <span style="color: #FF0000">}</span>
+        model<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">save</span></span><span style="color: #990000">();</span>
     <span style="color: #FF0000">}</span>
-<span style="color: #FF0000">}</span></tt></pre></div></div>
+<span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
 <div class="paragraph"><p>Insert visits Add button <span class="monospaced">onActionPerformed</span> event handler to add a new
 visit to the hotel:</p></div>
 <div class="listingblock">
@@ -1469,9 +1475,10 @@ http://www.gnu.org/software/src-highlite -->
 <span style="font-style: italic"><span style="color: #9A1900"> * Add visit button's click event handler.</span></span>
 <span style="font-style: italic"><span style="color: #9A1900"> * </span></span><span style="color: #009900">@param</span><span style="font-style: italic"><span style="color: #9A1900"> evt Event object</span></span>
 <span style="font-style: italic"><span style="color: #9A1900"> */</span></span>
-form<span style="color: #990000">.</span>addVisitButton<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>evt<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-    model<span style="color: #990000">.</span>visits<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">insert</span></span><span style="color: #990000">();</span>
-<span style="color: #FF0000">}</span></tt></pre></div></div>
+form<span style="color: #990000">.</span>btnAddVisit<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    model<span style="color: #990000">.</span>visitsQuery<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">push</span></span><span style="color: #990000">(</span><span style="color: #FF0000">{}</span><span style="color: #990000">);</span>
+    model<span style="color: #990000">.</span>visitsQuery<span style="color: #990000">.</span>cursor<span style="color: #990000">.</span>FROMDATE <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">new</span></span> <span style="font-weight: bold"><span style="color: #000000">Date</span></span><span style="color: #990000">();</span>
+<span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
 <div class="paragraph"><p>Insert visits Delete button <span class="monospaced">onActionPerformed</span> event handler to delete
 a pet&#8217;s visit:</p></div>
 <div class="listingblock">
@@ -1483,11 +1490,14 @@ http://www.gnu.org/software/src-highlite -->
 <span style="font-style: italic"><span style="color: #9A1900"> * Delete visit button's click event handler.</span></span>
 <span style="font-style: italic"><span style="color: #9A1900"> * </span></span><span style="color: #009900">@param</span><span style="font-style: italic"><span style="color: #9A1900"> evt Event object</span></span>
 <span style="font-style: italic"><span style="color: #9A1900"> */</span></span>
-form<span style="color: #990000">.</span>deleteVisitButton<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>evt<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #000000">confirm</span></span><span style="color: #990000">(</span><span style="color: #FF0000">'Delete visit?'</span><span style="color: #990000">,</span> title<span style="color: #990000">))</span> <span style="color: #FF0000">{</span>
-        model<span style="color: #990000">.</span>visits<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">deleteRow</span></span><span style="color: #990000">();</span>
+form<span style="color: #990000">.</span>btnDeleteVisit<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #000000">confirm</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"Delete selected visits?"</span><span style="color: #990000">))</span> <span style="color: #FF0000">{</span>
+        <span style="font-weight: bold"><span style="color: #0000FF">for</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">var</span></span> i <span style="font-weight: bold"><span style="color: #0000FF">in</span></span> form<span style="color: #990000">.</span>grdVisits<span style="color: #990000">.</span>selected<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+            model<span style="color: #990000">.</span>visitsQuery<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">splice</span></span><span style="color: #990000">(</span>model<span style="color: #990000">.</span>visitsQuery<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">indexOf</span></span><span style="color: #990000">(</span>form<span style="color: #990000">.</span>grdVisits<span style="color: #990000">.</span>selected<span style="color: #990000">[</span>i<span style="color: #990000">]),</span> <span style="color: #993399">1</span><span style="color: #990000">);</span>
+        <span style="color: #FF0000">}</span>
+        model<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">save</span></span><span style="color: #990000">();</span>
     <span style="color: #FF0000">}</span>
-<span style="color: #FF0000">}</span></tt></pre></div></div>
+<span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
 <div class="paragraph"><p>Next we will provide the logic for the form validation. Edit the
 <span class="monospaced">validate</span> function and implement it as follows to perform the owner&#8217;s
 and the pets and visits validation:</p></div>
@@ -1518,20 +1528,23 @@ http://www.gnu.org/software/src-highlite -->
 <span style="font-style: italic"><span style="color: #9A1900"> */</span></span>
 <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="font-weight: bold"><span style="color: #000000">validateOwner</span></span><span style="color: #990000">()</span> <span style="color: #FF0000">{</span>
     <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> message <span style="color: #990000">=</span> <span style="color: #FF0000">""</span><span style="color: #990000">;</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>owner<span style="color: #990000">.</span>firstname<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>form<span style="color: #990000">.</span>edFirstName<span style="color: #990000">.</span>value<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
         message <span style="color: #990000">+=</span> <span style="color: #FF0000">"First name is required.</span><span style="color: #CC33CC">\n</span><span style="color: #FF0000">"</span><span style="color: #990000">;</span>
     <span style="color: #FF0000">}</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>owner<span style="color: #990000">.</span>lastname<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>form<span style="color: #990000">.</span>edLastName<span style="color: #990000">.</span>value<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
         message <span style="color: #990000">+=</span> <span style="color: #FF0000">"Last name is required.</span><span style="color: #CC33CC">\n</span><span style="color: #FF0000">"</span><span style="color: #990000">;</span>
     <span style="color: #FF0000">}</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>owner<span style="color: #990000">.</span>address<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>form<span style="color: #990000">.</span>edAddress<span style="color: #990000">.</span>value<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
         message <span style="color: #990000">+=</span> <span style="color: #FF0000">"Address is required.</span><span style="color: #CC33CC">\n</span><span style="color: #FF0000">"</span><span style="color: #990000">;</span>
     <span style="color: #FF0000">}</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>owner<span style="color: #990000">.</span>city<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>form<span style="color: #990000">.</span>edCity<span style="color: #990000">.</span>value<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
         message <span style="color: #990000">+=</span> <span style="color: #FF0000">"City is required.</span><span style="color: #CC33CC">\n</span><span style="color: #FF0000">"</span><span style="color: #990000">;</span>
     <span style="color: #FF0000">}</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>owner<span style="color: #990000">.</span>telephone<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>form<span style="color: #990000">.</span>edPhone<span style="color: #990000">.</span>value<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
         message <span style="color: #990000">+=</span> <span style="color: #FF0000">"Phone number is required.</span><span style="color: #CC33CC">\n</span><span style="color: #FF0000">"</span><span style="color: #990000">;</span>
+    <span style="color: #FF0000">}</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>form<span style="color: #990000">.</span>edEmale<span style="color: #990000">.</span>value<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+        message <span style="color: #990000">+=</span> <span style="color: #FF0000">"E-Mail is required.</span><span style="color: #CC33CC">\n</span><span style="color: #FF0000">"</span><span style="color: #990000">;</span>
     <span style="color: #FF0000">}</span>
     <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> message<span style="color: #990000">;</span>
 <span style="color: #FF0000">}</span></tt></pre></div></div>
@@ -1616,102 +1629,53 @@ works correctly.</p></div>
 login dialogue. For this set the correspondent checkbox in the
 application project properties. The user name <span class="monospaced">admin</span> with <span class="monospaced">masterkey</span>
 password are the default credentials you can use to login.</p></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="improving-the-owners-list-form">Improving the owners list form</h2>
-<div class="sectionbody">
-<div class="paragraph"><p>In this section we are going to add a new column on the owners grid list
-to display pets names.</p></div>
-<div class="paragraph"><p>Open for edit the <span class="monospaced">OwnersView</span> form layout and drag-and-drop a new Model
-Grid Column widget on the owners list grid component. Set the column
-name and its header text. Do not connect this column with any of the
-entities fields. For this column we are going to use a separate SQL
-query to retrieve the pets list and output it using the specific
-JavaScript code.</p></div>
-<div class="paragraph"><p>Create a new query named <span class="monospaced">OwnersPets</span> to select the owners and their
-pets. Configure this query using the visual editor. Notice that in this
-query we use the <span class="monospaced">OwnersQuery</span> subquery. Add the <span class="monospaced">OwnersQuery</span> and the
-<span class="monospaced">Pets</span> table and connect the keys fields with a link. The result SQL is
-to be like the follows:</p></div>
-<div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
-by Lorenzo Bettini
-http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite -->
-<pre><tt><span style="font-style: italic"><span style="color: #9A1900">/**</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> * Gets the owners and their pets.</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> * </span></span><span style="color: #009900">@public</span>
-<span style="font-style: italic"><span style="color: #9A1900"> * </span></span><span style="color: #009900">@name</span><span style="font-style: italic"><span style="color: #9A1900"> OwnersPets</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> */</span></span>
-<span style="font-weight: bold"><span style="color: #0000FF">Select</span></span> q1<span style="color: #990000">.</span>owner_id<span style="color: #990000">,</span> t<span style="color: #990000">.</span>name
-<span style="font-weight: bold"><span style="color: #0000FF">From</span></span> OwnersQuery q1
- <span style="font-weight: bold"><span style="color: #0000FF">Left</span></span> <span style="font-weight: bold"><span style="color: #0000FF">Outer</span></span> <span style="font-weight: bold"><span style="color: #0000FF">Join</span></span> Pets t <span style="font-weight: bold"><span style="color: #0000FF">on</span></span> t<span style="color: #990000">.</span>owner <span style="color: #990000">=</span> q1<span style="color: #990000">.</span>owner_id</tt></pre></div></div>
-<div class="paragraph"><p>Add the <span class="monospaced">lastNamePattern</span> parameter to the query and bind the parameter
-to the <span class="monospaced">OwnersQuery</span> subquery.</p></div>
-<div class="paragraph"><p>Please notice that a client&#8217;s data model has asynchronous nature. Thus
-the queries execution results are delivered to the client
-asynchronously. In the case when we need to display the combined data on
-a single widget (a column cell in our application) we have to take care
-about it.</p></div>
-<div class="paragraph"><p><span class="image">
-<img src="images/ownersListDataModel2.png" alt="OwnersView form data model">
-</span></p></div>
-<div class="paragraph"><p>Add the <span class="monospaced">OwnersPet</span> query to the <span class="monospaced">OwnersView</span> and set the new entity&#8217;s
-name to <span class="monospaced">ownersPets</span>. Delete the existing link between the <span class="monospaced">owners</span>
-entity and the <span class="monospaced">lastNamePattern</span> parameter and bind this parameter to
-the correspondent parameter of the <span class="monospaced">ownersPets</span> entity. This way the
-parameter change will refresh the pets entity, not the <span class="monospaced">owners</span> entity.</p></div>
-<div class="paragraph"><p>The <span class="monospaced">owners</span> entity will be required by the code logic. This code will
-be invoked on the event of the getting new data in the <span class="monospaced">ownersPets</span>
-entity.</p></div>
-<div class="paragraph"><p>Add the <span class="monospaced">onRequired</span> event handler for the <span class="monospaced">ownersPets</span> and insert some
-code to its body:</p></div>
-<div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
-by Lorenzo Bettini
-http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite -->
-<pre><tt><span style="font-style: italic"><span style="color: #9A1900">/**</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> * Called then data is ready in ownersPets entity.</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> * </span></span><span style="color: #009900">@param</span><span style="font-style: italic"><span style="color: #9A1900"> evt Event object</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> */</span></span>
-model<span style="color: #990000">.</span>ownersPet<span style="color: #990000">.</span>onRequeried <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>evt<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-    model<span style="color: #990000">.</span>owners<span style="color: #990000">.</span>params<span style="color: #990000">.</span>lastNamePattern <span style="color: #990000">=</span>
-           model<span style="color: #990000">.</span>ownersPets<span style="color: #990000">.</span>params<span style="color: #990000">.</span>lastNamePattern<span style="color: #990000">;</span>
-    owners<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">requery</span></span><span style="color: #990000">();</span>
-<span style="color: #FF0000">}</span></tt></pre></div></div>
-<div class="paragraph"><p>The owner&#8217;s list data grid will be repainted after the fresh data will
-come to the bounded <span class="monospaced">owners</span> entity. At that moment we&#8217;ll have for sure
-actual pets data because the correspondent query already have executed.</p></div>
-<div class="paragraph"><p>Provide the <span class="monospaced">onRender</span> event handler to the owners <span class="monospaced">ModelGrid</span> widget to
-perform the specific rendering for the new <span class="monospaced">pets</span> column:</p></div>
-<div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
-by Lorenzo Bettini
-http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite -->
-<pre><tt><span style="font-style: italic"><span style="color: #9A1900">/**</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> * Pet's column onRender handler.</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> * </span></span><span style="color: #009900">@param</span><span style="font-style: italic"><span style="color: #9A1900"> evt onRender event object</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> * </span></span><span style="color: #009900">@returns</span><span style="font-style: italic"><span style="color: #9A1900"> true to apply changes to the cell</span></span>
-<span style="font-style: italic"><span style="color: #9A1900"> */</span></span>
-form<span style="color: #990000">.</span>ownersGrid<span style="color: #990000">.</span>onRender <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>evt<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> pets <span style="color: #990000">=</span> model<span style="color: #990000">.</span>ownersPets<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">find</span></span><span style="color: #990000">(</span>
-                  model<span style="color: #990000">.</span>ownersPets<span style="color: #990000">.</span>schema<span style="color: #990000">.</span>owner_id<span style="color: #990000">,</span>                            evt<span style="color: #990000">.</span>id<span style="color: #990000">);</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> txt <span style="color: #990000">=</span> <span style="color: #FF0000">''</span><span style="color: #990000">;</span>
-    pets<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">forEach</span></span><span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>aPet<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-       <span style="font-weight: bold"><span style="color: #0000FF">if</span></span><span style="color: #990000">(</span>txt<span style="color: #990000">.</span>length <span style="color: #990000">&gt;</span> <span style="color: #993399">0</span><span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-           txt <span style="color: #990000">+=</span> <span style="color: #FF0000">' '</span><span style="color: #990000">;</span>
-       <span style="color: #FF0000">}</span>
-       txt <span style="color: #990000">+=</span> aPet<span style="color: #990000">.</span>name <span style="color: #990000">?</span> aPet<span style="color: #990000">.</span>name <span style="color: #990000">:</span> <span style="color: #FF0000">''</span><span style="color: #990000">;</span>
-    <span style="color: #FF0000">}</span><span style="color: #990000">);</span>
-    evt<span style="color: #990000">.</span>cell<span style="color: #990000">.</span>display <span style="color: #990000">=</span> txt<span style="color: #990000">;</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> <span style="font-weight: bold"><span style="color: #0000FF">true</span></span><span style="color: #990000">;</span>
-<span style="color: #FF0000">}</span></tt></pre></div></div>
-<div class="paragraph"><p>The function above is invoked for every element of the owners list. We
-get the owner&#8217;s pet, create the string representation and render it in
-the grid cell.</p></div>
+<div class="paragraph"><p>///<strong>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///</strong>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///**</p></div>
 <div class="paragraph"><p>///**</p></div>
 </div>
 </div>
