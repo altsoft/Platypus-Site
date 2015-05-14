@@ -1000,6 +1000,16 @@ database structure diagram.</p></div>
 <span class="monospaced">PetType</span> and <span class="monospaced">Visit</span> according to the knowledge domain model. A numeric
 primary key is automatically created for each new table. Add all the
 required fields for the tables.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">To create new field in table, use button <em>Create new field</em> <span class="image">
+<img src="images/db/createField.png" alt="images/db/createField.png">
+</span>.</td>
+</tr></table>
+</div>
 <div class="paragraph"><p>Create the foreign key links by connecting foreign key fields with the
 correspondent primary keys files. Please note that the connected fields
 must have the same data type.</p></div>
@@ -1048,13 +1058,23 @@ buttons and the text field from the standard components palette on the
 panel. Provide meaningful names for the added components. Set texts to
 the added buttons. Drag-and-drop a <span class="monospaced">ModelGrid</span> from the model widgets
 palette on the form below the header panel and also provide a name for
-it.</p></div>
+it. You may use images and set them as <em>Icon</em> to buttons as shown in Fig. <a href="#ownersView">owners view</a>.</p></div>
 <div class="paragraph"><p>Next lets configure the data model for our <span class="monospaced">OwnersView</span> form. Data model
 allows persistent data to be read and written from/to the database. In
 Platypus.js data model entities are created on the basis of data sources.
 To access relational data create data sources from SQL queries.</p></div>
 <div class="paragraph"><p>Create a new Query application element named <span class="monospaced">OwnersQuery</span> with SQL to
 get filtered records from the <span class="monospaced">Owner</span> table:</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">You may simply add table or tables to Query by using "Add table" button <span class="image">
+<img src="images/db/addTable.png" alt="images/db/addTable.png">
+</span>, or drag-n-drop another <em>Query</em>.</td>
+</tr></table>
+</div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.6
 by Lorenzo Bettini
@@ -1175,7 +1195,7 @@ form<span style="color: #990000">.</span>btnDelete<span style="color: #990000">.
 <div class="paragraph"><p>On Delete button click we are showing a confirmation dialogue and if the
 action is confirmed the current row in the owners query will be deleted.
 Then all changes will be saved to the database.
-Data model is JavaScript array, so we use method <em>splice</em> to delete selected rows. Information about selected rows we get from modeGrid.</p></div>
+Data model is JavaScript array, so we use method <em>splice</em> to delete selected rows. Information about selected rows we get from ModelGrid.</p></div>
 <div class="paragraph"><p>Provide a handler for the <span class="monospaced">onMouseClicked</span> event of the grid widget:</p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.6
@@ -1234,7 +1254,7 @@ http://www.gnu.org/software/src-highlite -->
 <div class="sect1">
 <h2 id="owners-details-pets-and-visits-form">Owners details, pets and visits form</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Open the OwnerDetails form we&#8217;ve created earlier. This form will contain
+<div class="paragraph"><p>Open the OwnerView form we&#8217;ve created earlier. This form will contain
 the user interface related to a concrete owner, her/his pets and hotel
 visits.</p></div>
 <div class="imageblock" id="ownerDetail">
@@ -1385,6 +1405,13 @@ Unlike the owners list grid the pets and visits grids will allow edit their cell
 <img src="images/settings/visitGrid.png" alt="combo view properties">
 </div>
 <div class="title">Figure 27. Visit grid columns view</div>
+</div>
+<div class="paragraph"><p>As the result we should have form as shown in Fig.</p></div>
+<div class="imageblock" id="ownerDetailCompleete">
+<div class="content">
+<img src="images/ui/оwnerDetailComplete.png" alt="OwnerDetails form completed">
+</div>
+<div class="title">Figure 28. Owner detail Completed</div>
 </div>
 <div class="paragraph"><p>At the next step we&#8217;ll write some JavaScript code for the OwnerView
 form.</p></div>
@@ -1637,6 +1664,114 @@ works correctly.</p></div>
 </div>
 </div>
 <div class="sect1">
+<h2 id="UseTheOrm">Use the ORM, Luke</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Method that we have used earlier is good, but may be not good enouth in some cases. We will use power of ORM to become familiar with it.
+Each time we retrive records from data model ORM returns us a new object. So the main idea of our modification is to transfer object to <em>OwnerView</em>, perform it&#8217;s modification and then save. Saving object will be performed automatically, because our ORM will translate object&#8217;s fields to corresponding database field. Sounds fun! Lets begin.</p></div>
+<div class="paragraph"><p>First of all we will modify <em>onMouseClicked</em> method on modelGrid:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>form<span style="color: #990000">.</span>modelGrid<span style="color: #990000">.</span>onMouseClicked <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span>event<span style="color: #990000">.</span>clickCount <span style="color: #990000">&gt;</span> <span style="color: #993399">1</span><span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+        <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> ownerView <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">new</span></span> <span style="font-weight: bold"><span style="color: #000000">OwnerView</span></span><span style="color: #990000">();</span>
+          ownerView<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">showModal</span></span><span style="color: #990000">(</span>refresh<span style="color: #990000">,</span> model<span style="color: #990000">.</span>owners<span style="color: #990000">.</span>cursor<span style="color: #990000">);</span>
+    <span style="color: #FF0000">}</span>
+<span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
+<div class="paragraph"><p>Our <em>model.owners.cursor</em> returns new object, and we pass it to <em>OwnerView</em>. Also we need to modify method when user add new owner.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>form<span style="color: #990000">.</span>btnAdd<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> ownerView <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">new</span></span> <span style="font-weight: bold"><span style="color: #000000">OwnerView</span></span><span style="color: #990000">();</span>
+    model<span style="color: #990000">.</span>owners<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">push</span></span><span style="color: #990000">(</span><span style="color: #FF0000">{}</span><span style="color: #990000">);</span>
+    ownerView<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">showModal</span></span><span style="color: #990000">(</span>refresh<span style="color: #990000">,</span>model<span style="color: #990000">.</span>owners<span style="color: #990000">.</span>cursor<span style="color: #990000">);</span>
+<span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
+<div class="paragraph"><p>In <em>OwnerView</em> we should modify binding of edit fields, that represents <em>First Name</em>, <em>Last Name</em> etc. We should delete <em>data</em> binding and set field to corresponding object field (objects field have same names as fields of database table) (Fig. <a href="#fieldOrm">field binding</a>).</p></div>
+<div class="imageblock" id="fieldOrm">
+<div class="content">
+<img src="images/db/fieldORM.png" alt="Binding to object">
+</div>
+<div class="title">Figure 29. Binding to object properties</div>
+</div>
+<div class="paragraph"><p>Binding of data we will perform in method <em>showModal</em> :</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>self<span style="color: #990000">.</span>showModal <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>aOnSucsess<span style="color: #990000">,</span> aOwner<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    P<span style="color: #990000">.</span>Logger<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">info</span></span><span style="color: #990000">(</span>aOwner<span style="color: #990000">);</span>
+    owner <span style="color: #990000">=</span> aOwner<span style="color: #990000">;</span>
+    form<span style="color: #990000">.</span>edFirstName<span style="color: #990000">.</span>data <span style="color: #990000">=</span> owner<span style="color: #990000">;</span>
+    form<span style="color: #990000">.</span>edLastName<span style="color: #990000">.</span>data <span style="color: #990000">=</span> owner<span style="color: #990000">;</span>
+    form<span style="color: #990000">.</span>edAddress<span style="color: #990000">.</span>data <span style="color: #990000">=</span> owner<span style="color: #990000">;</span>
+    form<span style="color: #990000">.</span>edCity<span style="color: #990000">.</span>data <span style="color: #990000">=</span> owner<span style="color: #990000">;</span>
+    form<span style="color: #990000">.</span>edPhone<span style="color: #990000">.</span>data <span style="color: #990000">=</span> owner<span style="color: #990000">;</span>
+    form<span style="color: #990000">.</span>edEmale<span style="color: #990000">.</span>data <span style="color: #990000">=</span> owner<span style="color: #990000">;</span>
+    onSucsess <span style="color: #990000">=</span> aOnSucsess<span style="color: #990000">;</span>
+
+    model<span style="color: #990000">.</span>petsQuery<span style="color: #990000">.</span>params<span style="color: #990000">.</span>owner_id <span style="color: #990000">=</span> owner<span style="color: #990000">.</span>OWNERS_ID<span style="color: #990000">;</span>
+    model<span style="color: #990000">.</span>visitsQuery<span style="color: #990000">.</span>params<span style="color: #990000">.</span>ownerID <span style="color: #990000">=</span> owner<span style="color: #990000">.</span>OWNERS_ID<span style="color: #990000">;</span>
+    model<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">requery</span></span><span style="color: #990000">();</span>
+
+    form<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">showModal</span></span><span style="color: #990000">();</span>
+<span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
+<div class="paragraph"><p>Our object have fullName property, but it&#8217;s not binded to any field, so we need to modify it:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>owner<span style="color: #990000">.</span>fullName <span style="color: #990000">=</span> owner<span style="color: #990000">.</span>firstname <span style="color: #990000">+</span> <span style="color: #FF0000">" "</span> <span style="color: #990000">+</span> owner<span style="color: #990000">.</span>lastname<span style="color: #990000">;</span></tt></pre></div></div>
+<div class="paragraph"><p>As the result our our <em>Ok</em> button method will look like:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>form<span style="color: #990000">.</span>btnSave<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+        owner<span style="color: #990000">.</span>fullName <span style="color: #990000">=</span> owner<span style="color: #990000">.</span>firstname <span style="color: #990000">+</span> <span style="color: #FF0000">" "</span> <span style="color: #990000">+</span> owner<span style="color: #990000">.</span>lastname<span style="color: #990000">;</span>
+        <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> message <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #000000">validateOwner</span></span><span style="color: #990000">();</span>
+
+        <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span>model<span style="color: #990000">.</span>modified<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+            message <span style="color: #990000">+=</span> <span style="font-weight: bold"><span style="color: #000000">validate</span></span><span style="color: #990000">();</span>
+            <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>message<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+                model<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">save</span></span><span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">()</span> <span style="color: #FF0000">{</span>
+                    <span style="font-weight: bold"><span style="color: #000000">onSucsess</span></span><span style="color: #990000">();</span>
+                <span style="color: #FF0000">}</span><span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">()</span> <span style="color: #FF0000">{</span>
+                    P<span style="color: #990000">.</span>Logger<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">Info</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"Failed on save"</span><span style="color: #990000">);</span>
+                <span style="color: #FF0000">}</span><span style="color: #990000">);</span>
+            <span style="color: #FF0000">}</span>
+        <span style="color: #FF0000">}</span>
+        <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>message<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+            form<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">close</span></span><span style="color: #990000">();</span>
+        <span style="color: #FF0000">}</span> <span style="font-weight: bold"><span style="color: #0000FF">else</span></span> <span style="color: #FF0000">{</span>
+            <span style="font-weight: bold"><span style="color: #000000">alert</span></span><span style="color: #990000">(</span>message<span style="color: #990000">);</span>
+        <span style="color: #FF0000">}</span>
+
+    <span style="color: #FF0000">}</span><span style="color: #990000">;</span>
+</tt></pre></div></div>
+<div class="paragraph"><p>And finally we will add <em>Save</em> button to our main form. Actually we can save it automatically, for example, in callback, when user have closed modal window.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>form<span style="color: #990000">.</span>btnSave<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span>model<span style="color: #990000">.</span>modified<span style="color: #990000">)</span><span style="color: #FF0000">{</span>
+        <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #000000">confirm</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"Save changes"</span><span style="color: #990000">))</span><span style="color: #FF0000">{</span>
+            model<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">save</span></span><span style="color: #990000">();</span>
+        <span style="color: #FF0000">}</span>
+    <span style="color: #FF0000">}</span>
+<span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="owners-report">Owners report</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>In this section we are going to create a simple report about the owners.</p></div>
@@ -1654,7 +1789,6 @@ http://www.gnu.org/software/src-highlite -->
         report<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">show</span></span><span style="color: #990000">();</span> <span style="font-style: italic"><span style="color: #9A1900">//| report.print(); | var savedTo = report.save(saveTo ?);</span></span>
 <span style="font-style: italic"><span style="color: #9A1900">//            onSuccess(report);</span></span>
     <span style="color: #FF0000">}</span><span style="color: #990000">,</span> onFailure<span style="color: #990000">);</span>
-
 <span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
 <div class="paragraph"><p>On layout tab click on <em>edit report template</em> to edit the report template. Provide the report&#8217;s header,
 owners tables columns headers and the columns tags as it shown below:</p></div>
