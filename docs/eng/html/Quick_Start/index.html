@@ -1667,7 +1667,7 @@ works correctly.</p></div>
 <h2 id="UseTheOrm">Use the ORM, Luke</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Method that we have used earlier is good, but may be not good enouth in some cases. We will use power of ORM to become familiar with it.
-Each time we retrive records from data model ORM returns us a new object. So the main idea of our modification is to transfer object to <em>OwnerView</em>, perform it&#8217;s modification and then save. Saving object will be performed automatically, because our ORM will translate object&#8217;s fields to corresponding database field. Sounds fun! Lets begin.</p></div>
+Each record  in data source can be represented as <em>JavaScript</em> object with corresponding properties. So the main idea of our modification is to transfer object to <em>OwnerView</em>, perform it&#8217;s modification and then save. Saving object will be performed automatically, because our ORM will translate object&#8217;s fields respectively to database field. Sounds fun! Lets begin.</p></div>
 <div class="paragraph"><p>First of all we will modify <em>onMouseClicked</em> method on modelGrid:</p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.6
@@ -1680,7 +1680,7 @@ http://www.gnu.org/software/src-highlite -->
           ownerView<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">showModal</span></span><span style="color: #990000">(</span>refresh<span style="color: #990000">,</span> model<span style="color: #990000">.</span>owners<span style="color: #990000">.</span>cursor<span style="color: #990000">);</span>
     <span style="color: #FF0000">}</span>
 <span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
-<div class="paragraph"><p>Our <em>model.owners.cursor</em> returns new object, and we pass it to <em>OwnerView</em>. Also we need to modify method when user add new owner.</p></div>
+<div class="paragraph"><p>Our <em>model.owners.cursor</em> contains selected database record, and we pass it to <em>OwnerView</em> as <em>JavaScript</em> object. Using same way we need to modify method when user add new owner.</p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.6
 by Lorenzo Bettini
@@ -1721,14 +1721,14 @@ http://www.gnu.org/software/src-highlite -->
 
     form<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">showModal</span></span><span style="color: #990000">();</span>
 <span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
-<div class="paragraph"><p>Our object have fullName property, but it&#8217;s not binded to any field, so we need to modify it:</p></div>
+<div class="paragraph"><p>Our object have fullName property, but it&#8217;s not binded to any field, so we need to fill it manually:</p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.6
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
 <pre><tt>owner<span style="color: #990000">.</span>fullName <span style="color: #990000">=</span> owner<span style="color: #990000">.</span>firstname <span style="color: #990000">+</span> <span style="color: #FF0000">" "</span> <span style="color: #990000">+</span> owner<span style="color: #990000">.</span>lastname<span style="color: #990000">;</span></tt></pre></div></div>
-<div class="paragraph"><p>As the result our our <em>Ok</em> button method will look like:</p></div>
+<div class="paragraph"><p>As the result our <em>Ok</em> button method will look like:</p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.6
 by Lorenzo Bettini
@@ -1756,7 +1756,7 @@ http://www.gnu.org/software/src-highlite -->
 
     <span style="color: #FF0000">}</span><span style="color: #990000">;</span>
 </tt></pre></div></div>
-<div class="paragraph"><p>And finally we will add <em>Save</em> button to our main form. Actually we can save it automatically, for example, in callback, when user have closed modal window.</p></div>
+<div class="paragraph"><p>Finally, we will add <em>Save</em> button to our main form. Actually we can save it automatically, for example, in callback, when user have closed modal window.</p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.6
 by Lorenzo Bettini
