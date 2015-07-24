@@ -1,339 +1,2866 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.6.9">
+<title>Platypus administration guide</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
-        <title>Platypus Platform 3.0 - Documentation</title>
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
 
-        <link rel="stylesheet" href="Common_Content/css/global.css" type="text/css">
-        <link rel="stylesheet" href="Common_Content/css/documentation.css" type="text/css">
-	<link rel="stylesheet" href="Common_Content/css/common2.css" type="text/css">
-        <!--[if lte IE 7]>
-                <style type="text/css"> body { font-size: 85%; } </style>
-        <![endif]-->
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
 
-        <!-- REQUIRED scripts for layout widget -->
-        <script type="text/javascript" src="Common_Content/js/jquery-latest.js"></script>
-        <script type="text/javascript" src="Common_Content/js/jquery-ui-latest.js"></script>
-        <script type="text/javascript" src="Common_Content/js/jquery-layout-latest.js"></script>
-        <script type="text/javascript" src="Common_Content/js/global.js"></script>
-    </head>
-    <body>
+body {
+  margin: 1em 5% 1em 5%;
+}
 
-        <div class="ui-layout-north">
-	<DIV id="navigation">
-                <A href="http://platypus-platform.org/docs.jsp">Documentation</A>
-                <A href="http://bugtracker.platypus-platform.org/projects/platypus">Issues</A>
-            </DIV>
-            <DIV id="logo">Platypus.js 0.3.0 Administration Guide</DIV>
-            
-        </div>
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: DarkBlue;
+}
 
-        <div class="ui-layout-center content">
-            <ul class="docnav">
- <li class="previous"></li>
- <li class="next"><a accesskey="n" href="pref-Installation_Guide-Preface.html"><strong>Next</strong></a></li>
-</ul>
-<div xml:lang="en-US" class="book" id="idp19388016" lang="en-US">
- <div class="titlepage">
-  <div>
-   <div class="producttitle">
-    <span class="productname">Platypus.js</span> 
-    <span class="productnumber">0.3.0</span>
-   </div>
-   <div>
-    <h1 id="idp19388016" class="title">Platypus.js 0.3.0 Administration Guide</h1>
-   </div>
-   <div>
-    <h2 class="subtitle">Administration manual</h2>
-   </div>
-   <p class="edition">Edition 0</p>
-   <hr />
-   <div>
-    <div class="abstract">
-     <h6>Abstract</h6>
-     <div class="para">
-       This guide contains information about installing, configuring and administering the Platypus Platform runtime components 
-     </div>
-    </div>
-   </div>
-  </div>
-  <hr />
- </div>
- <div class="toc">
-  <dl>
-   <dt>
-    <span class="preface"><a href="pref-Installation_Guide-Preface.html">Preface</a></span>
-   </dt>
-   <dd>
-    <dl>
-     <dt>
-      <span class="section"><a href="pref-Installation_Guide-Preface.html#idm2246376">1. Document Conventions</a></span>
-     </dt>
-     <dd>
-      <dl>
-       <dt>
-        <span class="section"><a href="pref-Installation_Guide-Preface.html#idp17608216">1.1. Typographic Conventions</a></span>
-       </dt>
-       <dt>
-        <span class="section"><a href="pref-Installation_Guide-Preface.html#idm7901184">1.2. Pull-quote Conventions</a></span>
-       </dt>
-       <dt>
-        <span class="section"><a href="pref-Installation_Guide-Preface.html#idp123664">1.3. Notes and Warnings</a></span>
-       </dt>
-      </dl>
-     </dd>
-     <dt>
-      <span class="section"><a href="pr01s02.html">2. Feedback information</a></span>
-     </dt>
-    </dl>
-   </dd>
-   <dt>
-    <span class="chapter"><a href="chapter_installation.html">1. Platform's installation</a></span>
-   </dt>
-   <dd>
-    <dl>
-     <dt>
-      <span class="section"><a href="chapter_installation.html#install-requirements">1.1. System requirements</a></span>
-     </dt>
-     <dt>
-      <span class="section"><a href="install-guide.html">1.2. Installation guide</a></span>
-     </dt>
-     <dt>
-      <span class="section"><a href="install-uninstall.html">1.3. Uninstallation guide</a></span>
-     </dt>
-    </dl>
-   </dd>
-   <dt>
-    <span class="chapter"><a href="app_chapter.html">2. Application management</a></span>
-   </dt>
-   <dd>
-    <dl>
-     <dt>
-      <span class="section"><a href="app_chapter.html#app_structure">2.1. Application structure and system tables</a></span>
-     </dt>
-     <dt>
-      <span class="section"><a href="app-database.html">2.2. Application database deployment and import</a></span>
-     </dt>
-     <dt>
-      <span class="section"><a href="app_dbmigrations.html">2.3. Database migrations</a></span>
-     </dt>
-     <dt>
-      <span class="section"><a href="app_security.html">2.4. Security</a></span>
-     </dt>
-    </dl>
-   </dd>
-   <dt>
-    <span class="chapter"><a href="desktop-chapter.html">3. Desktop client</a></span>
-   </dt>
-   <dd>
-    <dl>
-     <dt>
-      <span class="section"><a href="desktop-chapter.html#desktop_run">3.1. Running desktop client</a></span>
-     </dt>
-     <dt>
-      <span class="section"><a href="desktop_command.html">3.2. Command line options</a></span>
-     </dt>
-    </dl>
-   </dd>
-   <dt>
-    <span class="chapter"><a href="server_chapter.html">4. Platypus Application Server</a></span>
-   </dt>
-   <dd>
-    <dl>
-     <dt>
-      <span class="section"><a href="server_chapter.html#server_run">4.1. Running server</a></span>
-     </dt>
-     <dt>
-      <span class="section"><a href="server_command.html">4.2. Command line options</a></span>
-     </dt>
-    </dl>
-   </dd>
-   <dt>
-    <span class="chapter"><a href="j2ee_chapter.html">5. Java EE server</a></span>
-   </dt>
-   <dd>
-    <dl>
-     <dt>
-      <span class="section"><a href="j2ee_chapter.html#j2ee_configure">5.1. Configuring J2EE server</a></span>
-     </dt>
-     <dt>
-      <span class="section"><a href="j2ee_dd.html">5.2. Configuring the deployment descriptor</a></span>
-     </dt>
-     <dt>
-      <span class="section"><a href="j2ee_aut.html">5.3. Authentication configuration on a J2EE container</a></span>
-     </dt>
-     <dt>
-      <span class="section"><a href="j2ee_glassfish.html">5.4. J2EE Glassfish 3 configuration</a></span>
-     </dt>
-     <dt>
-      <span class="section"><a href="j2ee_tomcat.html">5.5. Apache Tomcat 7 configuration</a></span>
-     </dt>
-    </dl>
-   </dd>
-   <dt>
-    <span class="appendix"><a href="app_rev_history.html">A. History</a></span>
-   </dt>
-   <dt>
-    <span class="index"><a href="doc_index.html">Index</a></span>
-   </dt>
-  </dl>
- </div>
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+@media screen {
+  body {
+    max-width: 50em; /* approximately 80 characters wide */
+    margin-left: 16em;
+  }
+
+  #toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 13em;
+    padding: 0.5em;
+    padding-bottom: 1.5em;
+    margin: 0;
+    overflow: auto;
+    border-right: 3px solid #f8f8f8;
+    background-color: white;
+  }
+
+  #toc .toclevel1 {
+    margin-top: 0.5em;
+  }
+
+  #toc .toclevel2 {
+    margin-top: 0.25em;
+    display: list-item;
+    color: #aaaaaa;
+  }
+
+  #toctitle {
+    margin-top: 0.5em;
+  }
+}
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(3);
+/*]]>*/
+</script>
+</head>
+<body class="book">
+<div id="header">
+<h1>Platypus administration guide</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
 </div>
-<ul class="docnav">
- <li class="previous"></li>
- <li class="next"><a accesskey="n" href="pref-Installation_Guide-Preface.html"><strong>Next</strong>Preface</a></li>
-</ul>
-        </div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="platforms-installation">Platform&#8217;s installation</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>If the Platypus Platform runtime is delivered as a ZIP file, unpack its
+contents to a location according to your preference on your hard drive.</p></div>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p><strong>Note</strong></p></div>
+<div class="paragraph"><p>Instructions for installing the Platypus Application Designer developer
+tool are available in the Development Guide.</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="sect2">
+<h3 id="system-requirements">System requirements</h3>
+<div class="paragraph"><p>Below you can see prerequisites for launching the platform components on
+your computer:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+32-bit (x86) or 64-bit (x64) processor running at 1 gigahertz (GHz) or
+higher
+</p>
+</li>
+<li>
+<p>
+1 gigabyte (GB) (for 32-bit system) or 2 GB (for 64-bit system) RAM
+</p>
+</li>
+<li>
+<p>
+5 gigabytes (GB) of free hard disk space
+</p>
+</li>
+<li>
+<p>
+Windows, Linux, Mac OS X or other operating system like Unix
+</p>
+</li>
+<li>
+<p>
+Oracle JRE 7 or OpenJDK 7
+</p>
+</li>
+<li>
+<p>
+Graphical user interface for client operation
+</p>
+</li>
+<li>
+<p>
+Internet access for downloading updates and working with external
+mapping service (In a corporate network, Internet access may be arranged
+through a proxy server.)
+</p>
+</li>
+<li>
+<p>
+Google Chrome 19, Mozilla Firefox 10, Internet Explorer 9 or newer
+versions of browsers for Platypus client HTML5 operation
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The Platypus Platform supports the following database servers:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Oracle Database 10g and higher
+</p>
+</li>
+<li>
+<p>
+IBM DB2 9 and higher
+</p>
+</li>
+<li>
+<p>
+Microsoft SQL Server 2008 and higher
+</p>
+</li>
+<li>
+<p>
+MySQL (InnoDB) 5.5 and higher
+</p>
+</li>
+<li>
+<p>
+PostgreSQL 9 and higher
+</p>
+</li>
+<li>
+<p>
+H2 Database 1.3 and higher
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>For information on installing and configuring the database server, refer
+to the relevant installation and administration manuals, provided by
+database server manufacturers.</p></div>
+<div class="paragraph"><p>The platform runtime is supplied with the H2 database. This database
+does not require any additional installation and configuration steps.</p></div>
+<div class="paragraph"><p>For running applicatons on server side in a J2EE servlet container use a
+J2EE server or container, for example:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Apache Tomcat 7
+</p>
+</li>
+<li>
+<p>
+Glassfish 3.1.2
+</p>
+</li>
+<li>
+<p>
+JBoss AS7
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>For information on installing and configuring the servlet container or
+J2EE server, refer to the relevant installation and administration
+manuals, provided by their manufacturers.</p></div>
+</div>
+<div class="sect2">
+<h3 id="installation-guide">Installation guide</h3>
+<div class="paragraph"><p>To install the platform components, perform the following actions:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Go to the <span class="monospaced">install</span> subdirectory of the Platypus distribution kit.
+</p>
+</li>
+<li>
+<p>
+Run <span class="monospaced">install.bat</span> files for the Windows OS or perform the
+<span class="monospaced">sh install.sh</span> command for Linux.
+</p>
+</li>
+<li>
+<p>
+Select the language of the installation program user interface.
+</p>
+</li>
+<li>
+<p>
+Select the installation directory.
+</p>
+</li>
+<li>
+<p>
+Select components to be installed.
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+The platform&#8217;s core components (required)
+</p>
+</li>
+<li>
+<p>
+Java SE desktop client
+</p>
+</li>
+<li>
+<p>
+Geospacial and maps components
+</p>
+</li>
+<li>
+<p>
+Components required for operation of the standalone application server
+and in J2EE servlet containers and on the application servers
+</p>
+</li>
+<li>
+<p>
+Components required for operation with COM/DCOM and OPC servers
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+Select settings of shortcuts for running the Platypus client in your
+system environment.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>After installation, the platform&#8217;s directory will have the following
+structure:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<span class="monospaced">platypus/</span>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<span class="monospaced">bin/</span>
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">lib/</span>
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">etc/</span>
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">run/</span>
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">logs/</span>
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="uninstallation-guide">Uninstallation guide</h3>
+<div class="paragraph"><p>To delete the platform components from your computer, perform the
+following actions:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Select the UninstallPlatypus menu item from the installed programs
+menu. For Windows, use the conventional mechanism for removing programs.
+</p>
+</li>
+<li>
+<p>
+Confirm uninstalling of Platypus components. If necessary, enable an
+option for removing the working directory.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="application-management">Application management</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="application-structure-and-system-tables">Application structure and system tables</h3>
+<div class="paragraph"><p>If an application is delivered as an archive file, unpack its contents
+to a your hard disk drive.</p></div>
+<div class="paragraph"><p>After unpacking, the directory will have the following structure:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<span class="monospaced">projectDirectory/</span>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<span class="monospaced">app/</span>
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">project.properties</span>
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">private.properties</span>
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>The project directory corresponds to the application project, which is
+ready for deployment and execution, as well as for modification in the
+IDE.</p></div>
+<div class="paragraph"><p>The <span class="monospaced">app</span> directory contains application elements directories and files.</p></div>
+<div class="paragraph"><p>The <span class="monospaced">project.properties</span> and <span class="monospaced">private.properties</span> are project&#8217;s
+configuration files used by the IDE.</p></div>
+<div class="paragraph"><p>It is possible to deploy the application to the database <span class="monospaced">MTD_ENTITIES</span>
+table and run it from there.</p></div>
+<div class="paragraph"><p>System tables includes the following:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<span class="monospaced">MTD_ENTITIES</span> — this table stores an executable application in the
+form of a tree.
+</p>
+</li>
+<li>
+<p>
+&#8216;MTD_USERS` и <span class="monospaced">MTD_GROUPS</span> — tables of users and their groups when
+working with built-in users&#8217; space. For additional information, see the
+"Security" section.
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">MTD_VERSION</span> — this table stores information about the current
+version of the application data repository.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>After deployment in the database each application element is represented
+as a single entry in the <span class="monospaced">MTD_ENTITIES</span> table.</p></div>
+<div class="paragraph"><p>Use the following command for application database mangement utility:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>java -jar PlatypusDeploy.jar</pre>
+</div></div>
+<div class="paragraph"><p>where OPTIONS is a deployment or migration command and a set of its
+parameters.</p></div>
+<div class="paragraph"><p>For the description of commands related to the import deployment
+operation and migrations, see sections dedicated to deployment and
+database migrations.</p></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 1. Database management common command line options</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-url DB_URL</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Database connection JDBC URL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dbuser DB_USER</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Username</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dbpassword DB_PASSWORD</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Password</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dbschema DB_SCHEMA</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Database scheme</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="application-database-deployment-and-import-security">Application database deployment and import</h3>
+<div class="paragraph"><p>Database deployment is the process allows you to application to the
+database table <span class="monospaced">MTD_ENTITIES</span>.</p></div>
+<div class="paragraph"><p>To deploy or undeploy an application to/from a database use the database
+management utility command line with the one of the following options:</p></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 2. Application deployment and import commands</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-initapp</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Checks and initializes application storage table in the
+database, if it is not initialized.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-ap APP_PATH</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">The path to the folder containing the application&#8217;s
+project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-deploy</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Deploys application to the specified database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-undeploy</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Removes application from the specified database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-import</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Imports application from the database to the specified
+directory.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph"><p>Example of the command for deploying an application to the database:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>java -jar PlatypusDeploy.jar -deploy -ap ~/apps/testApp -url jdbc:oracle:thin:@serverHost:1521:adb -dbuser user1 -dbpassword secret -dbschema testschema</pre>
+</div></div>
+<div class="paragraph"><p>Example of the command for importing an application from the database:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>java -jar PlatypusDeploy.jar -import -ap ~/apps/testApp -url jdbc:oracle:thin:@serverHost:1521:adb -dbuser user1 -dbpassword secret -dbschema testschema</pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="database-migrations-security">Database migrations</h3>
+<div class="paragraph"><p>Application database schema and initial data can be stored in as a
+consecutive migrations. Database migrations can be applied consistently
+to ensure the correct state of the application&#8217;s database(s) schema and
+its initial data.</p></div>
+<div class="paragraph"><p>Each migration of the database schema or data is represented as a
+migration file with a name corresponding to the migration version,
+starting from 1. The next file name for each new migration is created by
+incrementing the current application version number stored in the
+<span class="monospaced">MTD_VERSION</span> table.</p></div>
+<div class="paragraph"><p>The <span class="monospaced">MTD_VERSION</span> table contains the following mandatory field:</p></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<col style="width:50%;">
+<col style="width:50%;">
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" >Field </th>
+<th class="tableblock halign-left valign-top" >Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">VERSION_VALUE</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">The application&#8217;s current version number</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph"><p>The types of migration files are the following:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Database metadata snapshot with the <span class="monospaced">.xdm</span> extension.
+</p>
+</li>
+<li>
+<p>
+A bundle of SQL commands for adding and/or changing service data with
+the <span class="monospaced">.batch</span>.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>To create a migration files and apply them to a database use the command
+line with the the following options:</p></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 3. Commands for creating and applying database migrations</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-initversioning</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Checks and inits the version storage table in the
+database, if it is not initialized.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-migrations</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">The path to the directory containing the migrations</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-snapshot</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Creates a new migration — a database metadata snapshot;
+the database version corresponds to this migration.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-batch</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Creates a new empty batch migration; the version of the
+database corresponds to this migration.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-clean</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Cleans the migration directory by removing migrations which
+are not applied.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-getver</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Returns the current version of the database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-setver</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Sets the current database version in VERSION as a
+nonnegative integer.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph"><p>When applying migrations to the database, only the latest snapshot and
+the snapshots which were created immediately before the <span class="monospaced">.batch</span>
+migration, other snapshot migration are ignored and can be removed using
+the <span class="monospaced">-clean</span> command.</p></div>
+<div class="paragraph"><p>The following example illustrates how to apply migrations to the
+database:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>java -jar PlatypusDeploy.jar -url jdbc:oracle:thin:@serverHost:1521:adb -dbuser user1 -dbpassword secret -dbschema testschema -apply -migrations ~/apps/testMigrations</pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="security">Security</h3>
+<div class="paragraph"><p>Platypus platform is equipped with security mechanisms and provides
+restricted access to system resources based on roles. Roles are
+introduced on application level.</p></div>
+<div class="paragraph"><p>As for authentication, Platypus may use various security domains. The
+security domain may be internal or external and contain information
+about users and their group membership. The following security domain
+options are avaliable:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+An database users registry, which is located in two database tables.
+This option provides simple tools for storing information about users
+and groups.
+</p>
+</li>
+<li>
+<p>
+External storages of authentication data, for example, a LDAP server
+(Active Directory, OpenLDAP, etc.).
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The security domain is used to ​​define a set of groups or global roles
+for the user, which can be associated with roles at the application
+level.</p></div>
+<div class="paragraph"><p>When using database users registry mode, user information is stored in
+the <span class="monospaced">MTD_USERS</span> table of the application database. Information about the
+groups, which the user belongs to, are stored in the <span class="monospaced">MTD_GROUPS</span> table.</p></div>
+<div class="paragraph"><p>The <span class="monospaced">MTD_USERS</span> table contains the following mandatory fields:</p></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<col style="width:50%;">
+<col style="width:50%;">
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" >Field </th>
+<th class="tableblock halign-left valign-top" >Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">USR_NAME</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Username</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">USR_PASSWD</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Hash sum of the user password using the MD5 algorithm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">USR_FORM</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Default form application element name</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph"><p>In addition, the <span class="monospaced">MTD_USERS</span> table can include optional fields
+containing additional information about the user.</p></div>
+<div class="paragraph"><p>The <span class="monospaced">MTD_GROUPS</span> table contains the following mandatory fields:</p></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<col style="width:50%;">
+<col style="width:50%;">
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" >Field </th>
+<th class="tableblock halign-left valign-top" >Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">USR_NAME</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Username</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">GROUP_NAME</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Group name</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph"><p>To init the users and user groups tables use the management utility
+command line with the the following options:</p></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 4. Command for creating users and users group table</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-initusers</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Checks and initializes users database store tables if
+they are not initialized</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph"><p>After initialization users and groups tables are filled with the default
+credentials as follows: <span class="monospaced">admin</span> as username and <span class="monospaced">masterkey</span> as a
+password. The <span class="monospaced">admin</span> user is a member of the <span class="monospaced">admin</span> group.</p></div>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p><strong>Important</strong></p></div>
+<div class="paragraph"><p>Change the default username and password before shipping your
+application for production.</p></div>
+</div>
+<div class="attribution">
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="platypus-applications-deployment-and-database-migrations">Platypus applications deployment and database migrations</h3>
+<div class="paragraph"><p>Deployment is the process of spreading the finished application for
+installing or upgrading on the production server. On the production
+server, the Platypus application resides entirely in the database or on
+the hard drive in the form of a directory.</p></div>
+<div class="paragraph"><p>Migration process ensures maintaining and restoring configuration and
+original data in the database.</p></div>
+<div class="paragraph"><p>Platypus applications are provided by the following ways:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+On CD or DVD drive.
+</p>
+</li>
+<li>
+<p>
+Over the Internet as a zip archive file.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>If the Platypus application is delivered as a zip file, unpack its
+contents to a location according to your preference on your hard drive.</p></div>
+<div class="paragraph"><p>After unpacking, the directory will have the following structure:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<span class="monospaced">appDirectory/</span>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<span class="monospaced">src/</span>
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">db/</span>
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">platypus.xml</span>
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>The Platypus application directory corresponds to the application
+project, which is ready for deployment and execution, as well as for
+modification in Platypus Application Designer.</p></div>
+<div class="paragraph"><p>The application directory includes the <span class="monospaced">platypus.xml</span> configuration
+file, the <span class="monospaced">src</span> directory, containing application elements, <span class="monospaced">db</span>
+directory, containing database migrations, and <span class="monospaced">project.properties</span> and
+<span class="monospaced">private.properties</span> designer configuration files.</p></div>
+<div class="paragraph"><p>The database, in which the application is deployed, includes system
+tables and any number of worksheets. When deploying, system tables are
+created automatically.</p></div>
+<div class="paragraph"><p>System tables includes the following:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<span class="monospaced">MTD_ENTITIES</span> — this table stores the executable application in the
+form of a tree.
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">MTD_USERS</span> и <span class="monospaced">MTD_GROUPS</span> — tables of users and their groups when
+working with built-in user space; for additional information, see the
+"Security" section.
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">MTD_VERSION</span> — this table stores information about the current
+version of the application data repository.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>After deployment in the database each application element is represented
+as a single entry in the <span class="monospaced">MTD_ENTITIES</span> table.</p></div>
+<div class="paragraph"><p>The command for starting the deployment and database migration utility
+is as follows:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>java -jar PlatypusDeploy.jar</pre>
+</div></div>
+<div class="paragraph"><p>where OPTIONS is a deployment or migration command and a set of its
+parameters.</p></div>
+<div class="paragraph"><p>For the description of commands related to the import deployment
+operation and migrations, see sections dedicated to deployment and
+database migrations.</p></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 5. Deployment and migration commands parameters</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-ap APP_PATH</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Path to the folder containing the finished Platypus
+application. If this parameter is not specified, the current directory
+will be used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dbuser DB_USER</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Username for authorization in the database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dbpassword DB_PASSWORD</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">User password for authorization in the
+database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dbschema DB_SCHEMA</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Database scheme.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p><strong>Note</strong></p></div>
+<div class="paragraph"><p>You can also perform actions for deploying and updating applications
+using the Platypus Application Designer.</p></div>
+</div>
+<div class="attribution">
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="application-database-deployment-and-import">Application database deployment and import</h3>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p><strong>Important</strong></p></div>
+<div class="paragraph"><p>Before updating the application, make a backup copy of the operating
+database.</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="paragraph"><p>During the development, the application resides in a drive directory and
+it can be run for debugging and testing directly from the drive. For
+commercial usage, it is recommended to deploy the application to the
+database.</p></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 6. Application deployment and import commands</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-deploy</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Deploys application from the drive to the database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-undeploy</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Deletes application from the database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-import</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Imports application from the database to the drive.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph"><p>If settings of the connection to the database or the Platypus user name
+and password are not specified in options, information about the
+connection to the database will be read from the <span class="monospaced">platypus.xml</span> settings
+file of the application folder.</p></div>
+<div class="paragraph"><p>Example of the command for importing an application from the database:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>java -jar PlatypusDeploy.jar -import -ap ~/apps/testApp -url jdbc:oracle:thin:@serverHost:1521:adb -dbuser user1 -dbpassword secret -dbschema testschema</pre>
+</div></div>
+<div class="paragraph"><p>Platypus Application Server and Platypus Client do not require
+restarting after updating the operating application.</p></div>
+</div>
+<div class="sect2">
+<h3 id="database-migrations">Database migrations</h3>
+<div class="paragraph"><p>Configuration of the Platypus application database is stored in the form
+of successive migrations, which are applied consistently to ensure the
+correct operation of schema and data updates in the database. Each
+change of the structure or business data is represented as a migration
+file with a name corresponding to the change version, starting from 1.
+The file name for each new migration is created by adding 1 to the
+maximum version number for the application. Two types of migration files
+are available:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Database metadata snapshot with the <span class="monospaced">.xdm</span> extension
+</p>
+</li>
+<li>
+<p>
+A package of SQL commands for adding and/or changing service data with
+the <span class="monospaced">.batch</span>
+</p>
+</li>
+</ul></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 7. Commands for creating and applying database migrations</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-apply</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Applies a set of migrations to the database. The migrations
+with number greater than the current database version are applied.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-undeploy</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Deletes application from the database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-snapshot</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Creates a new migration — a database metadata snapshot;
+the database version corresponds to this migration.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-batch</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Creates a new empty batch migration; the version of the
+database corresponds to this migration.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-clean</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Cleans the migration directory by removing migrations which
+are not applied.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-getver</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Returns the current version of the database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-setver</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Sets the current database version in VERSION — a nonnegative
+integer.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph"><p>If settings of the connection to the database or the Platypus user name
+and password are not specified in options, information about the
+connection to the database will be read from the <span class="monospaced">platypus.xml</span> settings
+file of the application folder.</p></div>
+<div class="paragraph"><p>When applying migrations to the database, only the latest snapshot of
+the database structure is used, as well as all snapshots which were
+created immediately before the packages of SQL commands; other migration
+files are ignored and can be removed using the <span class="monospaced">-clean</span> command.</p></div>
+<div class="paragraph"><p>Example of applying migrations to the database:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>java -jar PlatypusDeploy.jar -apply -ap ~/apps/testApp</pre>
+</div></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="desktop-client">Desktop client</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The desktop client is a Java SE desktop application to provide user
+interface and/or execute the application logic on the end user&#8217;s
+computer. The desktop client loads required application elements from
+the application server, from the database or directly from a disk,
+according to its configuration.</p></div>
+<div class="paragraph"><p>The desktop client supports automatic updates via network.</p></div>
+<div class="sect2">
+<h3 id="running-desktop-client">Running desktop client</h3>
+<div class="paragraph"><p>Startup scripts and Platypus client loader are located in the <span class="monospaced">/run</span>
+folder:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<span class="monospaced">platypus.exe</span> — to run the client in Windows without creating the
+command prompt window with preliminary running the client update; this
+command ensures the correct functioning with UAC (User Account Control).
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">platypus.js</span> — a script to run the client in Windows without checking
+for updates.
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">platypus.sh</span> — to run the client in Linux.
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">startupdate.sh</span> — to run the client in Linux with preliminary running
+the client update.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>If the desktop client is started successfully, it displays a dialog box
+for entering the user name and password and selecting a preconfigured
+connection to the server.</p></div>
+<div class="paragraph"><p>You can create and use several preconfigured connections to the database
+or to an app server. Your distribution kit can include a default
+preconfigured connection.</p></div>
+<div class="paragraph"><p>If the no-server configuration is used, enter the username and password
+of the database connection, and the username and password.</p></div>
+<div class="paragraph"><p>If the configuration with a server is used, enter only the username and
+password.</p></div>
+<div class="paragraph"><p>Use the Remember database password and Remember password check boxes, if
+it is necessary to remember the database password and/or Platypus
+applications password.</p></div>
+<div class="paragraph"><p>Use the &gt;&gt;&gt; and &lt;&lt;&lt; buttons to display and hide the preconfigured
+connections panel.</p></div>
+<div class="paragraph"><p>Select a preconfigured connection from the list to connect to the server
+and run the client.</p></div>
+<div class="paragraph"><p>To display the dialog for creating a connection, click the New button on
+the preconfigured connections panel.</p></div>
+<div class="paragraph"><p>To change a preconfigured connection, select it from the list and click
+the Change button on the preconfigured connections panel.</p></div>
+<div class="paragraph"><p>Enter or modify the following fields in the Connection settings dialog:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Name is the connection name, for example <span class="monospaced">myserver</span>; you can enter any
+name in this field.
+</p>
+</li>
+<li>
+<p>
+Connection URL is the string of connection to the server. For working
+on the 2-tier scheme, the connection URL should be in the JDBC URL
+format, for example, <span class="monospaced">jdbc:oracle:thin:@dbhost:1521:adb</span>.
+</p>
+<div class="paragraph"><p>For working on the 3-tier configuration over the Platypus Protocol, use
+URL of the <span class="monospaced">platypus://</span> format, for example,
+<span class="monospaced">platypus://serverhost:8500</span>, port 8500 is the default port for the
+Platypus protocol and in this case it can be omitted.</p></div>
+<div class="paragraph"><p>For working on the 3-tier confirguration over the HTTP protocol, use URL
+of the <span class="monospaced">http://</span> format, for example,
+<span class="monospaced">http://localhost/myapp/application</span>.
+* Scheme is the default database scheme, for example, <span class="monospaced">myschema</span> (not
+used in case of the 3-tier configuration).
+* Database user is the default database username, for example, <span class="monospaced">user1</span>
+(not used in case of the 3-tier configuration).
+* To save the new connection settings, click OK in the dialog, to
+cancel, click Cancel.</p></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>To remove a preconfigured connection, select the connection from the
+list and click the Delete button on the preconfigured connections panel.
+The connection is deleted when the user clicks OK in the removal
+confirmation dialog.</p></div>
+<div class="paragraph"><p>To run the client using the selected connection, click OK. To close the
+connection selection dialog, click Cancel.</p></div>
+</div>
+<div class="sect2">
+<h3 id="command-line-options_client">Command line options</h3>
+<div class="paragraph"><p>To configure starting of the desktop client, edit the contents of the
+launch script files.</p></div>
+<div class="paragraph"><p>The deskop client is a Java SE Swing application. To customize it,
+specify the startup JVM options and the applications parameters.</p></div>
+<div class="paragraph"><p>The command for running the Platypus client is as follows:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>java  -cp Application.jar;com.eas.client.application.PlatypusClientApplication</pre>
+</div></div>
+<div class="paragraph"><p>where JVM_OPTIONS is Java Virtual Machine options, EXT_CLASSPATH are
+paths which should be added to the Java class loader search path,
+OPTIONS are additional running parameters.</p></div>
+<div class="paragraph"><p>To specify the look and feel (L&amp;F) in command line use the -D flag to
+set the swing.defaultlaf property, for example, to acitvate the Nimbus
+L&amp;F add the following in the JVM_OPTIONS:
+<span class="monospaced">-Dswing.defaultlaf=com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel</span>.</p></div>
+<div class="paragraph"><p>For the information how to specify the application&#8217;s current log level
+refer to Java documentation.</p></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 8. Command line parameters</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-url URL</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">URL to the applicaion. Can be one of the follow: <span class="monospaced">file://</span>
+to specify to a directory or <span class="monospaced">jndi://</span> to specify to a datasource.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-appElement APP_ELEMENT</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Module or form element&#8217;s name to run.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-user USER_NAME</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Username for logging to the application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-password PASSWORD</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">User password for logging to the application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-default-datasource DEFAULT_DS</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Name of the application&#8217;s default
+datasource.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-datasource DS</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Datasource name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dburl DB_URL</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">JDBC URL database connection.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dbuser DB_USER</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Username for authorization in the database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dbpassword DB_PASSWORD</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Password for authorization in the database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dbschema DB_SCHEMA</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Database scheme (optional).</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph"><p>Define zero or more datasources for a single application. A datasource
+is represented in a group of the following parameters: <span class="monospaced">-datasource</span>,
+<span class="monospaced">-dburl</span>, <span class="monospaced">-dbuser,</span> <span class="monospaced">-dbpassword</span> and optional <span class="monospaced">-dbschema</span> provided
+jointly. One of the datasource can be specified as a default using the
+<span class="monospaced">-default-datasource</span> parameter.</p></div>
+<div class="paragraph"><p>If database connection parameters or some credential are not specified,
+the Connection settings dialog appears.</p></div>
+<div class="paragraph"><p>To specify the look and feel (L&amp;F) in command line use the -D flag to
+set the swing.defaultlaf property, for example:
+-Dswing.defaultlaf=com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel</p></div>
+<div class="paragraph"><p>The example of desktop client running command:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>java -Dswing.defaultlaf=com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel -cp Application.jar com.eas.client.application.PlatypusClientApplication -appElement mainForm -url file://~/testApp -default-datasource ds -datasource ds dburl jdbc:h2:tcp://localhost:9092/testDb -dbuser sa -dbpassword sa</pre>
+</div></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="platypus-application-server">Platypus Application Server</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The main purpose of use of the Platypus Application Server is to provide
+support for various binary communication protocols.</p></div>
+<div class="sect2">
+<h3 id="running-server">Running server</h3>
+<div class="paragraph"><p>To start the server application, you run the startup script for the
+server, located in the <span class="monospaced">/run</span> folder:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<span class="monospaced">server.bat</span> is the script file to start the server in Windows.
+</p>
+</li>
+<li>
+<p>
+<span class="monospaced">server.sh</span> is the script file to start the server in Linux.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>For running the server in production environment, it is recommended to
+configure it as an operating system service.</p></div>
+</div>
+<div class="sect2">
+<h3 id="command-line-options">Command line options</h3>
+<div class="paragraph"><p>The command for running the server is as follows:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>java  -cp Server.jar; com.eas.server.ServerMain</pre>
+</div></div>
+<div class="paragraph"><p>where JVM_OPTIONS is Java Virtual Machine options, EXT_CLASSPATH are
+paths to be added to the Java class loader search path, OPTIONS are
+server application running parameters.</p></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 9. Command line options</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" >Parameter </th>
+<th class="tableblock halign-left valign-top" >Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">`-iface`ADRESS:PORT,ADRESS:PORT</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Network interfaces and listening ports
+for the server.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-url URL</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">URL to the applicaion. Can be one of the follow: <span class="monospaced">file://</span>
+to specify to a directory or <span class="monospaced">jndi://</span> to specify to a datasource.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-appelement APP_ELEMENT</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Module or form element&#8217;s name to run.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-protocols</span> PORT:PROTOCOL,PORT:PROTOCOL</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Network protocols for
+listening ports.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-tasks</span> MODULES_NAME</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">The list of server modules (separated by comma
+without spaces) for processing incoming data and background tasks. The
+received(data)function should be defined for the incoming data
+processing module. The incoming data processing modules can have the
+<span class="monospaced">@stateless</span> annotation, or be without it. Background tasks modules
+should not have the <span class="monospaced">@stateless</span> annotation. When starting server,
+modules with this annotation will be skipped.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-default-datasource DEFAULT_DS</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Name of the application&#8217;s default
+datasource.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-datasource DS</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Datasource name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dburl DB_URL</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">JDBC URL database connection.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dbuser DB_USER</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Username for authorization in the database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dbpassword DB_PASSWORD</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Password for authorization in the database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">-dbschema DB_SCHEMA</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Database scheme (optional).</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph"><p>Define zero or more datasources for a single application. A datasource
+is represented in a group of the following parameters: <span class="monospaced">-datasource</span>,
+<span class="monospaced">-dburl</span>, <span class="monospaced">-dbuser,</span> <span class="monospaced">-dbpassword</span> and optional <span class="monospaced">-dbschema</span> provided
+jointly. One of the datasource can be specified as a default using the
+<span class="monospaced">-default-datasource</span> parameter.</p></div>
+<div class="paragraph"><p>The example of the application server running command:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>java -cp Server.jar com.eas.server.ServerMain -iface 0.0.0.0:8500 -protocols 8500:platypus -url jndi://ds -default-datasource ds -datasource ds dburl jdbc:h2:tcp://localhost:9092/testServer -dbuser sa -dbpassword sa</pre>
+</div></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="java-ee-server">Java EE server</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The plaftorm&#8217;s server components can run in a J2EE server or a servlet
+container.</p></div>
+<div class="paragraph"><p>This configuration has the following features:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Server components are deployed in the J2EE container/on the server as
+a web-application as a WAR-archive or a folder. Special sevlet provides
+interaction with the clients.
+</p>
+</li>
+<li>
+<p>
+Desktop client and HTML5 browser are supported as clients.
+</p>
+</li>
+<li>
+<p>
+It is possible to use an external user authentication service, such as
+Microsoft Active Directory service; it allows you to integrate the
+platform target application in existing enterprise user space.
+</p>
+</li>
+<li>
+<p>
+Database connecions are configrued as a JNDI resources.
+</p>
+</li>
+<li>
+<p>
+Application sever modules methods are avaliable via HTTP protocol.
+</p>
+</li>
+</ul></div>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p><strong>Note</strong></p></div>
+<div class="paragraph"><p>Use Platypus Application Designer to create web application. For
+detailed information, refer to the Development Guide.</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="sect2">
+<h3 id="configuring-j2ee-server">Configuring J2EE server</h3>
+<div class="paragraph"><p>To run the plafrom&#8217;s application in a J2EE servlet container or on the
+application server, perform the following actions:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Create a new directory with a standard structure for a web-application
+in J2EE, including the <span class="monospaced">WEB-INF/web.xml</span> deployment descriptor.
+</p>
+</li>
+<li>
+<p>
+Create HTML pages, which will contain the Platypus application.
+Configure JavaScript code, necessary for the initial startup code.
+</p>
+</li>
+<li>
+<p>
+Copy libraries, necessary for the application functioning, to the
+web-application <span class="monospaced">WEB-INF/lib</span> directory from the <span class="monospaced">bin</span> sub-directory of
+the platform runtime directory.
+</p>
+</li>
+<li>
+<p>
+Copy the <span class="monospaced">pwc</span> directory of the JavaScript HTML5 client from the <span class="monospaced">bin</span>
+sub-directory of the platform runtime directory.
+</p>
+</li>
+<li>
+<p>
+Configure the JDBC data source as a JNDI resource, specify its name,
+for example <span class="monospaced">jdbc/main</span>. Configure the connection pool and JNDI
+resource. Copy the JAR file copy of the corresponding database driver to
+the directory available for the class loader.
+</p>
+</li>
+<li>
+<p>
+Configure the security domain (Realm) for working with built-in
+storage or external authentication service. For working with built-in
+storage, configure the JDBC security domain for working with <span class="monospaced">MTD_USERS</span>
+and <span class="monospaced">MTD_GROUPS</span> tables — see Security section.
+</p>
+</li>
+<li>
+<p>
+Configure the parameters of the web-application deployment in the
+<span class="monospaced">WEB-INF/web.xml</span> file. If necessary, configure settings in the
+configuration files specific for this application server.
+</p>
+</li>
+<li>
+<p>
+Deploy the web-application in the J2EE container/on the application
+server as a WAR archive or as a directory.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="configuring-the-deployment-descriptor">Configuring the deployment descriptor</h3>
+<div class="paragraph"><p>To configure a web-application, edit the XML file of the
+<span class="monospaced">WEB-INF/web.xml</span> deployment descriptor.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Set the initialization parameter and specify <span class="monospaced">url</span> as its name and
+path to Platypus application folder as its value; the path may be
+absolute or relative within the web-application; when the
+web-application is packed into a war file, the relative path will work
+if the server unpacks this archive when deploying the application; if
+this option is not specified, the application will be loaded from the
+database. In the following example, an absolute path is specified
+</p>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>...
+&lt;context-param&gt;
+    &lt;param-name&gt;url&lt;/param-name&gt;
+    &lt;param-value&gt;file:///home/Platypus/app&lt;/param-value&gt;
+ &lt;/context-param&gt;
+...</pre>
+</div></div>
+</li>
+<li>
+<p>
+Set the initialization parameter and specify <span class="monospaced">default-datasource</span> as
+its name and the name of the JNDI resource of the JDBC data source as
+its value, for example:
+</p>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>...
+&lt;context-param&gt;
+    &lt;param-name&gt;default-datasource&lt;/param-name&gt;
+    &lt;param-value&gt;jdbc/main&lt;/param-value&gt;
+ &lt;/context-param&gt;
+...</pre>
+</div></div>
+</li>
+<li>
+<p>
+Add the session event handler:
+</p>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>...
+&lt;listener&gt;
+    &lt;listener-class&gt;
+com.eas.server.httpservlet.PlatypusSessionsSynchronizer
+    &lt;/listener-class&gt;
+&lt;/listener&gt;
+...</pre>
+</div></div>
+</li>
+<li>
+<p>
+Add a reference to the data source resource:
+</p>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>...
+&lt;resource-ref&gt;
+    &lt;description&gt;Main database connection&lt;/description&gt;
+    &lt;res-ref-name&gt;jdbc/main&lt;/res-ref-name&gt;
+    &lt;res-type&gt;javax.sql.DataSource&lt;/res-type&gt;
+    &lt;res-auth&gt;Container&lt;/res-auth&gt;
+&lt;/resource-ref&gt;
+...</pre>
+</div></div>
+</li>
+<li>
+<p>
+Add Platypus servlet configuration; in the <span class="monospaced">multipart/location</span>
+element specify the path to the folder for storing the downloaded files:
+</p>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>...
+&lt;servlet&gt;
+    &lt;servlet-name&gt;PlatypusServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;
+com.eas.server.httpservlet.PlatypusHttpServlet
+    &lt;/servlet-class&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;multipart-config&gt;
+      &lt;location&gt;
+          /home/user1/pub
+      &lt;/location&gt;
+      &lt;max-file-size&gt;2097152&lt;/max-file-size&gt;
+      &lt;max-request-size&gt;2165824&lt;/max-request-size&gt;
+      &lt;file-size-threshold&gt;1048576&lt;/file-size-threshold&gt;
+    &lt;/multipart-config&gt;
+  &lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;PlatypusServlet&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/application/*&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+...</pre>
+</div></div>
+</li>
+<li>
+<p>
+Configure the access and security constraints; for information on the
+security domain configuration, see the "Security" section.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>After completing configuring, deploy the web-application as a folder or
+WAR archive in a servlet container or on the J2EE server.</p></div>
+</div>
+<div class="sect2">
+<h3 id="authentication-configuration-on-a-j2ee-container">Authentication configuration on a J2EE container</h3>
+<div class="paragraph"><p>When an application works in a J2EE container, the platform runtime uses
+an authentication mechanism and roles provided by the container. To
+enable activation of the role access in this case, the user should pass
+the security constraint and get a role. To do this, configure a URL
+security constraint as a page containing Platypus forms, for which the
+access control based on roles should be provided. The following example
+shows the enabled security constraint for the <span class="monospaced">applicationStart.html</span>
+page; to get access to this page the user should be assigned any role:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>...
+&lt;security-constraint&gt;
+  &lt;web-resource-collection&gt;
+      &lt;url-pattern&gt;/application-start.html&lt;/url-pattern&gt;
+    &lt;/web-resource-collection&gt;
+    &lt;auth-constraint&gt;
+      &lt;role-name&gt;*&lt;/role-name&gt;
+    &lt;/auth-constraint&gt;
+&lt;/security-constraint&gt;
+&lt;login-config&gt;
+    &lt;auth-method&gt;FORM&lt;/auth-method&gt;
+    &lt;form-login-config&gt;
+      &lt;form-login-page&gt;/login.html&lt;/form-login-page&gt;
+      &lt;form-error-page&gt;/login-failed.html&lt;/form-error-page&gt;
+    &lt;/form-login-config&gt;
+&lt;/login-config&gt;
+&lt;security-role&gt;
+    &lt;role-name&gt;*&lt;/role-name&gt;
+&lt;/security-role&gt;
+...</pre>
+</div></div>
+<div class="paragraph"><p>Specify the type of authentication, for example, <span class="monospaced">FORM</span> for
+authentication using HTML forms or <span class="monospaced">BASIC</span> for basic authentication
+according to RFC 2617.</p></div>
+<div class="paragraph"><p>Platypus Client supports <span class="monospaced">BASIC</span> authentication, so to its ensure
+correct operation, that particular type of authentication must be
+configured.</p></div>
+<div class="paragraph"><p>Configure the repository of information about users and J2EE container
+for using this repository. More detailed information on these settings
+is provided below.</p></div>
+<div class="paragraph"><p>When an application works in the J2EE container, you should use built-in
+web-server tools in addition to Platypus platform security constraints:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Restrict access to application files over HTTP.
+</p>
+</li>
+<li>
+<p>
+Restrict access to application files for Platypus resources loader,
+which works over URL of the following type:
+</p>
+<div class="paragraph"><p>application/resource/</p></div>
+<div class="paragraph"><p>where resourcePath is the path to the resource in the Platypus
+application.</p></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>Configure access constraints in the <span class="monospaced">WEB-INF/web.xml</span> descriptor file.</p></div>
+<div class="paragraph"><p>The following example shows a portion of the <span class="monospaced">WEB-INF/web.xml</span> file. It
+contains constraints of access to files of the Platypus application,
+located in the <span class="monospaced">app</span> directory, except <span class="monospaced">public</span> sub-directory:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>...
+&lt;security-constraint&gt;
+  &lt;web-resource-collection&gt;
+      &lt;!-- whitelist --&gt;
+      &lt;web-resource-name /&gt;
+      &lt;url-pattern&gt;/app/public/*&lt;/url-pattern&gt;
+      &lt;url-pattern&gt;/application/resource/public/*
+      &lt;/url-pattern&gt;
+   &lt;/web-resource-collection&gt;
+   &lt;!-- No auth constraint here for whitelist --&gt;
+&lt;/security-constraint&gt;
 
-        <!--
-                =======================
-                *	TABLE OF CONTENTS  *
-                =======================
-        -->
-        <div class="ui-layout-west" style="display: none;">
-            <div class="header">Contents</div>
-            <div class="ui-layout-content" style="overflow: auto;">
-                <div class='contents_panel'><dl>
- <dt>
-  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
-   &nbsp;
-  </div>
-  <span class="preface"><a href="pref-Installation_Guide-Preface.html">Preface</a></span>
- </dt>
- <dd class=" hidden">
-  <dl>
-   <dt style="margin-left:12px">
-    <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
-     &nbsp;
-    </div>
-    <span class="section"><a href="pref-Installation_Guide-Preface.html#idm2246376">1. Document Conventions</a></span>
-   </dt>
-   <dd class=" hidden">
-    <dl>
-     <dt style="margin-left:12px">
-      <span class="section"><a href="pref-Installation_Guide-Preface.html#idp17608216">1.1. Typographic Conventions</a></span>
-     </dt>
-     <dt style="margin-left:12px">
-      <span class="section"><a href="pref-Installation_Guide-Preface.html#idm7901184">1.2. Pull-quote Conventions</a></span>
-     </dt>
-     <dt style="margin-left:12px">
-      <span class="section"><a href="pref-Installation_Guide-Preface.html#idp123664">1.3. Notes and Warnings</a></span>
-     </dt>
-    </dl>
-   </dd>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="pr01s02.html">2. Feedback information</a></span>
-   </dt>
-  </dl>
- </dd>
- <dt>
-  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
-   &nbsp;
-  </div>
-  <span class="chapter"><a href="chapter_installation.html">1. Platform's installation</a></span>
- </dt>
- <dd class=" hidden">
-  <dl>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="chapter_installation.html#install-requirements">1.1. System requirements</a></span>
-   </dt>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="install-guide.html">1.2. Installation guide</a></span>
-   </dt>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="install-uninstall.html">1.3. Uninstallation guide</a></span>
-   </dt>
-  </dl>
- </dd>
- <dt>
-  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
-   &nbsp;
-  </div>
-  <span class="chapter"><a href="app_chapter.html">2. Application management</a></span>
- </dt>
- <dd class=" hidden">
-  <dl>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="app_chapter.html#app_structure">2.1. Application structure and system tables</a></span>
-   </dt>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="app-database.html">2.2. Application database deployment and import</a></span>
-   </dt>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="app_dbmigrations.html">2.3. Database migrations</a></span>
-   </dt>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="app_security.html">2.4. Security</a></span>
-   </dt>
-  </dl>
- </dd>
- <dt>
-  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
-   &nbsp;
-  </div>
-  <span class="chapter"><a href="desktop-chapter.html">3. Desktop client</a></span>
- </dt>
- <dd class=" hidden">
-  <dl>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="desktop-chapter.html#desktop_run">3.1. Running desktop client</a></span>
-   </dt>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="desktop_command.html">3.2. Command line options</a></span>
-   </dt>
-  </dl>
- </dd>
- <dt>
-  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
-   &nbsp;
-  </div>
-  <span class="chapter"><a href="server_chapter.html">4. Platypus Application Server</a></span>
- </dt>
- <dd class=" hidden">
-  <dl>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="server_chapter.html#server_run">4.1. Running server</a></span>
-   </dt>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="server_command.html">4.2. Command line options</a></span>
-   </dt>
-  </dl>
- </dd>
- <dt>
-  <div style="position:relative;display:inline-block;width:12px" class="disclosure closed">
-   &nbsp;
-  </div>
-  <span class="chapter"><a href="j2ee_chapter.html">5. Java EE server</a></span>
- </dt>
- <dd class=" hidden">
-  <dl>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="j2ee_chapter.html#j2ee_configure">5.1. Configuring J2EE server</a></span>
-   </dt>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="j2ee_dd.html">5.2. Configuring the deployment descriptor</a></span>
-   </dt>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="j2ee_aut.html">5.3. Authentication configuration on a J2EE container</a></span>
-   </dt>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="j2ee_glassfish.html">5.4. J2EE Glassfish 3 configuration</a></span>
-   </dt>
-   <dt style="margin-left:12px">
-    <span class="section"><a href="j2ee_tomcat.html">5.5. Apache Tomcat 7 configuration</a></span>
-   </dt>
-  </dl>
- </dd>
- <dt>
-  <span class="appendix"><a href="app_rev_history.html">A. History</a></span>
- </dt>
- <dt>
-  <span class="index"><a href="doc_index.html">Index</a></span>
- </dt>
-</dl></div>
-            </div>
-        </div>
-
-    </body>
+&lt;security-constraint&gt;
+  &lt;web-resource-collection&gt;
+      &lt;!-- everything other is restricted --&gt;
+      &lt;web-resource-name /&gt;
+      &lt;url-pattern&gt;/app/*&lt;/url-pattern&gt;
+      &lt;url-pattern&gt;/application/resource/*&lt;/url-pattern&gt;
+  &lt;/web-resource-collection&gt;
+  &lt;auth-constraint /&gt;
+&lt;/security-constraint&gt;
+...</pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="j2ee-glassfish-3-configuration-j2ee">J2EE Glassfish 3 configuration</h3>
+<div class="paragraph"><p>Data source setup:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Copy the JAR file of the JDBC driver to the directory accessible to
+the class loader: <span class="monospaced">glassfish/domains/mydomain/lib</span>
+</p>
+</li>
+<li>
+<p>
+Run the GlassFish administration console. To do this, start the
+server, for example, by using the asadmin utility. Then navigate to
+<span class="monospaced">http://hostname:4848</span> in browser, where hostname is the address of the
+Glassfish application server, for example: <span class="monospaced">http://localhost:4848</span>.
+</p>
+</li>
+<li>
+<p>
+Create the JDBC connection pool: Resources &#8594; JDBC &#8594; JDBC
+Connection Pools &#8594; New, <span class="monospaced">javax.sql.ConnectionPoolDataSource</span> resource
+type, and also specify the database connection parameters: <span class="monospaced">url</span>,
+<span class="monospaced">username</span>, <span class="monospaced">password</span>.
+</p>
+</li>
+<li>
+<p>
+Check the pool settings by clicking Ping.
+</p>
+</li>
+<li>
+<p>
+Create the JNDI resource for the connection pool: Resources &#8594; JDBC
+Resources&#8594; New. Specify the name of the resource, for
+example`jdbc/main`, and specify the JDBC connection pool.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>To configure Platypus for working with internal storage of user data or
+external authentication service:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Configure J2EE Glassfish server for working with the security domain
+(Realm) in the external LDAP service.
+</p>
+</li>
+<li>
+<p>
+Configure user accounts.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>To configure the Glassfish server:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add the security domain for Glassfish — to do this, change the server
+configuration (Configurations &#8594; Server-config &#8594; Security &#8594; Realms
+&#8594;New).
+</p>
+<div class="paragraph"><p>Specify the name of the security domain, select the class name from the
+list or specify your own class:
+** To use the built-in Platypus storage, specify the
+com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm class name.
+Configure properties, which are specific for this class:</p></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 10. JDBCRealm security domain properties</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">JAAS Context</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Identifier of the login module, JDBCRealm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">User Table</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">ame of the user tables in the database, MTD_USERS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">User Name Column</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Name of the column in the user table for storing
+user names, USR_NAME</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Password Column</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Name of the column in the user table for storing
+password hashes, USR_PASSWD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Group Table</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Name of the user group table, USR_GROUPS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Group Name Column</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Name of the group name column in the user group
+table, GROUP_NAME</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Digest Algorithm</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Password hashing algorithm, MD5</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist"><ul>
+<li>
+<p>
+To use the external LDAP service (Active Directory, OpenLDAP, etc.)
+specify the com.sun.enterprise.security.auth.realm.ldap.LDAPReam class
+name; configure properties which are specific for this class.
+</p>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 11. Basic and additional properties of the LDAPReam security domain</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">JAAS Context</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Identifier of the login module, ldapRealm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Directory</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">ldap://server:389</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Base DN</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">DC=ithit,DC=com</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Assign Groups</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">platypus_default_role</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">search-filter</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">(&amp;(objectClass=user)(sAMAccountName=%s))</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">search-bind-password</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">LDAP service password</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">group-search-filter</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">(&amp;(objectClass=group)(member=%d))</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">search-bind-dn</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">ithit\user</p></td>
+</tr>
+</tbody>
+</table>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p><strong>Note</strong></p></div>
+<div class="paragraph"><p>Set values of properties in accordance with the configuration of your
+LDAP server. <span class="monospaced">Assign Groups</span> property value, platypus_default_role group
+will be assigned to all users.</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="paragraph"><p>Configure JVM: Configurations &#8594; server-config &#8594; JVM Settings &#8594; Add
+JVM Option - by adding the following option:
+Djava.naming.referral=follow
+* In the <span class="monospaced">WEB-INF/glassfish-web.xml</span> file link roles to the security
+groups:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>&lt;glassfish-web-app error-url=""&gt;
+...
+  &lt;context-root&gt;/platypus&lt;/context-root&gt;
+  &lt;security-role-mapping&gt;
+    &lt;role-name&gt;platypus_default_role&lt;/role-name&gt;
+    &lt;group-name&gt;default&lt;/group-name&gt;
+  &lt;/security-role-mapping&gt;
+  &lt;security-role-mapping&gt;
+    &lt;role-name&gt;role1&lt;/role-name&gt;
+    &lt;group-name&gt;role1&lt;/group-name&gt;
+  &lt;/security-role-mapping&gt;
+  &lt;security-role-mapping&gt;
+    &lt;role-name&gt;role2&lt;/role-name&gt;
+    &lt;group-name&gt;role2&lt;/group-name&gt;
+  &lt;/security-role-mapping&gt;
+..
+&lt;/glassfish-web-app&gt;</pre>
+</div></div>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="apache-tomcat-7-configuration-j2ee">Apache Tomcat 7 configuration</h3>
+<div class="paragraph"><p>Data source setup:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Copy the corresponding JAR file of the JDBC driver to the directory
+accessible to the class loader: <span class="monospaced">/lib</span>, where CATALINA_HOME is a Apache
+Tomcat;
+</p>
+</li>
+<li>
+<p>
+Create the JNDI resource of the JDBC data source. Edit the
+<span class="monospaced">META-INF/context.xml</span> file of the web application by adding the data
+source resource:
+</p>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>...
+&lt;Resource name="jdbc/main" auth="Container" type="javax.sql.DataSource"
+       maxActive="100" maxIdle="30" maxWait="10000"
+       username="sa" password="te$tPwd" driverClassName="org.h2.Driver"     url="jdbc:h2:tcp://localhost/~/h2db/test;schema=test"/&gt;
+...</pre>
+</div></div>
+<div class="paragraph"><p>If necessary, configure the connection pool by specifying parameters for
+removing and cleaning unused connections.
+* Configure the security domain. Edit the <span class="monospaced">META-INF/context.xml</span> file of
+the web application by adding the security domain. The example below
+shows configuring of the security domain for working with the built-in
+repository of user information:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>...
+&lt;Realm  className="org.apache.catalina.realm.DataSourceRealm"
+   dataSourceName="jdbc/TestDB"
+   userTable="MTD_USERS" userNameCol="USR_NAME"   userCredCol="USR_PASSWD"
+   userRoleTable="MTD_GROUPS" roleNameCol="GROUP_NAME" digest="MD5"/&gt;
+...</pre>
+</div></div>
+<div class="paragraph"><p>For the DataSourceRealm security domain, specify names of tables,
+columns and hashing algorithm for working with <span class="monospaced">MTD_USERS</span> и
+<span class="monospaced">MTD_GROUPS</span> tables.</p></div>
+<div class="paragraph"><p>If you want to use another authentication data repository, such as an
+external LDAP server, configure the appropriate type of security domain.</p></div>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="logging-level-parameter-values">Logging level parameter values</h3>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 12. Logging levels (-loglevel)</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">OFF</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Logging is disabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">SEVERE</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Only messages related to serious problems, which prevent the
+application from normal starting, are displayed. This logging mode is
+useful for developers. Minimum level.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">WARNING</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Messages about possible problems are displayed. This logging
+mode will be useful for developers and system administrators.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">INFO</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Information messages are displayed. In this logging mode,
+messages, which are considerably significant and important for end users
+and system administrators, are displayed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">CONFIG</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Messages about system configuration are displayed. This mode
+allows you to debug problems, which are associated with the basic PC
+configuration. For example, information about the processor, color
+depth, connected modules, etc. is shown.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">FINE</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Debugging information is displayed. This level will be
+interesting for software developers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">FINER</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">The deeper level of refining.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">FINEST</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">The most detailed output of debugging information. Maximum
+level.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">ALL</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">All messages are displayed.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="j2ee-glassfish-3-configuration">J2EE Glassfish 3 configuration</h3>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p><strong>Note</strong></p></div>
+<div class="paragraph"><p>For more detailed information on Glassfish setup, refer to the
+documentation for this application server.</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="paragraph"><p>Data source setup:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Copy the JAR file of the JDBC driver to the directory accessible to
+the class loader: <span class="monospaced">glassfish/domains/mydomain/lib</span>
+</p>
+</li>
+<li>
+<p>
+Run the GlassFish administration console. To do this, start the
+server, for example, by using the asadmin utility. Then navigate to
+<span class="monospaced">http://hostname:4848</span> in browser, where hostname is the address of the
+Glassfish application server, for example: <span class="monospaced">http://localhost:4848</span>.
+</p>
+</li>
+<li>
+<p>
+Create the JDBC connection pool: Resources &#8594; JDBC &#8594; JDBC
+Connection Pools &#8594; New, <span class="monospaced">javax.sql.ConnectionPoolDataSource</span> resource
+type, and also specify the database connection parameters: <span class="monospaced">url</span>,
+<span class="monospaced">username</span>, <span class="monospaced">password</span>.
+</p>
+</li>
+<li>
+<p>
+Check the pool settings by clicking Ping.
+</p>
+</li>
+<li>
+<p>
+Create the JNDI resource for the connection pool: Resources &#8594; JDBC
+Resources&#8594; New. Specify the name of the resource, for
+example`jdbc/main`, and specify the JDBC connection pool.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>To configure Platypus for working with internal storage of user data or
+external authentication service:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Configure J2EE Glassfish server for working with the security domain
+(Realm) in the external LDAP service.
+</p>
+</li>
+<li>
+<p>
+Configure user accounts.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>To configure the Glassfish server:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add the security domain for Glassfish — to do this, change the server
+configuration (Configurations &#8594; Server-config &#8594; Security &#8594; Realms
+&#8594;New).
+</p>
+<div class="paragraph"><p>Specify the name of the security domain, select the class name from the
+list or specify your own class:
+** To use the built-in Platypus storage, specify the
+com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm class name.
+Configure properties, which are specific for this class:</p></div>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 13. JDBCRealm security domain properties</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">JAAS Context</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Identifier of the login module, JDBCRealm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">User Table</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">ame of the user tables in the database, MTD_USERS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">User Name Column</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Name of the column in the user table for storing
+user names, USR_NAME</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Password Column</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Name of the column in the user table for storing
+password hashes, USR_PASSWD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Group Table</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Name of the user group table, USR_GROUPS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Group Name Column</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Name of the group name column in the user group
+table, GROUP_NAME</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Digest Algorithm</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Password hashing algorithm, MD5</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist"><ul>
+<li>
+<p>
+To use the external LDAP service (Active Directory, OpenLDAP, etc.)
+specify the com.sun.enterprise.security.auth.realm.ldap.LDAPReam class
+name; configure properties which are specific for this class.
+</p>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<caption class="title">Table 14. Basic and additional properties of the LDAPReam security domain</caption>
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">JAAS Context</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Identifier of the login module, ldapRealm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Directory</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">ldap://server:389</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Base DN</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">DC=ithit,DC=com</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">Assign Groups</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">platypus_default_role</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">search-filter</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">(&amp;(objectClass=user)(sAMAccountName=%s))</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">search-bind-password</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">LDAP service password</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">group-search-filter</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">(&amp;(objectClass=group)(member=%d))</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><span class="monospaced">search-bind-dn</span></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">ithit\user</p></td>
+</tr>
+</tbody>
+</table>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p><strong>Note</strong></p></div>
+<div class="paragraph"><p>Set values of properties in accordance with the configuration of your
+LDAP server. <span class="monospaced">Assign Groups</span> property value, platypus_default_role group
+will be assigned to all users.</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="paragraph"><p>Configure JVM: Configurations &#8594; server-config &#8594; JVM Settings &#8594; Add
+JVM Option - by adding the following option:
+Djava.naming.referral=follow
+* In the <span class="monospaced">WEB-INF/glassfish-web.xml</span> file link roles to the security
+groups:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>&lt;glassfish-web-app error-url=""&gt;
+...
+  &lt;context-root&gt;/platypus&lt;/context-root&gt;
+  &lt;security-role-mapping&gt;
+    &lt;role-name&gt;platypus_default_role&lt;/role-name&gt;
+    &lt;group-name&gt;default&lt;/group-name&gt;
+  &lt;/security-role-mapping&gt;
+  &lt;security-role-mapping&gt;
+    &lt;role-name&gt;role1&lt;/role-name&gt;
+    &lt;group-name&gt;role1&lt;/group-name&gt;
+  &lt;/security-role-mapping&gt;
+  &lt;security-role-mapping&gt;
+    &lt;role-name&gt;role2&lt;/role-name&gt;
+    &lt;group-name&gt;role2&lt;/group-name&gt;
+  &lt;/security-role-mapping&gt;
+..
+&lt;/glassfish-web-app&gt;</pre>
+</div></div>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="apache-tomcat-7-configuration">Apache Tomcat 7 configuration</h3>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p><strong>Note</strong></p></div>
+<div class="paragraph"><p>For more detailed information on Apache Tomcat 7 setup, refer to the
+corresponding documentation.</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="paragraph"><p>Data source setup:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Copy the corresponding JAR file of the JDBC driver to the directory
+accessible to the class loader: <span class="monospaced">/lib</span>, where CATALINA_HOME is a Apache
+Tomcat;
+</p>
+</li>
+<li>
+<p>
+Create the JNDI resource of the JDBC data source. Edit the
+<span class="monospaced">META-INF/context.xml</span> file of the web application by adding the data
+source resource:
+</p>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>...
+&lt;Resource name="jdbc/main" auth="Container" type="javax.sql.DataSource"
+       maxActive="100" maxIdle="30" maxWait="10000"
+       username="sa" password="te$tPwd" driverClassName="org.h2.Driver"
+       url="jdbc:h2:tcp://localhost/~/h2db/test;schema=test"/&gt;
+...</pre>
+</div></div>
+<div class="paragraph"><p>If necessary, configure the connection pool by specifying parameters for
+removing and cleaning unused connections.
+* Configure the security domain. Edit the <span class="monospaced">META-INF/context.xml</span> file of
+the web application by adding the security domain. The example below
+shows configuring of the security domain for working with the built-in
+repository of user information:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>...
+&lt;Realm  className="org.apache.catalina.realm.DataSourceRealm"
+   dataSourceName="jdbc/TestDB"
+   userTable="MTD_USERS" userNameCol="USR_NAME"   userCredCol="USR_PASSWD"
+   userRoleTable="MTD_GROUPS" roleNameCol="GROUP_NAME" digest="MD5"/&gt;
+...</pre>
+</div></div>
+<div class="paragraph"><p>For the DataSourceRealm security domain, specify names of tables,
+columns and hashing algorithm for working with <span class="monospaced">MTD_USERS</span> и
+<span class="monospaced">MTD_GROUPS</span> tables.</p></div>
+<div class="paragraph"><p>If you want to use another authentication data repository, such as an
+external LDAP server, configure the appropriate type of security domain.</p></div>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2015-07-24 13:57:11 MSK
+</div>
+</div>
+</body>
 </html>
