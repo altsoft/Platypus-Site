@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><datamodel>
+  <parameters>
+    <parameter description="" name="id" nullable="true" parameterMode="1" selectionForm="null" type="Number"/>
+    <parameter description="" name="ctype" nullable="true" parameterMode="1" selectionForm="null" type="Number"/>
+    <parameter description="" name="email" nullable="true" parameterMode="1" selectionForm="null" type="String"/>
+    <parameter description="" name="nick" nullable="true" parameterMode="1" selectionForm="null" type="String"/>
+  </parameters>
+  <parametersEntity entityHeight="200" entityIconified="false" entityLocationX="28" entityLocationY="15" entityWidth="150"/>
+  <entity Title="" entityHeight="200" entityIconified="false" entityId="144180544078174" entityLocationX="272" entityLocationY="23" entityWidth="150" tableAlias="" tableName="downloads" tableSchemaName=""/>
+</datamodel>
