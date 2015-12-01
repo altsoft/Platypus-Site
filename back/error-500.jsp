@@ -1,0 +1,1 @@
+<%@ page isErrorPage="true" contentType="text/plain;charset=utf-8"%><%=request.getAttribute("javax.servlet.error.message")%>

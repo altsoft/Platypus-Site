@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
+  <ButtonGroup name="buttonGroup"/>
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="254px" prefWidth="400px"/>
+  <Button cursor="0" name="btnDownload" parent="view" prefHeight="20px" prefWidth="100px" text="Download">
+    <AnchorsPaneConstraints bottom="13px" height="20px" right="10px" width="100px"/>
+  </Button>
+  <FormattedField cursor="0" emptyText="Укажите адрес электронной почты" format="" name="edEMail" parent="view" prefHeight="20px" prefWidth="380px">
+    <AnchorsPaneConstraints height="20px" left="10px" right="10px" top="10px"/>
+  </FormattedField>
+  <FormattedField cursor="0" emptyText="Выберите как к вам обращаться" format="" name="edNick" parent="view" prefHeight="20px" prefWidth="380px">
+    <AnchorsPaneConstraints height="20px" left="10px" right="10px" top="50px"/>
+  </FormattedField>
+  <RadioButton buttonGroup="buttonGroup" cursor="0" name="rbOrganization" parent="view" prefHeight="20px" prefWidth="140px" selected="true" text="Организация">
+    <AnchorsPaneConstraints height="20px" left="10px" top="120px" width="140px"/>
+  </RadioButton>
+  <RadioButton buttonGroup="buttonGroup" cursor="0" name="rbOwn" parent="view" prefHeight="20px" prefWidth="140px" text="Только я">
+    <AnchorsPaneConstraints height="20px" left="10px" top="150px" width="140px"/>
+  </RadioButton>
+  <RadioButton buttonGroup="buttonGroup" cursor="0" name="rbAcademic" parent="view" prefHeight="20px" prefWidth="140px" text="Учебное заведение">
+    <AnchorsPaneConstraints height="20px" left="10px" top="180px" width="140px"/>
+  </RadioButton>
+  <Label cursor="0" name="lblCustomerType" parent="view" prefHeight="17px" prefWidth="270px" text="Кто будет пользоваться Platypus.js ?">
+    <AnchorsPaneConstraints height="17px" left="10px" top="90px" width="270px"/>
+  </Label>
+  <Label cursor="0" horizontalAlignment="0" horizontalTextPosition="0" iconTextGap="0" name="lblCaptcha" parent="view" prefHeight="41px" prefWidth="200px">
+    <AnchorsPaneConstraints height="41px" right="10px" top="130px" width="200px"/>
+  </Label>
+  <TextField cursor="0" emptyText="Введите символы с картинки" name="edCaptcha" parent="view" prefHeight="20px" prefWidth="200px">
+    <AnchorsPaneConstraints height="20px" right="10px" top="181px" width="200px"/>
+  </TextField>
+</layout>
