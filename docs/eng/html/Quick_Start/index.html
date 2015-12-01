@@ -760,7 +760,7 @@ install: function(toclevels) {
 }
 
 }
-asciidoc.install(2);
+asciidoc.install(3);
 /*]]>*/
 </script>
 </head>
@@ -786,10 +786,10 @@ more details about Platypus.js.</p></div>
 <div class="sect1">
 <h2 id="platypus.js-installation">Platypus.js installation</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Java Runtime and JDK 8 update 40 or higher are required for Platypus.js applications
+<div class="paragraph"><p>Java Runtime and JDK 8 update 66 or higher are required for Platypus.js applications
 development.</p></div>
 <div class="paragraph"><p>Install the Platypus.js IDE, the Platypus.js runtime components and
-Apache Tomcat 8 to enable running a web client:</p></div>
+Apache Tomcat 8.0.24+ to enable running a web client:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -1000,16 +1000,6 @@ database structure diagram.</p></div>
 <span class="monospaced">PetType</span> and <span class="monospaced">Visit</span> according to the knowledge domain model. A numeric
 primary key is automatically created for each new table. Add all the
 required fields for the tables.</p></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/icons/tip.png" alt="Tip">
-</td>
-<td class="content">To create new field in table, use button <em>Create new field</em> <span class="image">
-<img src="images/db/createField.png" alt="images/db/createField.png">
-</span>.</td>
-</tr></table>
-</div>
 <div class="paragraph"><p>Create the foreign key links by connecting foreign key fields with the
 correspondent primary keys files. Please note that the connected fields
 must have the same data type.</p></div>
@@ -1033,7 +1023,7 @@ that the constructor is also set to <span class="monospaced">OwnerView</span>. T
 be shown on this form. Save this form but for this moment leave it
 blank.</p></div>
 <div class="paragraph"><p>Now lets edit the <span class="monospaced">OwnersView</span> form.
-<span class="monospaced">OwnersView</span> form will contain (Fig. <a href="#ownersView">owners view</a>):</p></div>
+<span class="monospaced">OwnersView</span> form will contain (Fig. <a href="#OwnersView">owners view</a>):</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -1047,7 +1037,7 @@ The <span class="monospaced">ModelGrid</span> widget to display the owners list.
 </p>
 </li>
 </ul></div>
-<div class="imageblock" id="OwneresView">
+<div class="imageblock" id="OwnersView">
 <div class="content">
 <img src="images/ui/ownersView.png" alt="Owners view">
 </div>
@@ -1058,25 +1048,15 @@ buttons and the text field from the standard components palette on the
 panel. Provide meaningful names for the added components. Set texts to
 the added buttons. Drag-and-drop a <span class="monospaced">ModelGrid</span> from the model widgets
 palette on the form below the header panel and also provide a name for
-it. You may use images and set them as <em>Icon</em> to buttons as shown in Fig. <a href="#ownersView">owners view</a>.</p></div>
+it.</p></div>
 <div class="paragraph"><p>Next lets configure the data model for our <span class="monospaced">OwnersView</span> form. Data model
 allows persistent data to be read and written from/to the database. In
 Platypus.js data model entities are created on the basis of data sources.
 To access relational data create data sources from SQL queries.</p></div>
 <div class="paragraph"><p>Create a new Query application element named <span class="monospaced">OwnersQuery</span> with SQL to
 get filtered records from the <span class="monospaced">Owner</span> table:</p></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/icons/tip.png" alt="Tip">
-</td>
-<td class="content">You may simply add table or tables to Query by using "Add table" button <span class="image">
-<img src="images/db/addTable.png" alt="images/db/addTable.png">
-</span>, or drag-n-drop another <em>Query</em>.</td>
-</tr></table>
-</div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1096,7 +1076,7 @@ allows us to use ORM (Object Relation Mapper) on any database in future.</p></di
 network from a remote data model running on a client and save the query.</p></div>
 <div class="paragraph"><p>Drag-and-drop it to the <span class="monospaced">OwnersView</span> data model. You may also go to the new entity&#8217;s
 properties and provide its name, for example <span class="monospaced">owners</span>.</p></div>
-<div class="imageblock" id="connection_name">
+<div class="imageblock" id="connection_name_owners">
 <div class="content">
 <img src="images/query/ownersQuery.png" alt="OwnersView form data model">
 </div>
@@ -1127,7 +1107,7 @@ deletable, insertable and editable properties of the grid in it&#8217;s properti
 <div class="paragraph"><p>Lets write some JavaScript code for our form.</p></div>
 <div class="paragraph"><p>By default after creation form&#8217;s code looks like this:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1149,7 +1129,7 @@ http://www.gnu.org/software/src-highlite -->
 <div class="paragraph"><p>Double click on the Add button and enter the code responsible for
 showing the <span class="monospaced">OwnerView</span> form:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1166,7 +1146,7 @@ form and show it as a modal window. We will create showModal method in detailed 
 a parameter to enable data model requery when closing the owner&#8217;s
 details form:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1176,7 +1156,7 @@ http://www.gnu.org/software/src-highlite -->
 <div class="paragraph"><p>Double click on the Delete button and provide the code fragment
 responsible for an owner&#8217;s record deletion:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1195,10 +1175,10 @@ form<span style="color: #990000">.</span>btnDelete<span style="color: #990000">.
 <div class="paragraph"><p>On Delete button click we are showing a confirmation dialogue and if the
 action is confirmed the current row in the owners query will be deleted.
 Then all changes will be saved to the database.
-Data model is JavaScript array, so we use method <em>splice</em> to delete selected rows. Information about selected rows we get from ModelGrid.</p></div>
+Data model is JavaScript array, so we use method <em>splice</em> to delete selected rows. Information about selected rows we get from modeGrid.</p></div>
 <div class="paragraph"><p>Provide a handler for the <span class="monospaced">onMouseClicked</span> event of the grid widget:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1217,7 +1197,7 @@ parameter containing the grid&#8217;s current owner&#8217;s record identifier.</
 <div class="paragraph"><p>Double click on the Search button to provide the search by a last name
 action logic:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1239,7 +1219,7 @@ query is run the result are shown in a separate results window. You can
 also insert, delete and update database records using this window.</p></div>
 <div class="paragraph"><p>To obtain all data on form load we will add following code to method <em>show</em>:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1254,7 +1234,7 @@ http://www.gnu.org/software/src-highlite -->
 <div class="sect1">
 <h2 id="owners-details-pets-and-visits-form">Owners details, pets and visits form</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Open the OwnerView form we&#8217;ve created earlier. This form will contain
+<div class="paragraph"><p>Open the OwnerDetails form we&#8217;ve created earlier. This form will contain
 the user interface related to a concrete owner, her/his pets and hotel
 visits.</p></div>
 <div class="imageblock" id="ownerDetail">
@@ -1284,7 +1264,7 @@ JavaScript code.</p></div>
 <div class="paragraph"><p>Add a new application element for a SQL query selecting data for the
 specific owner by her/his identifier:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1298,7 +1278,7 @@ http://www.gnu.org/software/src-highlite -->
  <span style="font-weight: bold"><span style="color: #0000FF">Where</span></span> <span style="color: #990000">:</span>ownerID <span style="color: #990000">=</span> t1<span style="color: #990000">.</span>owner_id</tt></pre></div></div>
 <div class="paragraph"><p>Add a query for the pets list for the specific owner:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1313,7 +1293,7 @@ http://www.gnu.org/software/src-highlite -->
 <div class="paragraph"><p>Next, add a query for getting all the hotel visits for the all pets of
 the specific owner:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1328,7 +1308,7 @@ http://www.gnu.org/software/src-highlite -->
  <span style="font-weight: bold"><span style="color: #0000FF">Inner</span></span> <span style="font-weight: bold"><span style="color: #0000FF">Join</span></span> PetsQuery t2 <span style="font-weight: bold"><span style="color: #0000FF">on</span></span> t1<span style="color: #990000">.</span>pet <span style="color: #990000">=</span> t2<span style="color: #990000">.</span>pet_id</tt></pre></div></div>
 <div class="paragraph"><p>Add a simple query for selecting all pets types:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1406,17 +1386,10 @@ Unlike the owners list grid the pets and visits grids will allow edit their cell
 </div>
 <div class="title">Figure 27. Visit grid columns view</div>
 </div>
-<div class="paragraph"><p>As the result we should have form as shown in Fig.</p></div>
-<div class="imageblock" id="ownerDetailCompleete">
-<div class="content">
-<img src="images/ui/оwnerDetailComplete.png" alt="OwnerDetails form completed">
-</div>
-<div class="title">Figure 28. Owner detail Completed</div>
-</div>
 <div class="paragraph"><p>At the next step we&#8217;ll write some JavaScript code for the OwnerView
 form.</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1433,7 +1406,7 @@ http://www.gnu.org/software/src-highlite -->
 <div class="paragraph"><p>Double click on the OK button and insert the handler code to save the
 owner&#8217;s data:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1459,7 +1432,7 @@ http://www.gnu.org/software/src-highlite -->
 successful then changes are saved to the database. Write the <span class="monospaced">validate</span>
 function stub we&#8217;ll return to its code later.</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1476,7 +1449,7 @@ http://www.gnu.org/software/src-highlite -->
 <div class="paragraph"><p>Double click on the Cancel button and insert JavaScript code to perform
 the form close action:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1492,7 +1465,7 @@ form<span style="color: #990000">.</span>cancelButton<span style="color: #990000
 <div class="paragraph"><p>Insert pets Add button <span class="monospaced">onActionPerformed</span> event handler to add a new
 pet:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1506,7 +1479,7 @@ form<span style="color: #990000">.</span>btnAddPet<span style="color: #990000">.
 <div class="paragraph"><p>Insert pets Delete button <span class="monospaced">onActionPerformed</span> event handler to delete a
 pet:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1526,7 +1499,7 @@ form<span style="color: #990000">.</span>btnDeletePet<span style="color: #990000
 <div class="paragraph"><p>Insert visits Add button <span class="monospaced">onActionPerformed</span> event handler to add a new
 visit to the hotel:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1541,7 +1514,7 @@ form<span style="color: #990000">.</span>btnAddVisit<span style="color: #990000"
 <div class="paragraph"><p>Insert visits Delete button <span class="monospaced">onActionPerformed</span> event handler to delete
 a pet&#8217;s visit:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1561,7 +1534,7 @@ form<span style="color: #990000">.</span>btnDeleteVisit<span style="color: #9900
 <span class="monospaced">validate</span> function and implement it as follows to perform the owner&#8217;s
 and the pets and visits validation:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1577,7 +1550,7 @@ http://www.gnu.org/software/src-highlite -->
 <span style="color: #FF0000">}</span></tt></pre></div></div>
 <div class="paragraph"><p>Add owner&#8217;s fields validation code:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1609,7 +1582,7 @@ http://www.gnu.org/software/src-highlite -->
 <span style="color: #FF0000">}</span></tt></pre></div></div>
 <div class="paragraph"><p>The pets validation code is as follows:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1634,7 +1607,7 @@ http://www.gnu.org/software/src-highlite -->
 <span style="color: #FF0000">}</span></tt></pre></div></div>
 <div class="paragraph"><p>Insert the visits validation code for the currently selected pet:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1664,121 +1637,13 @@ works correctly.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="UseTheOrm">Use the ORM, Luke</h2>
-<div class="sectionbody">
-<div class="paragraph"><p>Method that we have used earlier is good, but may be not good enouth in some cases. We will use power of ORM to become familiar with it.
-Each record  in data source can be represented as <em>JavaScript</em> object with corresponding properties. So the main idea of our modification is to transfer object to <em>OwnerView</em>, perform it&#8217;s modification and then save. Saving object will be performed automatically, because our ORM will translate object&#8217;s fields respectively to database field. Sounds fun! Lets begin.</p></div>
-<div class="paragraph"><p>First of all we will modify <em>onMouseClicked</em> method on modelGrid:</p></div>
-<div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
-by Lorenzo Bettini
-http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite -->
-<pre><tt>form<span style="color: #990000">.</span>modelGrid<span style="color: #990000">.</span>onMouseClicked <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span>event<span style="color: #990000">.</span>clickCount <span style="color: #990000">&gt;</span> <span style="color: #993399">1</span><span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-        <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> ownerView <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">new</span></span> <span style="font-weight: bold"><span style="color: #000000">OwnerView</span></span><span style="color: #990000">();</span>
-          ownerView<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">showModal</span></span><span style="color: #990000">(</span>refresh<span style="color: #990000">,</span> model<span style="color: #990000">.</span>owners<span style="color: #990000">.</span>cursor<span style="color: #990000">);</span>
-    <span style="color: #FF0000">}</span>
-<span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
-<div class="paragraph"><p>Our <em>model.owners.cursor</em> contains selected database record, and we pass it to <em>OwnerView</em> as <em>JavaScript</em> object. Using same way we need to modify method when user add new owner.</p></div>
-<div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
-by Lorenzo Bettini
-http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite -->
-<pre><tt>form<span style="color: #990000">.</span>btnAdd<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> ownerView <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">new</span></span> <span style="font-weight: bold"><span style="color: #000000">OwnerView</span></span><span style="color: #990000">();</span>
-    model<span style="color: #990000">.</span>owners<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">push</span></span><span style="color: #990000">(</span><span style="color: #FF0000">{}</span><span style="color: #990000">);</span>
-    ownerView<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">showModal</span></span><span style="color: #990000">(</span>refresh<span style="color: #990000">,</span>model<span style="color: #990000">.</span>owners<span style="color: #990000">.</span>cursor<span style="color: #990000">);</span>
-<span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
-<div class="paragraph"><p>In <em>OwnerView</em> we should modify binding of edit fields, that represents <em>First Name</em>, <em>Last Name</em> etc. We should delete <em>data</em> binding and set field to corresponding object field (objects field have same names as fields of database table) (Fig. <a href="#fieldOrm">field binding</a>).</p></div>
-<div class="imageblock" id="fieldOrm">
-<div class="content">
-<img src="images/db/fieldORM.png" alt="Binding to object">
-</div>
-<div class="title">Figure 29. Binding to object properties</div>
-</div>
-<div class="paragraph"><p>Binding of data we will perform in method <em>showModal</em> :</p></div>
-<div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
-by Lorenzo Bettini
-http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite -->
-<pre><tt>self<span style="color: #990000">.</span>showModal <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>aOnSucsess<span style="color: #990000">,</span> aOwner<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-    P<span style="color: #990000">.</span>Logger<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">info</span></span><span style="color: #990000">(</span>aOwner<span style="color: #990000">);</span>
-    owner <span style="color: #990000">=</span> aOwner<span style="color: #990000">;</span>
-    form<span style="color: #990000">.</span>edFirstName<span style="color: #990000">.</span>data <span style="color: #990000">=</span> owner<span style="color: #990000">;</span>
-    form<span style="color: #990000">.</span>edLastName<span style="color: #990000">.</span>data <span style="color: #990000">=</span> owner<span style="color: #990000">;</span>
-    form<span style="color: #990000">.</span>edAddress<span style="color: #990000">.</span>data <span style="color: #990000">=</span> owner<span style="color: #990000">;</span>
-    form<span style="color: #990000">.</span>edCity<span style="color: #990000">.</span>data <span style="color: #990000">=</span> owner<span style="color: #990000">;</span>
-    form<span style="color: #990000">.</span>edPhone<span style="color: #990000">.</span>data <span style="color: #990000">=</span> owner<span style="color: #990000">;</span>
-    form<span style="color: #990000">.</span>edEmale<span style="color: #990000">.</span>data <span style="color: #990000">=</span> owner<span style="color: #990000">;</span>
-    onSucsess <span style="color: #990000">=</span> aOnSucsess<span style="color: #990000">;</span>
-
-    model<span style="color: #990000">.</span>petsQuery<span style="color: #990000">.</span>params<span style="color: #990000">.</span>owner_id <span style="color: #990000">=</span> owner<span style="color: #990000">.</span>OWNERS_ID<span style="color: #990000">;</span>
-    model<span style="color: #990000">.</span>visitsQuery<span style="color: #990000">.</span>params<span style="color: #990000">.</span>ownerID <span style="color: #990000">=</span> owner<span style="color: #990000">.</span>OWNERS_ID<span style="color: #990000">;</span>
-    model<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">requery</span></span><span style="color: #990000">();</span>
-
-    form<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">showModal</span></span><span style="color: #990000">();</span>
-<span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
-<div class="paragraph"><p>Our object have fullName property, but it&#8217;s not binded to any field, so we need to fill it manually:</p></div>
-<div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
-by Lorenzo Bettini
-http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite -->
-<pre><tt>owner<span style="color: #990000">.</span>fullName <span style="color: #990000">=</span> owner<span style="color: #990000">.</span>firstname <span style="color: #990000">+</span> <span style="color: #FF0000">" "</span> <span style="color: #990000">+</span> owner<span style="color: #990000">.</span>lastname<span style="color: #990000">;</span></tt></pre></div></div>
-<div class="paragraph"><p>As the result our <em>Ok</em> button method will look like:</p></div>
-<div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
-by Lorenzo Bettini
-http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite -->
-<pre><tt>form<span style="color: #990000">.</span>btnSave<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-        owner<span style="color: #990000">.</span>fullName <span style="color: #990000">=</span> owner<span style="color: #990000">.</span>firstname <span style="color: #990000">+</span> <span style="color: #FF0000">" "</span> <span style="color: #990000">+</span> owner<span style="color: #990000">.</span>lastname<span style="color: #990000">;</span>
-        <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> message <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #000000">validateOwner</span></span><span style="color: #990000">();</span>
-
-        <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span>model<span style="color: #990000">.</span>modified<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-            message <span style="color: #990000">+=</span> <span style="font-weight: bold"><span style="color: #000000">validate</span></span><span style="color: #990000">();</span>
-            <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>message<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-                model<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">save</span></span><span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">()</span> <span style="color: #FF0000">{</span>
-                    <span style="font-weight: bold"><span style="color: #000000">onSucsess</span></span><span style="color: #990000">();</span>
-                <span style="color: #FF0000">}</span><span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="color: #990000">()</span> <span style="color: #FF0000">{</span>
-                    P<span style="color: #990000">.</span>Logger<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">Info</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"Failed on save"</span><span style="color: #990000">);</span>
-                <span style="color: #FF0000">}</span><span style="color: #990000">);</span>
-            <span style="color: #FF0000">}</span>
-        <span style="color: #FF0000">}</span>
-        <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(!</span>message<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-            form<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">close</span></span><span style="color: #990000">();</span>
-        <span style="color: #FF0000">}</span> <span style="font-weight: bold"><span style="color: #0000FF">else</span></span> <span style="color: #FF0000">{</span>
-            <span style="font-weight: bold"><span style="color: #000000">alert</span></span><span style="color: #990000">(</span>message<span style="color: #990000">);</span>
-        <span style="color: #FF0000">}</span>
-
-    <span style="color: #FF0000">}</span><span style="color: #990000">;</span>
-</tt></pre></div></div>
-<div class="paragraph"><p>Finally, we will add <em>Save</em> button to our main form. Actually we can save it automatically, for example, in callback, when user have closed modal window.</p></div>
-<div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
-by Lorenzo Bettini
-http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite -->
-<pre><tt>form<span style="color: #990000">.</span>btnSave<span style="color: #990000">.</span>onActionPerformed <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>event<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span>model<span style="color: #990000">.</span>modified<span style="color: #990000">)</span><span style="color: #FF0000">{</span>
-        <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #000000">confirm</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"Save changes"</span><span style="color: #990000">))</span><span style="color: #FF0000">{</span>
-            model<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">save</span></span><span style="color: #990000">();</span>
-        <span style="color: #FF0000">}</span>
-    <span style="color: #FF0000">}</span>
-<span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="owners-report">Owners report</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>In this section we are going to create a simple report about the owners.</p></div>
 <div class="paragraph"><p>Create a new Report application element with the <span class="monospaced">OwnersReport</span> name.
 Add <span class="monospaced">OwnersQuery</span> to data model.</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1789,6 +1654,7 @@ http://www.gnu.org/software/src-highlite -->
         report<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">show</span></span><span style="color: #990000">();</span> <span style="font-style: italic"><span style="color: #9A1900">//| report.print(); | var savedTo = report.save(saveTo ?);</span></span>
 <span style="font-style: italic"><span style="color: #9A1900">//            onSuccess(report);</span></span>
     <span style="color: #FF0000">}</span><span style="color: #990000">,</span> onFailure<span style="color: #990000">);</span>
+
 <span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
 <div class="paragraph"><p>On layout tab click on <em>edit report template</em> to edit the report template. Provide the report&#8217;s header,
 owners tables columns headers and the columns tags as it shown below:</p></div>
@@ -1823,7 +1689,7 @@ width:100%;
 <div class="paragraph"><p>Go to the <span class="monospaced">OwnersView</span> form and add the Report button. Change the button
 name, the caption text and provide its press event handler code:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1839,7 +1705,7 @@ form<span style="color: #990000">.</span>btnReport<span style="color: #990000">.
 parameter of the`OwnersView` form and display the report.</p></div>
 <div class="paragraph"><p>But this will work only in SE client. To make this work on HTML5 application, we should create new server module, and place code as shown below:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1859,7 +1725,7 @@ http://www.gnu.org/software/src-highlite -->
 <div class="paragraph"><p>Because we are going to call our server module over network, we should add annotation @public (like in queries).</p></div>
 <div class="paragraph"><p>On the next step we need to modify report generation code, where we will return generated report to callback.</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1873,7 +1739,7 @@ http://www.gnu.org/software/src-highlite -->
 <span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
 <div class="paragraph"><p>We also should rewrite code in Report button:</p></div>
 <div class="listingblock">
-<div class="content"><!-- Generator: GNU source-highlight 3.1.6
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
@@ -1900,7 +1766,7 @@ form<span style="color: #990000">.</span>btnReport<span style="color: #990000">.
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-29 10:16:54 MSK
+Last updated 2015-07-27 09:23:54 MSK
 </div>
 </div>
 </body>
