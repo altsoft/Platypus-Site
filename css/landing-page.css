@@ -1,6 +1,17 @@
 body, html {	
 	height: 100%;
 	width: 100%;
+	background:repeating-linear-gradient(
+		to right,
+		#F0F0F3,
+		#F0F0F3 10px,
+		#EEEEEE 10px,
+		#EEEEEE 20px
+	      );;
+}
+
+.content {
+  min-height: calc(100vh - 153px);
 }
 
 body, h1, h2, h3, h4, h5, h6 {
@@ -13,11 +24,24 @@ body, h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 }
 
+a.navbar-brand, ul.nav.navbar-nav>li>a {
+	color: white!important;
+}
+
+a.navbar-brand:hover, ul.nav.navbar-nav>li>a:hover {
+	color: #F9BF3B!important;
+}
+
+nav.navbar {
+	background-color: #22313F;
+}
+
 .intro-header {
-	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+	padding-top: 80px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
 	padding-bottom: 50px;
 	color: #f8f8f8;
 	background: url(../img/intro-bg.jpg) no-repeat center center;
+	#background: #EF4836;
 	background-size: cover;
 	text-align: center;
 }
@@ -26,6 +50,7 @@ body, h1, h2, h3, h4, h5, h6 {
 	position: relative;
 	padding-top: 10%;
 	padding-bottom: 5%;
+	
 }
 
 .intro-message > h1 {
@@ -35,13 +60,29 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 .intro-divider {
-	width: 400px;
+	width: 500px;
 	border-top: 1px solid #f8f8f8;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .intro-message > h3 {
 	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+a.btn-transparent {
+	color: #FFF;
+	border: solid 2px #FFF;
+	border-radius: 4px;
+	font-weight: 800;
+	text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+	transition: all 0.1s;
+	webkit-transition: all 0.1s;
+}
+
+a.btn-transparent:hover {
+	color: #FFF!important;
+	background-color: rgba(255, 255, 255, 0.4);
+	#border-color: rgb(211, 84, 0);
 }
 
 @media (max-width: 767px) {
@@ -71,19 +112,29 @@ body, h1, h2, h3, h4, h5, h6 {
 .network-name {
 	text-transform: uppercase;
 	font-size: 14px;
-	font-weight: 400;
+	font-weight: 600;
 	letter-spacing: 2px;
 }
 
 .content-section-a {
-	background-color: #f8f8f8;
-	padding: 50px 0;
+	background:repeating-linear-gradient(
+		to right,
+		#F0F0F3,
+		#F0F0F3 10px,
+		#EEEEEE 10px,
+		#EEEEEE 20px
+	      );
+	#background: #22313F;
+	padding: 50px 0px;
+	border-top: solid 1px #FFF;
 }
 
 .content-section-b {
-	border-top: 1px solid #e7e7e7;
-	border-bottom: 1px solid #e7e7e7;
-	padding: 50px 0;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	background: #67809F;
+	padding: 0px 0px 50px 0px;
+	color: white;
 }
 
 .section-heading {
@@ -144,12 +195,14 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 footer {
-	background-color: #f8f8f8;
+	border-top: solid 1px white;
+	background-color: #22313F;
 	padding: 50px 0;
 }
 
 p.copyright {
 	margin: 15px 0 0;
+	color: white;
 }
 
 div.featureTag  {
@@ -157,14 +210,19 @@ div.featureTag  {
 	transition: all 0.1s;
 	webkit-transition: all 0.1s;
 	cursor: pointer;
+	color: white;
+}
+
+.content-section-a > div > div > div{
+	color: #22313F;
 }
 
 div.featureTag.selected {
-	color: #d61;
+	color: #E9AF2B;
 }
 
 div.featureTag:hover  {
-	color: #f72;
+	color: #F9BF3B;
 }
 
 div.featureTag > i {
@@ -177,6 +235,7 @@ div.featureDescription {
 	text-align: center;
 	transition: all 0.3s;
 	webkit-transition: all 0.3s;
+	color: white;
 }
 
 div.featureDescription > p,  div.featureDescription > ul {
@@ -191,6 +250,13 @@ pre {
 	font-family: Menlo, Monaco, Consolas, "Courier New";
 	font-weight: normal;
 	background-color: white;
+}
+
+ul.list-inline>li>a {
+	color: white;
+}
+ul.list-inline>li>a:hover {
+	color: #F9BF3B;
 }
 
 /***** ### DOWNLOAD ### ***/
