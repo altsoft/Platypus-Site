@@ -6,12 +6,12 @@
 (function () {
     function ready() {
         P.cacheBust = true;
-        P.require('DownloadView', function(){
+        P.require('DownloadView', function () {
             var m = new DownloadView();
             m.show();
-        }, function(e){
+        }, function (e) {
             P.Logger.severe(e);
-            if(document){
+            if (document) {
                 var messageParagraph = document.createElement('p');
                 document.body.appendChild(messageParagraph);
                 messageParagraph.innerHTML = 'An error occured while require(\'DownloadView\'). Error: ' + e;
@@ -21,7 +21,7 @@
             }
         });
     }
-    if(!this.P) {
+    if (!this.P) {
         this.P = {};
         P.ready = ready;
     } else {
