@@ -159,22 +159,6 @@
                         <br/>
                         <a href="http://tomcat.apache.org/download-80.cgi" target="blank">Apache Tomcat 8</a> is required for running the web applications.
                     </p>
-        
-                    <h1>Notes</h1>
-                    <p>
-                     If you have problems with platypus.js updating process on <em>Windows</em> (<em>"file not found"</em> message or nothing happens after clicking on update message in platypus designer), you may fix this by using one of folowing approaches:
-                            <ul>
-                                <li>
-                                  Replace C:\ProgramData\Oracle\Java\javapath\ in Windows System PATH variable with "C:\Program Files\Java\jre1.8.0_74\bin"
-                                </li>
-                                <li>
-                                  Replace softlink like C:\ProgramData\Oracle\Java\javapath\javaw.exe by hardlink using command mklink /H &ltlink&gt &lttarget&gt (mklink /H C:\ProgramData\Oracle\Java\javapath\javaw.exe "C:\Program Files\Java\jre1.8.0_74\bin\javaw.exe").
-                                </li>
-                                <li>
-                                  Wait until Microsoft will fix symlink problems, or Oracle will stop using them in java's installer.
-                                </li>
-                           </ul>
-                    </p>
                 </div>
             </div>
         </div>
