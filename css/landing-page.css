@@ -225,6 +225,11 @@ div.featureTag:hover  {
 	color: #F9BF3B;
 }
 
+div.featureTag.no-click:hover, div.featureTag.no-click.selected {
+	color: white;
+	cursor: default;
+}
+
 div.featureTag > i {
 	font-size: 52px;
 	font-weight: normal;
