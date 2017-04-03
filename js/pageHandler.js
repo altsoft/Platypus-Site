@@ -1,7 +1,6 @@
 var selectedFeatureName = null;
 
 function showFeature(aFeatureName) {
-    hideAllFeatures();
     if (selectedFeatureName!==aFeatureName) {
         selectedFeatureName=aFeatureName;
         $("." + selectedFeatureName + ".featureDescription").show();
@@ -19,4 +18,4 @@ function hideAllFeatures() {
     $(".featureTag").removeClass("selected");
 }
 
-hideAllFeatures();
+//hideAllFeatures();
