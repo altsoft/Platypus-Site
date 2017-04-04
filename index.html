@@ -246,7 +246,7 @@ define(function (){
         var self = this;
 
         this.calc = function (aAngle) {
-          return Math.tan(aAngle);// one of parallel operations here
+          return Math.tan(aAngle);// One of parallel operations here
         }
     }
     return Worker;
@@ -282,15 +282,15 @@ define(['rpc'], function(Lpc){
                                 <pre>
                         <code class="language-javascript">
         //Let's query data from a database and execute function "doItInCallback" after recieving data
-        //The first param used as the succesfull callback function and the second as the failure callback;
+        //The first param used as the succesfull callback function and the second as the failure callback
         model.myData.requery(function () {
-            //some code here
+            //Some code here
         },function(){
             Logger.warning("Couldn't load data!");
         });
         
-        doSomeMoreWork(); //it will be executed immideatly after calling the above requery function without waiting for it's result.
-        //there are a lot of functions that could work asynchronius to learn more have a look at the documentation.</code>
+        doSomeMoreWork(); //It will be executed immideatly after calling the above requery function without waiting for it's result
+        //There are a lot of functions that could work asynchronously. To learn more have a look at the documentation</code>
                                 </pre>
                             </div>
                             <div class="featureDescription UIforms">
@@ -327,16 +327,16 @@ define(['rpc'], function(Lpc){
      * @author OneGreatMan
      * @public
      */
-    define(['logger', 'orm'], function(Logger, Orm, ModuleName){ // ModuleName is etra parameter, adde by Platypus.js runtime
+    define(['logger', 'orm'], function(Logger, Orm, ModuleName){ // ModuleName is etra parameter, added by Platypus.js runtime
         function EmployeeUtils() {
-            var self = this, model = Orm.loadModel(ModuleName); //this line was automaticly generated on module creation
+            var self = this, model = Orm.loadModel(ModuleName); //This line was automaticly generated on module creation
 
             this.processEmployees = function () {
-                //Model's data sets are regular javascript arrays.
+                //Model's data sets are regular javascript arrays
                 model.testQuery.forEach(function(aItem){
                     aItem.employeeName = 'Some funny name :)';
                 });
-                //It will save all data changes at exactly same sequence that they were made.
+                //It will save all data changes at exactly same sequence that they were made
                 model.save(function(){
                     Logger.info('Data have been saved successfully');
                 });
