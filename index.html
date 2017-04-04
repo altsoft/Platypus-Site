@@ -4,10 +4,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Platypus.JS - rich framework for web development">
-        <meta name="author" content="Alexey Kashintsev">
+        <meta name="description" content="Platypus.js - rich framework for web development">
 
-        <title>Platypus.js the best way to create your apps</title>
+        <title>Platypus.js is the best way to create your apps</title>
 
         <link href="favicon.ico" rel="shortcut icon">
 
@@ -47,15 +46,12 @@
                         </li>
                         <li><a href="examples.html">Examples</a>
                         </li>
-                        <li><a href="download.html">Download</a>
+                        <li><a href="usage.html">Usage</a>
                         </li>
                         <li><a href="docs.html">Documentation</a>
                         </li>
                         <li><a href="support.html">Support</a>
-                            <!--a target="_blank" href="https://github.com/altsoft/PlatypusJS/issues">Issues</a-->
                         </li>
-                        <!--li><a href="contact.html">Contact</a>
-                        </li-->
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -75,12 +71,12 @@
                             <div class="col-lg-6 col-sm-6">
                                 <div class="intro-message">
                                     <h1>Platypus.js</h1>
-                                    <h3>Client-Server JavaScript RAD platform.</h3>
+                                    <h3>JavaScript RAD platform.</h3>
                                     <hr class="intro-divider">
                                     <ul class="list-inline intro-social-buttons">
-                                        <li><a href="download.html" class="btn btn-transparent btn-lg"><i class="fa fa-download fa-fw"></i> <span class="network-name">Download</span></a>
+                                        <li><a href="examples.html" class="btn btn-transparent btn-lg"><i class="fa fa-inbox fa-fw"></i> <span class="network-name">Demos</span></a>
                                         </li>
-                                        <li><a href="examples.html" class="btn btn-transparent btn-lg"><i class="fa fa-inbox fa-fw"></i> <span class="network-name">Demo</span></a>
+                                        <li><a href="usage.html" class="btn btn-transparent btn-lg"><i class="fa fa-download fa-fw"></i> <span class="network-name">Usage</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -128,6 +124,7 @@
                                 <h3>Module system</h3>
                                 <p>
                                     Modules are Plain JavaScript Objects with some extra features:
+                                </p>
                                 <ul>
                                     <li>AMD modules loader,</li>
                                     <li>automatic dependencies resolving of global modules,</li>
@@ -136,7 +133,6 @@
                                 </ul>
                                 Modules can run on a client as well as on a server.<br>
                                 The code snippet below shows a simple module example:
-                                </p>
                                 <pre>
                             <code class="language-javascript">
 /**
@@ -199,7 +195,7 @@ define(['logger', 'orm'], function(Logger, Orm, ModuleName){
                                     </pre>
                                 </div>
                                 <div class="col-lg-6 col-sm-0">
-                                    <h4>Useful annotations in SQL queries</h4>
+                                    <h4>Security annotations in SQL queries</h4>
                                     <pre>
                                 <code class="language-sql">
     /**
@@ -212,6 +208,23 @@ define(['logger', 'orm'], function(Logger, Orm, ModuleName){
      */
      Select * From someTable t1
      Where t1.someColumn = :myParam
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
                                 </code>
                                     </pre>
                                 </div>
@@ -226,26 +239,23 @@ define(['logger', 'orm'], function(Logger, Orm, ModuleName){
                                 <pre>
                             <code class="language-javascript">
 /**
- * @constructor
  * @stateless
- * @module Worker
  */
-define(function Worker(){
-    var self = this;
+define(function (){
+    function Worker(){
+        var self = this;
 
-    this.calc = function (aAngle) {
-      return Math.tan(aAngle);// one of parallel operations here
+        this.calc = function (aAngle) {
+          return Math.tan(aAngle);// one of parallel operations here
+        }
     }
+    return Worker;
 });
 
-// Now let's create session statefull module, serving user's request and performing all calculations:
+// Here is session statefull module, serving user's request and performing calculations in worker module:
 
-/**
- * @constructor
- * @module Processor
- */
-define('rpc', function(Lpc){
-    return function (){
+define(['rpc'], function(Lpc){
+    function Processor(){
         var self = this;
         this.process = function(aAngles, aOnSuccess){
             var results = [];
@@ -263,11 +273,12 @@ define('rpc', function(Lpc){
                 });
             });
         }
-    };
+    }
+    return Processor;
 });
         </code>
                                 </pre>
-                                <h4>And here is an example of the asynchronous data-query execution: </h4>
+                                <h4>Here is an example of the asynchronous data-query execution: </h4>
                                 <pre>
                         <code class="language-javascript">
         //Let's query data from a database and execute function "doItInCallback" after recieving data
@@ -310,12 +321,11 @@ define('rpc', function(Lpc){
                                 <pre>
 <code class="language-javascript">
     /**
-     * @author oneGreatMan
+     * @author OneGreatMan
      * @public
-     * @module employeeUtils
      */
-    define(['logger', 'orm'], function(Logger, Orm, ModuleName){
-        return function () {
+    define(['logger', 'orm'], function(Logger, Orm, ModuleName){ // ModuleName is etra parameter, adde by Platypus.js runtime
+        function EmployeeUtils() {
             var self = this, model = Orm.loadModel(ModuleName); //this line was automaticly generated on module creation
 
             this.processEmployees = function () {
@@ -329,9 +339,9 @@ define('rpc', function(Lpc){
                 });
             };
         }
+        return EmployeeUtils;
     });
 </code></pre>
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -347,7 +357,7 @@ define('rpc', function(Lpc){
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12 col-sm-12">
-                                <h2 class="section-heading">Complete IDE for platypus projects based on Netbeans</h2>
+                                <h2 class="section-heading">Complete set of Netbeans IDE plugins for platypus projects</h2>
                                 <p class="lead">It's all that you need to whole developing process.</p>
                             </div>
                         </div>
@@ -390,10 +400,8 @@ define('rpc', function(Lpc){
                         </div>
                         <div class="col-lg-6">
                             <ul class="list-inline banner-social-buttons">
-                                <li><a href="download.html" class="btn btn-transparent btn-lg"><i class="fa fa-download fa-fw"></i> <span class="network-name">Download</span></a>
+                                <li><a href="usage.html" class="btn btn-transparent btn-lg"><i class="fa fa-download fa-fw"></i> <span class="network-name">Usage</span></a>
                                 </li>
-                                <!--li><a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-inbox fa-fw"></i> <span class="network-name">Subscribe for updates</span></a>
-                                </li-->
                             </ul>
                         </div>
                     </div>
@@ -417,7 +425,7 @@ define('rpc', function(Lpc){
                             <li><a href="examples.html">Examples</a>
                             </li>
                             <li class="footer-menu-divider">&sdot;</li>
-                            <li><a href="download.html">Download</a>
+                            <li><a href="usage.html">Usage</a>
                             </li>
                             <li class="footer-menu-divider">&sdot;</li>
                             <li><a href="docs.html">Documentation</a>
@@ -435,14 +443,13 @@ define('rpc', function(Lpc){
                 </div>
             </div>
         </footer>
-    </div>
-    <!-- JavaScript -->
-    <div><img src="https://mc.yandex.ru/watch/22552111" style="position:absolute; left:-9999px;" alt="" /></div>
-    <script src="js/metrika.js"></script>
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/pageHandler.js"></script>
-    <script src="js/code-styler.js"></script>
-</body>
+        <!-- JavaScript -->
+        <div><img src="https://mc.yandex.ru/watch/22552111" style="position:absolute; left:-9999px;" alt="" /></div>
+        <script src="js/metrika.js"></script>
+        <script src="js/jquery-1.10.2.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/pageHandler.js"></script>
+        <script src="js/code-styler.js"></script>
+    </body>
 
 </html>
