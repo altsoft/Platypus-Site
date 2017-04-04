@@ -71,7 +71,7 @@
                             <div class="col-lg-6 col-sm-6">
                                 <div class="intro-message">
                                     <h1>Platypus.js</h1>
-                                    <h3>JavaScript RAD platform.</h3>
+                                    <h3>JavaScript RAD platform</h3>
                                     <hr class="intro-divider">
                                     <ul class="list-inline intro-social-buttons">
                                         <li><a href="examples.html" class="btn btn-transparent btn-lg"><i class="fa fa-inbox fa-fw"></i> <span class="network-name">Demos</span></a>
@@ -95,7 +95,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-2 col-sm-0 featureTag desktop_web_apps" onclick="hideAllFeatures(); showFeature('desktop_web_apps');">
-                                <i class="flaticon-application"></i><h4>Desktop and web apps</h4>
+                                <i class="flaticon-application"></i><h4>Web and desktop apps</h4>
                             </div>
                             <div class="col-xs-2 col-sm-0 featureTag moduleSystem" onclick="hideAllFeatures(); showFeature('moduleSystem');">
                                 <i class="flaticon-css2"></i><h4>Module system</h4>
@@ -115,7 +115,7 @@
                         </div>
                         <div class="row">
                             <div class="featureDescription desktop_web_apps">
-                                <h3>Develop desktop and web apps using JS</h3>
+                                <h3>Develop all applications using JavaScript!</h3>
                                 <p>Sometimes a browser is just not enough for your application as a client.
                                     <br>Maybe you do not need an application server at all.
                                     <br>In this case use the desktop Java SE client to run the same UI forms as a HTML5 browser.</p>
@@ -123,13 +123,13 @@
                             <div class="featureDescription moduleSystem">
                                 <h3>Module system</h3>
                                 <p>
-                                    Modules are Plain JavaScript Objects with some extra features:
+                                    Modules of Platypus.js areJavaScript modules desinged as AMD modules or as Global modules
                                 </p>
                                 <ul>
-                                    <li>AMD modules loader,</li>
-                                    <li>automatic dependencies resolving of global modules,</li>
-                                    <li>security system,</li>
-                                    <li>data model. It provides access to the data obtained from a data source (relational database, NoSQL database, etc).</li>
+                                    <li>AMD modules system</li>
+                                    <li>Multiple JavaScript engines in single Java process with no inter-process communication overhead</li>
+                                    <li>Automatic dependencies resolving of global modules</li>
+                                    <li>Security system</li>
                                 </ul>
                                 Modules can run on a client as well as on a server.<br>
                                 The code snippet below shows a simple module example:
@@ -303,7 +303,10 @@ define(['rpc'], function(Lpc){
                                 <p>Use databases native language SQL. You can say exactly what you want from a database: how query data, insert or update.
                                     In our platform we go further: Platypus.js can formulate data change commands on the base of SELECT data queries.
                                     You can write database-specific queries if you want. ORM subsystem transforms relational data into JavaScript objects.
-                                <br><h4>For example you have an SQL query:</h4>
+                                <br>
+                                    <p>Data model provides access to various relational databases.</p>
+                                    <p>There is a <a href="https://github.com/marat-gainullin/platypus-js-mongo-client">MongoDB client</a> for Platypus.js</p>
+                                <h4>For example you have an SQL query:</h4>
                                 <pre><code class="language-sql">
     /**
      * @author greatMan

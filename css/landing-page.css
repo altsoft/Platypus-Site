@@ -40,8 +40,8 @@ nav.navbar {
 	padding-top: 80px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
 	padding-bottom: 50px;
 	color: #f8f8f8;
-	background: url(../img/intro-bg.jpg) no-repeat center center;
-	#background: #EF4836;
+	/* background: url(../img/intro-bg.jpg) no-repeat center center; */
+	background: #67809F;
 	background-size: cover;
 	text-align: center;
 }
