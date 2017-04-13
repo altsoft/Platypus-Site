@@ -134,25 +134,25 @@
                                 Modules can run on a client as well as on a server.<br>
                                 The code snippet below shows a simple module example:
                                 <pre>
-                            <code class="language-javascript">
+                                    <code class="language-javascript">
 /**
- *
- * @module Documents
+ * To assign a short name to this module, use three arguments define.
  */
-define(['logger', 'orm'], function(Logger, Orm, ModuleName){
-    return function () {
+define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
+    function Documents() {
         var model = Orm.loadModel(ModuleName);
         this.logDocuments = function(categoryId) {
             model.documents.params.catId = categoryId;
             model.requery(function(){
                 model.documents.forEach(function(doc) {
-                    Logger.info("Document name: " + doc.Name);
+                    Logger.info("Document name: " + doc.name);
                 });
             });
         };
     }
+    return Documents;
 });
-                            </code>
+                                    </code>
                                 </pre>
                             </div>
                             <div class="featureDescription Security">
@@ -162,42 +162,47 @@ define(['logger', 'orm'], function(Logger, Orm, ModuleName){
                                 <div class="col-lg-6 col-sm-0">
                                     <h4>Security annotations in JS modules</h4>
                                     <pre>
-                                <code class="language-javascript">
+                                        <code class="language-javascript">
     /**
      * In general, Platypus module starts with the JsDoc annotation
      * @author athorName
      * To allow usage from the client:
      * @public 
      * To set user roles allowed to use this module:
-     * @rolesAllowed admin, user0
-     * To assign a short name to this module:
-     * @module MySuperModule
+     * @rolesAllowed admin, developer
+     * To assign a short name to this module, use three arguments define
      */
-    define(['security'], function(Security){
-        return function () {
+    define('GreatnessChecker', ['security'], function(Security){
+        function GreatnessChecker() {
+        
             var self = this;
 
             /**
              * You can define allowed roles for each function
              * @rolesAllowed admin
              */
-            function isAdminGreat() {
-                Logger.info('Is admin great?');
+            self.amIGreat = function (onSuccess, onFailure) {
+                Logger.info('Looking if the user is great...');
                 Security.principal(function(aPrincipal){
                     if(aPrincipal.hasRole('developer'))){
-                        Logger.info('Ah, you are God!');
+                        Logger.info('Ah, the user is Great!');
+                        onSuccess('Ah, you are Great!');
+                    } else {
+                        Logger.info('No, the user is not Great.');
+                        onSuccess('No, you are not Great.');
                     }
-                });
+                }, onFailure);
             }
         }
+        return GreatnessChecker;
     });
-</code>
+                                        </code>
                                     </pre>
                                 </div>
                                 <div class="col-lg-6 col-sm-0">
                                     <h4>Security annotations in SQL queries</h4>
                                     <pre>
-                                <code class="language-sql">
+                                        <code class="language-sql">
     /**
      * @author authorName
      * @name myQuery
@@ -225,7 +230,13 @@ define(['logger', 'orm'], function(Logger, Orm, ModuleName){
      
      
      
-                                </code>
+     
+     
+     
+     
+     
+     
+                                        </code>
                                     </pre>
                                 </div>
                             </div>
@@ -233,64 +244,70 @@ define(['logger', 'orm'], function(Logger, Orm, ModuleName){
                                 <h3>Parallel JavaScript and IO models</h3>
                                 <p>
                                     Platypus.js server JavaScript works in multi-threaded environment with a few threads (in general cores + 1 threads if async IO is used).<br>
-                                    Platypus gives you a chance to choose the IO model for the specific situation and allowes to use both AsyncIO or Blocking IO models.
+                                    Platypus.js gives you a chance to choose the IO model for the specific situation and allowes to use both AsyncIO or Blocking IO models.
                                     providing performance that is good enough for the most types of applications (don't forget all UI logic runs on the client side).</p>
                                 <h4>Here is an example of parallel executed modules:</h4>
                                 <pre>
-                            <code class="language-javascript">
-/**
- * @stateless
- */
-define(function (){
-    function Worker(){
-        var self = this;
+                                    <code class="language-javascript">
+    /**
+     * Here is session statelessl module, serving user's request.
+     * The following annotation is needed to create stateless module. 
+     * @stateless
+     */
+    define(function (){
+        function Worker(){
+            var self = this;
 
-        this.calc = function (aAngle) {
-          return Math.tan(aAngle);// One of parallel operations here
+            this.calc = function (aAngle) {
+              return Math.tan(aAngle);// One of parallel operations here
+            }
         }
-    }
-    return Worker;
-});
+        return Worker;
+    });
 
-// Here is session statefull module, serving user's request and performing calculations in worker module:
-
-define(['rpc'], function(Lpc){
-    function Processor(){
-        var self = this;
-        this.process = function(aAngles, aOnSuccess){
-            var results = [];
-            var w = new Lpc.Proxy('Worker');
-            var calced = 0;
-            aAngles.forEach(function(aAngle){
-                w.calc(aAngle, function(aTan){// Call to LPC stub. Actual calc
-                                              // function will be called by 
-                                              // Platypus.js runtime probably in
-                                              // several concurrent threads.
-                    results.push(aTan);
-                    if(results.length === aAngles.length){
-                        aOnSuccess(results);
-                    }
+    /*
+     * Here is session statefull module, serving user's request and
+     * performing calculations in 'Worker' module.
+     * Session statefull modules are created by default without any annotations.
+     */
+    define(['rpc'], function(Lpc){
+        function Processor(){
+            var self = this;
+            this.process = function(aAngles, aOnSuccess){
+                var results = [];
+                var w = new Lpc.Proxy('Worker');
+                var calced = 0;
+                aAngles.forEach(function(aAngle){
+                    w.calc(aAngle, function(aTan){// Call to LPC stub. Actual calc
+                                                  // function will be called by 
+                                                  // Platypus.js runtime probably in
+                                                  // several concurrent threads.
+                        results.push(aTan);
+                        if(results.length === aAngles.length){
+                            aOnSuccess(results);
+                        }
+                    });
                 });
-            });
+            }
         }
-    }
-    return Processor;
-});
-        </code>
+        return Processor;
+    });
+                                    </code>
                                 </pre>
                                 <h4>Here is an example of the asynchronous data-query execution: </h4>
                                 <pre>
-                        <code class="language-javascript">
-        //Let's query data from a database and execute function "doItInCallback" after recieving data
-        //The first param used as the succesfull callback function and the second as the failure callback
-        model.myData.requery(function () {
-            //Some code here
-        },function(){
-            Logger.warning("Couldn't load data!");
-        });
-        
-        doSomeMoreWork(); //It will be executed immideatly after calling the above requery function without waiting for it's result
-        //There are a lot of functions that could work asynchronously. To learn more have a look at the documentation</code>
+                                    <code class="language-javascript">
+    //Let's query data from a database and execute function "doItInCallback" after recieving data
+    //The first param used as the succesfull callback function and the second as the failure callback
+    model.myData.requery(function () {
+        //Some code here
+    },function(){
+        Logger.warning("Couldn't load data!");
+    });
+
+    doSomeMoreWork(); //It will be executed immideatly after calling the above requery function without waiting for it's result
+    //There are a lot of functions that could work asynchronously. To learn more have a look at the documentation.
+                                    </code>
                                 </pre>
                             </div>
                             <div class="featureDescription UIforms">
@@ -307,7 +324,8 @@ define(['rpc'], function(Lpc){
                                     <p>Data model provides access to various relational databases.</p>
                                     <p>There is a <a href="https://github.com/marat-gainullin/platypus-js-mongo-client">MongoDB client</a> for Platypus.js</p>
                                 <h4>For example you have an SQL query:</h4>
-                                <pre><code class="language-sql">
+                                <pre>
+                                    <code class="language-sql">
     /**
      * @author greatMan
      * @name testQuery
@@ -317,12 +335,15 @@ define(['rpc'], function(Lpc){
      
      select t1.employee_id, t1.employee_name, t2.city_name
      from employees t1
-     inner join cities t2 on t1.city_id = t2.city_id</code>
-                                </pre><h4>
-                                    This query is connected with module data model.
-                                    And it became a new JS object. It's time to do a lot of great things with it.</h4>
+     inner join cities t2 on t1.city_id = t2.city_id
+                                    </code>
+                                </pre>
+                                    <h4>
+                                        This query is connected with module data model.
+                                        And it became a new JS object. It's time to do a lot of great things with it.
+                                    </h4>
                                 <pre>
-<code class="language-javascript">
+                                    <code class="language-javascript">
     /**
      * @author OneGreatMan
      * @public
@@ -344,7 +365,8 @@ define(['rpc'], function(Lpc){
         }
         return EmployeeUtils;
     });
-</code></pre>
+                                    </code>
+                                </pre>
                             </div>
                         </div>
                     </div>
