@@ -323,7 +323,7 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
                                 <br>
                                     <p>Data model provides access to various relational databases.</p>
                                     <p>There is a <a href="https://github.com/marat-gainullin/platypus-js-mongo-client">MongoDB client</a> for Platypus.js</p>
-                                <h4>For example you have an SQL query:</h4>
+                                <h4>For example you have an Sql query</h4>
                                 <pre>
                                     <code class="language-sql">
     /**
@@ -340,7 +340,8 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
                                 </pre>
                                     <h4>
                                         This query is connected with module data model.
-                                        And it became a new JS object. It's time to do a lot of great things with it.
+                                        And it became a new JavaScript object. You are free to change it's properties.
+                                        These changes will be recorded as changelog wich later may be saved to a database.
                                     </h4>
                                 <pre>
                                     <code class="language-javascript">
@@ -348,7 +349,7 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
      * @author OneGreatMan
      * @public
      */
-    define(['logger', 'orm'], function(Logger, Orm, ModuleName){ // ModuleName is etra parameter, added by Platypus.js runtime
+    define(['logger', 'orm'], function(Logger, Orm, ModuleName){ // ModuleName is extra parameter, added by Platypus.js runtime
         function EmployeeUtils() {
             var self = this, model = Orm.loadModel(ModuleName); //This line was automaticly generated on module creation
 
