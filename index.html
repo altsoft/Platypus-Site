@@ -121,15 +121,16 @@
                                     <br>In this case use the desktop Java SE client to run the same UI forms as a HTML5 browser.</p>
                             </div>
                             <div class="featureDescription moduleSystem">
-                                <h3>Module system</h3>
+                                <h3>Modules system</h3>
                                 <p>
                                     Modules of Platypus.js areJavaScript modules desinged as AMD modules or as Global modules
                                 </p>
                                 <ul>
-                                    <li>AMD modules system</li>
+                                    <li>AMD modules loader both on server and on client</li>
                                     <li>Multiple JavaScript engines in single Java process with no inter-process communication overhead</li>
                                     <li>Automatic dependencies resolving of global modules</li>
-                                    <li>Security system</li>
+                                    <li>Role based security system like in Java EE</li>
+                                    <li>Modules can have file like names or short names depending on wich version of define function used</li>
                                 </ul>
                                 Modules can run on a client as well as on a server.<br>
                                 The code snippet below shows a simple module example:
@@ -157,10 +158,10 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
                             </div>
                             <div class="featureDescription Security">
                                 <h3>Security</h3>
-                                <p>Security support comes out-of-the-box in Platypus.js. Every resource like module or SQL query can be protected on the base of a currently logged-in user's roles. Platypus.js security subsystem is based on the Java EE security model and provides a very configurable mechanism for restricting access.
+                                <p>Security support comes out-of-the-box in Platypus.js. Every resource like module or Sql query can be protected on the base of a currently logged-in user's roles. Platypus.js security subsystem is based on the Java EE security model and provides a very configurable mechanism for restricting access.
                                     <br>Various user information storages are supported. Use database user information storage or any external provider like Microsoft Active Directory or an OpenLDAP server.</p>
                                 <div class="col-lg-6 col-sm-0">
-                                    <h4>Security annotations in JS modules</h4>
+                                    <h4>Security annotations in JavaScript modules</h4>
                                     <pre>
                                         <code class="language-javascript">
     /**
@@ -200,14 +201,15 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
                                     </pre>
                                 </div>
                                 <div class="col-lg-6 col-sm-0">
-                                    <h4>Security annotations in SQL queries</h4>
+                                    <h4>Security annotations in Sql queries</h4>
                                     <pre>
                                         <code class="language-sql">
     /**
      * @author authorName
      * @name myQuery
-     * @public - to allow usage from the client side
-     * @rolesAllowed user0, maintain, admin
+     * To allow usage from the client side:
+     * @public
+     * @rolesAllowed maintainer, admin
      * @rolesAllowedRead guestUser
      * @rolesAllowedWrite ghostUser
      */
@@ -294,55 +296,73 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
     });
                                     </code>
                                 </pre>
-                                <h4>Here is an example of the asynchronous data-query execution: </h4>
+                                <h4>Here are examples of asynchronous data queries</h4>
+                                <p>With loading data and replacing the data of the entity:</p>
                                 <pre>
                                     <code class="language-javascript">
-    //Let's query data from a database and execute function "doItInCallback" after recieving data
-    //The first param used as the succesfull callback function and the second as the failure callback
-    model.myData.requery(function () {
-        //Some code here
+    // The first param used as the succesfull callback function and the second as the failure callback
+    model.myDataEntity.params.keyField = 'keyValue';
+    model.myDataEntity.requery(function () {
+        // Data in 'model.myDataEntity' have been replaced by just retrieved data.
     },function(){
         Logger.warning("Couldn't load data!");
     });
 
-    doSomeMoreWork(); //It will be executed immideatly after calling the above requery function without waiting for it's result
-    //There are a lot of functions that could work asynchronously. To learn more have a look at the documentation.
+    doSomeMoreWork(); // It will be executed immidiatly after calling the above requery function without waiting for it's result
+    // There are a lot of functions that could work asynchronously. To learn more have a look at the documentation.
+                                    </code>
+                                </pre>
+                                <p>Query execution without replacing the data of entity:</p>
+                                <pre>
+                                    <code class="language-javascript">
+    // The first param used as parameters container.
+    model.myDataEntity.query({keyField: 'keyValue'}, function (loadedData) {
+        // Data in 'model.myDataEntity' remain unchanged.
+        // 'loadedData' contain new just retrieved data.
+    },function(){
+        Logger.warning("Couldn't load data!");
+    });
+
+    doSomeMoreWork(); // It will be executed immidiatly after calling the above requery function without waiting for it's result
+    // There are a lot of functions that could work asynchronously. To learn more have a look at the documentation.
                                     </code>
                                 </pre>
                             </div>
                             <div class="featureDescription UIforms">
                                 <h3>Universal UI forms</h3>
                                 <p>A form is a kind of a module with UI layout definition in a XML file.
-                                    <br>Single-page web application or Java SE desktop application share the same forms. A library of widgets includes a bunch of simple controls, panels and menus as well as smart model widgets which work directly with the model. With visual form editor you can create your application user interface without any coding and knowing about HTML and CSS.</p>
+                                    <br>Single-page web application or Java SE desktop application share the same forms. A library of widgets includes a bunch of simple widgets, panels and menus as well as smart model widgets which are bound to the model's data. With visual form editor you can create your application user interface without any coding and knowing about HTML and CSS.</p>
                             </div>
                             <div class="featureDescription dataOnFingers">
                                 <h3>Data is on your fingertips</h3>
-                                <p>Use databases native language SQL. You can say exactly what you want from a database: how query data, insert or update.
+                                <p>Use databases native language Sql. You can say exactly what you want from a database: how query data, insert or update.
                                     In our platform we go further: Platypus.js can formulate data change commands on the base of SELECT data queries.
-                                    You can write database-specific queries if you want. ORM subsystem transforms relational data into JavaScript objects.
+                                    You can write database specific queries if you want. ORM subsystem transforms relational data into JavaScript objects.
                                 <br>
                                     <p>Data model provides access to various relational databases.</p>
-                                    <p>There is a <a href="https://github.com/marat-gainullin/platypus-js-mongo-client">MongoDB client</a> for Platypus.js</p>
-                                <h4>For example you have an Sql query</h4>
+                                    <p>Also, there is a <a href="https://github.com/marat-gainullin/platypus-js-mongo-client">MongoDB client for Platypus.js</a></p>
+                                    <p>For example you have an Sql query:</p>
                                 <pre>
                                     <code class="language-sql">
     /**
      * @author greatMan
      * @name testQuery
+     * This annotation tells Platypus.js, that this query's data can be requested by client through application server.
      * @public
-     * @writable employees - this annotation tells Platypus what table could be modified
+     * The following annotation tells Platypus.js what table could be modified,
+     * while applying a changelog to the database:
+     * @writable employees
      */
-     
-     select t1.employee_id, t1.employee_name, t2.city_name
-     from employees t1
-     inner join cities t2 on t1.city_id = t2.city_id
+     Select t1.employee_id, t1.employee_name, t2.city_name
+     From employees t1
+     Inner join cities t2 On t1.city_id = t2.city_id
                                     </code>
                                 </pre>
-                                    <h4>
+                                    <p>
                                         This query is connected with module data model.
                                         And it became a new JavaScript object. You are free to change it's properties.
-                                        These changes will be recorded as changelog wich later may be saved to a database.
-                                    </h4>
+                                        These changes will be recorded as changelog wich later may be saved to a database:
+                                    </p>
                                 <pre>
                                     <code class="language-javascript">
     /**
@@ -351,14 +371,14 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
      */
     define(['logger', 'orm'], function(Logger, Orm, ModuleName){ // ModuleName is extra parameter, added by Platypus.js runtime
         function EmployeeUtils() {
-            var self = this, model = Orm.loadModel(ModuleName); //This line was automaticly generated on module creation
+            var self = this, model = Orm.loadModel(ModuleName); // This line was automaticly generated on module creation
 
             this.processEmployees = function () {
-                //Model's data sets are regular javascript arrays
+                // Model's data sets are regular javascript arrays
                 model.testQuery.forEach(function(aItem){
                     aItem.employeeName = 'Some funny name :)';
                 });
-                //It will save all data changes at exactly same sequence that they were made
+                // It will save all data changes at exactly same sequence that they were made
                 model.save(function(){
                     Logger.info('Data have been saved successfully');
                 });
@@ -393,7 +413,7 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
                                 <i class="flaticon-databases"></i><h4>Database structure</h4> 
                             </div>
                             <div class="col-xs-2 col-sm-0 featureTag no-click">
-                                <i class="flaticon-sql2"></i><h4>SQL queries</h4>
+                                <i class="flaticon-sql2"></i><h4>Sql queries</h4>
                             </div>
                             <div class="col-xs-2 col-sm-0 featureTag no-click">
                                 <i class="flaticon-css2"></i><h4>Source code</h4> 
@@ -422,7 +442,7 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
 
                     <div class="row">
                         <div class="col-lg-6">
-                            <h2>Try Platypus.js right now:</h2>
+                            <h2>Try Platypus.js right now!</h2>
                         </div>
                         <div class="col-lg-6">
                             <ul class="list-inline banner-social-buttons">
