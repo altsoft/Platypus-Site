@@ -40,8 +40,8 @@ nav.navbar {
 	padding-top: 80px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
 	padding-bottom: 50px;
 	color: #f8f8f8;
-	/* background: url(../img/intro-bg.jpg) no-repeat center center; */
-	background: #67809F;
+	background: url(../img/platypus_inhabitant.jpg) no-repeat bottom center;
+	/*background: #67809F;*/
 	background-size: cover;
 	text-align: center;
 }
@@ -150,8 +150,8 @@ a.btn-transparent:hover {
 .banner {
 	padding: 100px 0;
 	color: #f8f8f8;
-	/* background: url(../img/banner-bg.jpg) no-repeat center center; */
-	background: #67809F;
+	background: url(../img/banner-bg.jpg) no-repeat center center;
+	/*background: #67809F;*/
 	background-size: cover;
 }
 
@@ -268,8 +268,9 @@ ul.list-inline>li>a:hover {
 /***** ### DOWNLOAD ### ***/
 .intro-header.download {
 	/*height: 150px;*/
-	/* background: url(../img/banner-bg.jpg) no-repeat center center; */
-	background: #67809F;
+	background: url(../img/platypus_inhabitant.jpg) no-repeat bottom center;
+	background-size: cover;
+	/*background: #67809F;*/
 }
 
 .intro-message.download {
