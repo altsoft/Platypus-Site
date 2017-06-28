@@ -94,6 +94,25 @@
                 <div class="content-section-a">
                     <div class="container">
                         <div class="row">
+                            <div class="featureDescription">
+                                <h2>
+                                    Platypus.js is JavaScript RAD platform for JVM.
+                                </h2>
+                                <ul>
+                                    <li>Platypus.js is built on top of Java EE Nashorn JavaScript engine in heart.</li>
+                                    <li>Platypus.js has a set of JavaScript libraries for browser with HTLML5 CSS3 UI and for Java SE client with Swing UI.</li>
+                                    <li>Platypus.js gives you a chance to use non-blocking or blocking IO model.</li>
+                                    <li>Unlike Ringojs, Platypus.js uses modern JavaScript engine Nashorn.</li>
+                                    <li>Unlike Node.js and Ringojs, Platypus.js uses AMD modules loader both on client and on server and doesn't push you to use such things as browserify.</li>
+                                    <li>Unlike Node.js, Platypus.js uses standard thread pool approach for parallel execution of code, thus distributing load across processor cores evenly, even if load oscillates.</li>
+                                    <li>Unlike Node.js, Platypus.js avoids inter process or inter WebWorkers communication overheand while parallel execution of code.</li>
+                                    <li>Single threaded nature of JavaScript programming language is preservred without expensive synchronization techniques, through <a href="http://w3c.github.io/html/infrastructure.html#safe-passing-of-structured-data">deep copy with reference graphs trick.</a></li>
+                                    <li>Platypus.js provides comprehenshive set of libraries out-of-the-box to build enterprise-grade applications quickly and easily.</li>
+                                    <li>Also, there are some community projects of Platypus.js extensions.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-xs-2 col-sm-0 featureTag desktop_web_apps" onclick="hideAllFeatures(); showFeature('desktop_web_apps');">
                                 <i class="flaticon-application"></i><h4>Web and desktop apps</h4>
                             </div>
@@ -115,25 +134,27 @@
                         </div>
                         <div class="row">
                             <div class="featureDescription desktop_web_apps">
-                                <h3>Develop all applications using JavaScript!</h3>
-                                <p>Sometimes a browser is just not enough for your application as a client.
-                                    <br>Maybe you do not need an application server at all.
-                                    <br>In this case use the desktop Java SE client to run the same UI forms as a HTML5 browser.</p>
+                                <h3>Develop Web and even desktop applications using JavaScript.</h3>
+                                <p>
+                                    Sometimes a browser is just not enough for your application as a client.<br>
+                                    Maybe you do not need an application server at all.<br>
+                                    In this case use the desktop Java SE client to run the same UI forms as a HTML5 browser.
+                                </p>
                             </div>
                             <div class="featureDescription moduleSystem">
-                                <h3>Modules system</h3>
+                                <h3>Module system</h3>
                                 <p>
-                                    Modules of Platypus.js areJavaScript modules desinged as AMD modules or as Global modules
+                                    Modules of Platypus.js are JavaScript modules desinged as AMD modules or as Global modules
                                 </p>
                                 <ul>
                                     <li>AMD modules loader both on server and on client</li>
                                     <li>Multiple JavaScript engines in single Java process with no inter-process communication overhead</li>
                                     <li>Automatic dependencies resolving of global modules</li>
-                                    <li>Role based security system like in Java EE</li>
+                                    <li>Java EE role based security system</li>
                                     <li>Modules can have file like names or short names depending on wich version of define function used</li>
                                 </ul>
                                 Modules can run on a client as well as on a server.<br>
-                                The code snippet below shows a simple module example:
+                                The code snippet below shows a simple module example
                                 <pre>
                                     <code class="language-javascript">
 /**
@@ -246,8 +267,8 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
                                 <p>
                                     Platypus.js server JavaScript works in multi-threaded environment with a few threads (in general cores + 1 threads if async IO is used).<br>
                                     Platypus.js gives you a chance to choose the IO model for the specific situation and allowes to use both AsyncIO or Blocking IO models,
-                                    providing performance that is good enough for the most types of applications (don't forget all UI logic runs on the client side).</p>
-                                <h4>Here is an example of parallel executed modules:</h4>
+                                    providing performance that is good enough for the most types of applications.</p>
+                                <h4>Here is an example of parallel executed modules</h4>
                                 <pre>
                                     <code class="language-javascript">
     /**
@@ -333,14 +354,17 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
                                     <br>Single-page web application or Java SE desktop application share the same forms. A library of widgets includes a bunch of simple widgets, panels and menus as well as smart model widgets which are bound to the model's data. With visual form editor you can create your application user interface without any coding and knowing about HTML and CSS.</p>
                             </div>
                             <div class="featureDescription dataOnFingers">
-                                <h3>Data is on your fingertips</h3>
-                                <p>Use databases native language Sql. You can say exactly what you want from a database: how query data, insert or update.
-                                    In our platform we go further: Platypus.js can formulate data change commands on the base of SELECT data queries.
-                                    You can write database specific queries if you want. ORM subsystem transforms relational data into JavaScript objects.
-                                <br>
-                                    <p>Data model provides access to various relational databases.</p>
-                                    <p>Also, there is a <a href="https://github.com/marat-gainullin/platypus-js-mongo-client">MongoDB client for Platypus.js</a></p>
-                                    <p>For example you have an Sql query:</p>
+                                <h3>Data on your fingertips</h3>
+                                <ul>
+                                    <li>Use databases native language - Sql. You can say exactly what you want from a database: how query, insert or update your data.</li>
+                                    <li>Platypus.js goes futher, - it can formulate data change commands on the base of Select data queries.</li>
+                                    <li>You can write database specific queries if you want.</li>
+                                    <li>ORM subsystem transforms relational data into JavaScript objects.</li>
+                                    <li>ORM subsystem also transforms foreign keys information into scalar references and collections in interlinked JavaScript objects automatically.</li>
+                                </ul>
+                                <p>Data model provides access to various relational databases.</p>
+                                <p>Also, there is a <a href="https://github.com/marat-gainullin/platypus-js-mongo-client">MongoDB client for Platypus.js</a></p>
+                                <p>For example you have an Sql query</p>
                                 <pre>
                                     <code class="language-sql">
     /**
@@ -360,7 +384,7 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
                                     <p>
                                         This query is connected with module data model.
                                         And it became a new JavaScript object. You are free to change it's properties.
-                                        These changes will be recorded as changelog wich later may be saved to a database:
+                                        These changes will be recorded as changelog wich later may be saved to a database
                                     </p>
                                 <pre>
                                     <code class="language-javascript">
@@ -403,7 +427,10 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
                         <div class="row">
                             <div class="col-lg-12 col-sm-12">
                                 <h2 class="section-heading">Complete set of Netbeans IDE plugins for platypus projects</h2>
-                                <p class="lead">It's all that you need to whole developing process.</p>
+                                <p class="lead">
+                                    It's all that you need to whole developing process.
+                                    <a href="https://github.com/marat-gainullin/platypus-designer/blob/master/README.md">Read more...</a>
+                                </p>
                             </div>
                         </div>
                         <br>
