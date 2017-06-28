@@ -96,19 +96,18 @@
                         <div class="row">
                             <div class="featureDescription">
                                 <h2>
-                                    Platypus.js is JavaScript RAD platform for JVM.
+                                    JavaScript RAD platform for Java EE
                                 </h2>
                                 <ul>
-                                    <li>Platypus.js is built on top of Java EE Nashorn JavaScript engine in heart.</li>
-                                    <li>Platypus.js has a set of JavaScript libraries for browser with HTLML5 CSS3 UI and for Java SE client with Swing UI.</li>
-                                    <li>Platypus.js gives you a chance to use non-blocking or blocking IO model.</li>
-                                    <li>Unlike Ringojs, Platypus.js uses modern JavaScript engine Nashorn.</li>
+                                    <li>Platypus.js is built on top of Java EE.</li>
+                                    <li>Platypus.js supports both non-blocking and blocking IO models.</li>
+                                    <li>Unlike Ringojs, haert of Platypus.js is modern JavaScript engine Nashorn.</li>
                                     <li>Unlike Node.js and Ringojs, Platypus.js uses AMD modules loader both on client and on server and doesn't push you to use such things as browserify.</li>
                                     <li>Unlike Node.js, Platypus.js uses standard thread pool approach for parallel execution of code, thus distributing load across processor cores evenly, even if load oscillates.</li>
-                                    <li>Unlike Node.js, Platypus.js avoids inter process or inter WebWorkers communication overheand while parallel execution of code.</li>
-                                    <li>Single threaded nature of JavaScript programming language is preservred without expensive synchronization techniques, through <a href="http://w3c.github.io/html/infrastructure.html#safe-passing-of-structured-data">deep copy with reference graphs trick.</a></li>
-                                    <li>Platypus.js provides comprehenshive set of libraries out-of-the-box to build enterprise-grade applications quickly and easily.</li>
-                                    <li>Also, there are some community projects of Platypus.js extensions.</li>
+                                    <li>Unlike Node.js, Platypus.js avoids inter-process or inter-Web Workers communication overheand while parallel execution of code.</li>
+                                    <li>Single threaded nature of JavaScript programming language is preserved through <a target="blank" href="http://w3c.github.io/html/infrastructure.html#safe-passing-of-structured-data">deep copy with reference graphs trick</a> without expensive synchronization techniques.</li>
+                                    <li>Platypus.js provides comprehenshive set of libraries out-of-the-box to build enterprise-grade applications quickly and easily. For example, HTLML5 CSS3 widgets for browser and Swing widgets for Java SE client.</li>
+                                    <li>Also, there is community project Platypus designer. It provides a <a target="blank" href="https://github.com/marat-gainullin/platypus-designer/blob/master/README.md">complete IDE</a> to build applications with Platypus.js.</li>
                                 </ul>
                             </div>
                         </div>
@@ -324,11 +323,12 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
     model.myDataEntity.params.keyField = 'keyValue';
     model.myDataEntity.requery(function () {
         // Data in 'model.myDataEntity' have been replaced by just retrieved data.
+        processData();
     },function(){
         Logger.warning("Couldn't load data!");
     });
 
-    doSomeMoreWork(); // It will be executed immidiatly after calling the above requery function without waiting for it's result
+    someMoreWork(); // It will be executed immidiatly after calling the above requery function without waiting for it's result
     // There are a lot of functions that could work asynchronously. To learn more have a look at the documentation.
                                     </code>
                                 </pre>
@@ -339,32 +339,39 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
     model.myDataEntity.query({keyField: 'keyValue'}, function (loadedData) {
         // Data in 'model.myDataEntity' remain unchanged.
         // 'loadedData' contain new just retrieved data.
+        processData(loadedData);
     },function(){
         Logger.warning("Couldn't load data!");
     });
 
-    doSomeMoreWork(); // It will be executed immidiatly after calling the above requery function without waiting for it's result
+    someMoreWork(); // It will be executed immidiatly after calling the above requery function without waiting for it's result
     // There are a lot of functions that could work asynchronously. To learn more have a look at the documentation.
                                     </code>
                                 </pre>
                             </div>
                             <div class="featureDescription UIforms">
                                 <h3>Universal UI forms</h3>
-                                <p>A form is a kind of a module with UI layout definition in a XML file.
-                                    <br>Single-page web application or Java SE desktop application share the same forms. A library of widgets includes a bunch of simple widgets, panels and menus as well as smart model widgets which are bound to the model's data. With visual form editor you can create your application user interface without any coding and knowing about HTML and CSS.</p>
+                                <p>
+                                    A Platypus.js form is a kind of a module with UI layout definition in a Xml file.
+                                    <br>Single-page web application or Java SE desktop application share the same forms. A library of widgets includes a bunch of simple widgets, panels and menus as well as smart model widgets which are bound to the model's data. With visual form editor you can create your application user interface without any coding and knowledge about HTML and CSS.
+                                    Have a look on <a target="blank" href="uidemo">UI Demo.</a>
+                                    In general, Platypus.js forms are MVVM modules. In some cases you might want to return some templated page from server and you are free to do so using server modules.
+                                </p>
                             </div>
                             <div class="featureDescription dataOnFingers">
                                 <h3>Data on your fingertips</h3>
+                                <p>Platypus.js provides you with access to various relational and noSQL databases. In general it should be JDBC compliant database, but there is a <a target="blank" href="https://github.com/marat-gainullin/platypus-js-mongo-client">MongoDB client for Platypus.js</a> also.</p>
+                                <p>Platypus.js has data model, that provides access to data in your application in an Orm manner if relational database is used.</p>
+                                <p>Orm of Platypus.js has a following features:</p>
                                 <ul>
-                                    <li>Use databases native language - Sql. You can say exactly what you want from a database: how query, insert or update your data.</li>
-                                    <li>Platypus.js goes futher, - it can formulate data change commands on the base of Select data queries.</li>
+                                    <li>Direct using of Sql. You can say exactly what you want from a database: how query, insert or update your data.</li>
+                                    <li>Orm transforms relational data into JavaScript objects automatically without any mapping configuration, annotations, etc.</li>
+                                    <li>Orm configuration is only a list of queries names to be processed during application runtime.</li>
+                                    <li>Orm generates data change commands on the base of Select queries automatically.</li>
                                     <li>You can write database specific queries if you want.</li>
-                                    <li>ORM subsystem transforms relational data into JavaScript objects.</li>
-                                    <li>ORM subsystem also transforms foreign keys information into scalar references and collections in interlinked JavaScript objects automatically.</li>
+                                    <li>Orm also transforms foreign keys information into scalar references and collections in interlinked JavaScript objects automatically.</li>
                                 </ul>
-                                <p>Data model provides access to various relational databases.</p>
-                                <p>Also, there is a <a href="https://github.com/marat-gainullin/platypus-js-mongo-client">MongoDB client for Platypus.js</a></p>
-                                <p>For example you have an Sql query</p>
+                                <p>For example you have a Sql query</p>
                                 <pre>
                                     <code class="language-sql">
     /**
@@ -376,15 +383,16 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
      * while applying a changelog to the database:
      * @writable employees
      */
-     Select t1.employee_id, t1.employee_name, t2.city_name
+     Select t1.employee_id, t1.employee_name employeeName, t2.city_name
      From employees t1
      Inner join cities t2 On t1.city_id = t2.city_id
                                     </code>
                                 </pre>
                                     <p>
-                                        This query is connected with module data model.
-                                        And it became a new JavaScript object. You are free to change it's properties.
-                                        These changes will be recorded as changelog wich later may be saved to a database
+                                        This query is connected with data model.
+                                        And it becames a new JavaScript array. You are free to change properties of it's elements.
+                                        These changes will be recorded as a change log wich later may be saved to a database.
+                                        Elements deletion and inserting are also recorded in a change log.
                                     </p>
                                 <pre>
                                     <code class="language-javascript">
@@ -399,9 +407,10 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
             this.processEmployees = function () {
                 // Model's data sets are regular javascript arrays
                 model.testQuery.forEach(function(aItem){
-                    aItem.employeeName = 'Some funny name :)';
+                    if(!aItem.city_name)// Fields names are used as properties names if aliases are absent.
+                        aItem.employeeName = 'Homeless employee :)'; // Fields aliases are used as properties names if they exist.
                 });
-                // It will save all data changes at exactly same sequence that they were made
+                // It will save all data changes at exactly same sequence as they were made.
                 model.save(function(){
                     Logger.info('Data have been saved successfully');
                 });
@@ -426,15 +435,18 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12 col-sm-12">
-                                <h2 class="section-heading">Complete set of Netbeans IDE plugins for platypus projects</h2>
+                                <h2 class="section-heading">Netbeans IDE plugins for Platypus.js projects</h2>
                                 <p class="lead">
                                     It's all that you need to whole developing process.
-                                    <a href="https://github.com/marat-gainullin/platypus-designer/blob/master/README.md">Read more...</a>
+                                    <a target="blank" href="https://github.com/marat-gainullin/platypus-designer/blob/master/README.md">Read more...</a>
                                 </p>
+                                <a target="blank" href="https://github.com/marat-gainullin/platypus-designer/blob/master/README.md">
+                                    <img src="img/ide-with-form.png"/>
+                                </a>
                             </div>
                         </div>
                         <br>
-                        <div class="row">
+                        <!--div class="row">
                             <div class="col-xs-2 col-sm-0 featureTag no-click">
                                 <i class="flaticon-databases"></i><h4>Database structure</h4> 
                             </div>
@@ -453,7 +465,7 @@ define('documents', ['logger', 'orm'], function(Logger, Orm, ModuleName){
                             <div class="col-xs-2 col-sm-0 featureTag no-click">
                                 <i class="flaticon-seo2"></i><h4>Reports</h4> 
                             </div>
-                        </div>
+                        </div-->
 
                     </div>
                     <!-- /.container -->
